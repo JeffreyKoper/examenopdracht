@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('img_filepath', 500);
             $table->double('price', 8, 2); 
             $table->integer('stock'); 
-            $table->integer('package_size');
-            $table->enum('units', ['KG', 'G', 'L', 'MG', 'ML', 'package(s)']);
+            $table->enum('size', ['S', 'M', 'L', 'XL', 'XXL']);
+            $table->enum('variant', ['female', 'male', 'unisex']);
             $table->string('category', 20);
         });
         
