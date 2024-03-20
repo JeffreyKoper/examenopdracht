@@ -1,0 +1,7 @@
+@use "../abstracts/" as *;
+
+body {
+    display: grid;
+    font-family: $primary-font-family;
+    font-size: 20px;
+}
