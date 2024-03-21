@@ -15,14 +15,18 @@
             </div>
             <nav>
                 <ul class="navigation">
-                    <li><a href="#" class="nav-link">Home</a></li>
+                    <li><a href="{{ route('home') }}" class="nav-link">Home</a></li>
                     <li><a href="#" class="nav-link">Shop</a></li>
                     <li><a href="#" class="nav-link">About</a></li>
                     <li><a href="#" class="nav-link">Contact</a></li>
                     @guest
-                        <li><a href="#" class="nav-link">Login</a></li>
+                        <li><a href="{{route('login')}}" class="nav-link">Login</a></li>
                         <li><a href="#" class="nav-link">Register</a></li>
                     @endguest
+                    @auth
+                    
+                    <li><a href="{{route('logout')}}" class="nav-link">Log out</a></li>
+                    @endauth    
                 </ul>
             </nav>
         </div>

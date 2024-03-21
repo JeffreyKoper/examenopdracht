@@ -1,4 +1,4 @@
 @extends('layouts.default')
 @section('content')
-TESTING
+<H1>HOMEPAGE</H1>
 @endsection
