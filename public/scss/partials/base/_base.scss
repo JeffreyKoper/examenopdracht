@@ -4,4 +4,6 @@ body {
     display: grid;
     font-family: $primary-font-family;
     font-size: 20px;
+    background-color: $bg-color;
+    color: $primary-color;
 }

@@ -1,0 +1,30 @@
+@use "../abstracts/" as *;
+
+.header {
+    background-color: #e9967a;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+.logo-title {
+    text-decoration: none;
+    color: $bg-color;
+    align-self: flex-start;
+    font-size: $font-size-md;
+    font-weight: $font-weight-700;
+}
+.navigation {
+    width: 100%;
+    display: flex;
+    font-weight: $font-weight-700;
+    list-style: none;
+}
+
+.nav-link {
+    display: inline;
+    max-height: 40px;
+    color: $accent-color;
+    text-decoration: none;
+    margin-right: 3rem;
+}
