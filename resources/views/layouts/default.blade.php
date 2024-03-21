@@ -6,13 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Wardrobe Wonders</title>
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="icon" href="{{ asset('img/icon.png')}}" type="image/png">
 </head>
 <body>
     <header>
         <div class="header">
-            <div class="logo">
-                <a href="/" class="logo-title"> Wardrobe Wonders</a>
-            </div>
+                <a href="/" class="logo-title"><img class="logo" src="{{ asset('img/logo.png')}}" alt=""></a>
             <nav>
                 <ul class="navigation">
                     <li><a href="{{ route('home') }}" class="nav-link">Home</a></li>

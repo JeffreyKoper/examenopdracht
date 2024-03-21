@@ -7,13 +7,21 @@
     display: flex;
     align-items: center;
 }
-.logo-title {
-    text-decoration: none;
-    color: $bg-color;
-    align-self: flex-start;
-    font-size: $font-size-md;
-    font-weight: $font-weight-700;
+.logo {
+    inline-size: 10rem;
+    block-size: 4rem;
+    aspect-ratio: 1/1;
+    border-radius: 1rem;
+
+    &-title {
+        text-decoration: none;
+        color: $bg-color;
+        align-self: flex-start;
+        font-size: $font-size-md;
+        font-weight: $font-weight-700;
+    }
 }
+
 .navigation {
     width: 100%;
     display: flex;
@@ -27,4 +35,11 @@
     color: $accent-color;
     text-decoration: none;
     margin-right: 3rem;
+    transition: color 0.3s ease-in-out;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+        color: $bg-color;
+    }
 }

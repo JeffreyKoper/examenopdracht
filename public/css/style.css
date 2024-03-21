@@ -84,6 +84,13 @@ body {
   align-items: center;
 }
 
+.logo {
+  inline-size: 10rem;
+  block-size: 4rem;
+  aspect-ratio: 1/1;
+  border-radius: 1rem;
+}
+
 .logo-title {
   text-decoration: none;
   color: #f5f5dc;
@@ -105,6 +112,12 @@ body {
   color: #cd5c5c;
   text-decoration: none;
   margin-right: 3rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover, .nav-link:focus {
+  text-decoration: underline;
+  color: #f5f5dc;
 }
 
 footer {
@@ -157,6 +170,30 @@ footer {
   font-size: 0.8rem;
   color: #8b4513;
   margin-top: 1rem;
+}
+
+.homepage {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-between;
+}
+
+.homepage-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-color: #cd5c5c;
+  justify-items: center;
+  text-align: center;
+  width: 50%;
+}
+
+.homepage-image {
+  width: 50%;
+}
+
+.homepage-image img {
+  border-radius: 0.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */

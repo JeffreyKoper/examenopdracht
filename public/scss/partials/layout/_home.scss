@@ -1,0 +1,22 @@
+@use "../abstracts/" as *;
+
+.homepage {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: space-between;
+    &-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-color: $accent-color;
+        justify-items: center;
+        text-align: center;
+        width: 50%;
+    }
+    &-image {
+        width: 50%;
+        img {
+            border-radius: 0.5rem;
+        }
+    }
+}
