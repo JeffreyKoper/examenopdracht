@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-
+<h1>SHOP:</h1>
 <div class="products-container">
     @foreach ($products as $data)
     <div class="product-card">

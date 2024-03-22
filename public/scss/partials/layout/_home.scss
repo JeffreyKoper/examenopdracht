@@ -2,22 +2,45 @@
 
 .homepage {
     display: flex;
-    margin-top: 1rem;
     justify-content: space-between;
-    &-text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-color: $accent-color;
-        justify-items: center;
-        text-align: center;
-        width: 50%;
-        margin-right: 1rem;
+    align-items: center;
+    padding: 20px;
+    background-color: $bg-color;
+
+    .homepage-text {
+        flex: 1;
+        margin-right: 20px;
+
+        h1 {
+            color: $primary-color;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: $primary-color;
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
     }
-    &-image {
-        width: 50%;
+
+    .homepage-image {
+        flex: 1;
         img {
-            border-radius: 0.5rem;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .homepage {
+        flex-direction: column;
+
+        .homepage-text,
+        .homepage-image {
+            margin-right: 0;
+            width: 100%;
         }
     }
 }
