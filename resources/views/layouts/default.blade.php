@@ -15,7 +15,7 @@
             <nav>
                 <ul class="navigation">
                     <li><a href="{{ route('home') }}" class="nav-link">Home</a></li>
-                    <li><a href="#" class="nav-link">Shop</a></li>
+                    <li><a href="{{ route('products')}}" class="nav-link">Shop</a></li>
                     <li><a href="#" class="nav-link">About</a></li>
                     <li><a href="#" class="nav-link">Contact</a></li>
                     @guest
