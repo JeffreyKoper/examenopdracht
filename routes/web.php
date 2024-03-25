@@ -10,12 +10,15 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/products', [ProductController::class, 'productspage'])->name('products');
+Route::get('/products/{id}', [ProductController::class, 'singleProduct'])->name('product.details');
 
 Route::get('/about', function () {
     return view('about');
 })->name('about');
 
+Route::post('/add_to_cart', [CartController::class, 'create'])->middleware(['auth', 'verified']);
 Route::get('/cart', [CartController::class, 'cartpage'])->name('cart');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
