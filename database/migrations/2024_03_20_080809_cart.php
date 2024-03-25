@@ -17,10 +17,11 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->date('delivery_date')->nullable();
             $table->boolean('payment_complete')->default(false);
-            $table->double('total_price');
+            $table->double('total_price')->nullable();
             $table->unsignedBigInteger('code_used')->nullable();
             $table->foreign('code_used')->references('id')->on('promotions');
             $table->double('discounted_price')->nullable();
+            $table->timestamps();
         });
     }
 
