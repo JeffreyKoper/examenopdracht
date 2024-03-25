@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -13,6 +14,8 @@ Route::get('/products', [ProductController::class, 'productspage'])->name('produ
 Route::get('/about', function () {
     return view('about');
 })->name('about');
+
+Route::get('/cart', [CartController::class, 'cartpage'])->name('cart');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

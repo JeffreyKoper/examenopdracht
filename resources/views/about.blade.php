@@ -3,26 +3,34 @@
   <div class="about-page">
     <div class="about-section">
       <h2 class="section-title">Welcome to Wardrobe Wonders</h2>
-      <p class="about-text">At Wardrobe Wonders, we believe that fashion is more than just clothing; it's a form of expression, a reflection of personality, and a means of empowerment. Our mission is to provide a diverse range of high-quality apparel that allows individuals to embrace their unique style and feel confident in every outfit they wear.</p>
+      <p class="about-text">Welcome to Wardrobe Wonders, where fashion meets passion! Our journey began with a simple belief: clothing should be more than just fabric stitched together. It should be a canvas for self-expression, a reflection of personality, and a tool for empowerment. Here at Wardrobe Wonders, we're dedicated to bringing you not just clothes, but a curated collection of confidence-boosting ensembles that speak volumes about who you are.</p>
     </div>
     
     <div class="values-section">
       <h2 class="section-title">Our Values</h2>
       <div class="value-item">
         <h3 class="value-title">Quality</h3>
-        <p class="value-description">We are committed to offering clothing items made from premium materials, ensuring durability and comfort for our customers.</p>
+        <p class="value-description">Quality isn't just a word to us; it's our guiding principle. Every stitch, every fabric, and every detail is meticulously chosen to ensure that our clothing not only looks good but also stands the test of time. We believe in investing in pieces that become timeless classics in your wardrobe.</p>
       </div>
       <div class="value-item">
         <h3 class="value-title">Diversity</h3>
-        <p class="value-description">We celebrate diversity in fashion by curating a collection that caters to a wide range of tastes, body types, and cultural backgrounds.</p>
+        <p class="value-description">Fashion is a beautiful tapestry woven from diverse threads. At Wardrobe Wonders, we celebrate this diversity by offering a wide range of styles, sizes, and designs that cater to individuals from all walks of life. We believe that everyone deserves to feel represented and included in the world of fashion.</p>
       </div>
       <div class="value-item">
         <h3 class="value-title">Sustainability</h3>
-        <p class="value-description">We prioritize sustainability by working with eco-friendly suppliers and promoting ethical manufacturing practices throughout our supply chain.</p>
+        <p class="value-description">As stewards of the planet, we understand the importance of sustainable practices in fashion. That's why we're committed to sourcing eco-friendly materials, reducing waste in our production processes, and supporting fair labor practices. With every purchase, you're not just buying clothes; you're making a conscious choice to protect our planet.</p>
       </div>
       <div class="value-item">
         <h3 class="value-title">Customer Satisfaction</h3>
-        <p class="value-description">We strive to provide exceptional customer service, ensuring a seamless shopping experience and prompt assistance whenever needed.</p>
+        <p class="value-description">Your satisfaction is our top priority. From the moment you browse our website to the day your order arrives, we strive to provide a seamless and enjoyable shopping experience. Our dedicated customer service team is here to assist you with any questions, concerns, or feedback you may have. Because at Wardrobe Wonders, we're not just selling clothes; we're building relationships.</p>
+      </div>
+      <div class="value-item">
+        <h3 class="value-title">Innovation</h3>
+        <p class="value-description">Innovation is the heartbeat of fashion, and we're always at the forefront of the latest trends and technologies. From cutting-edge fabrics to revolutionary designs, we're constantly pushing the boundaries to bring you fresh and exciting collections that inspire and delight.</p>
+      </div>
+      <div class="value-item">
+        <h3 class="value-title">Community Engagement</h3>
+        <p class="value-description">Fashion is more than just clothes; it's a community. We believe in fostering connections and building a community of like-minded individuals who share a passion for style and creativity. Through events, collaborations, and initiatives, we're bringing people together to celebrate diversity and express themselves through fashion.</p>
       </div>
     </div>
     
@@ -44,12 +52,17 @@
                 <h3 class="team-member-name">Alex Johnson</h3>
                 <p class="team-member-role">Head of Operations</p>
             </div>
+            <div class="team-member">
+                <img src="https://this-person-does-not-exist.com/img/avatar-gen1ea0a3d4dc238085e9abd7daabe4e4c9.jpg" alt="Team Member 4" class="team-member-img">
+                <h3 class="team-member-name">Emily Davis</h3>
+                <p class="team-member-role">Marketing Manager</p>
+            </div>
         </div>
     </div>
     
     <div class="contact-section">
       <h2 class="section-title">Get in Touch</h2>
-      <p class="contact-info">Have questions, feedback, or suggestions? We'd love to hear from you! Reach out to us via email at info@wardrobewonders.com or give us a call at 1-800-WARDROBE.</p>
+      <p class="contact-info">Have questions, feedback, or suggestions? We'd love to hear from you! Whether it's a style dilemma or a simple hello, feel free to reach out to us. You can drop us an email at info@wardrobewonders.com, give us a call at 1-800-WARDROBE, or connect with us on social media. Your voice matters, and we're here to listen!</p>
     </div>
   </div>
 @endsection

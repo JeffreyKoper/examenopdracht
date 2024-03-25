@@ -23,7 +23,6 @@ return new class extends Migration
             $table->enum('variant', ['female', 'male', 'unisex']);
             $table->string('category', 20);
         });
-        
     }
 
     /**
