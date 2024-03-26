@@ -296,12 +296,14 @@ footer {
 .product_container .product_reviews {
   align-self: flex-start;
   width: 50%;
+  margin: 2rem;
 }
 
 .product_container .product_reviews .stars {
   list-style-type: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin-bottom: 1rem;
 }
 
 .product_container .product_reviews .user-review {

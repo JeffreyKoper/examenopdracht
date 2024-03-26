@@ -73,11 +73,13 @@
     .product_reviews {
         align-self: flex-start;
         width: 50%;
+        margin: 2rem;
 
         .stars {
             list-style-type: none;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
+            margin-bottom: 1rem;
         }
         .user-review {
             display: flex;

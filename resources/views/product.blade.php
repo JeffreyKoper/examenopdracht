@@ -38,14 +38,16 @@
             <label for="">Title</label>
             <input type="text">
             <label for="">Rating</label>
-            <ul class="stars">
-                <li>(1 star)</li>
-                <li>(2 star)</li>
-                <li>(3 star)</li>
-                <li>(4 star)</li>
-                <li>(5 star)</li>
-            </ul>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <div class="card_stars">
+                <ul class="stars">
+                  <li value="1"><i class="fas fa-star"></i> </li>
+                  <li value="2"><i class="fas fa-star"></i></li>
+                  <li value="3"><i class="fas fa-star"></i></li>
+                  <li value="4"><i class="far fa-star"></i></li>
+                  <li value="5"><i class="far fa-star"></i></li>
+                </ul>
+            </div>
+            <textarea style="resize: none" name="" id="" cols="30" rows="10"></textarea>
         </div>
     </div>
 </div>
