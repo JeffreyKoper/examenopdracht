@@ -1,5 +1,29 @@
 @use "../abstracts/" as *;
 
+.container {
+    display: flex;
+    flex-direction: row;
+}
+.cart-list {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: flex-start;
+
+    img {
+        aspect-ratio: 1/1;
+        max-width: 250px;
+        max-height: 250px;
+    }
+    .cart-arrows {
+        display: flex;
+    }
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: row;
+}
 .date_wrapper {
     background-color: $secondary-color;
     padding: 10px;
@@ -8,60 +32,4 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-.cart-products {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px;
-
-    .cart-item {
-        flex: 1;
-        margin-right: 20px;
-        background-color: white;
-        border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-        h2 {
-            font-size: $font-size-lg;
-            color: $primary-color;
-            margin-bottom: 10px;
-        }
-
-        h4 {
-            font-size: $font-size-sm;
-            color: $primary-color;
-            margin-bottom: 10px;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-        }
-    }
-
-    .cart-summary {
-        flex: 1;
-        background-color: white;
-        border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-        h2 {
-            font-size: $font-size-lg;
-            color: $primary-color;
-            margin-bottom: 10px;
-        }
-
-        h2:last-child {
-            margin-bottom: 0;
-        }
-
-        // Hide discount
-        h2:nth-last-child(2) {
-            display: none;
-        }
-    }
 }
