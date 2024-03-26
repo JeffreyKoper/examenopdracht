@@ -124,6 +124,18 @@ class ProductSeeder extends Seeder
                 'variant' => 'Unisex',
                 'category' => 'T-shirts',
             ],
+            [
+                'product_name' => "Black and White sneakers",
+                'description' => 'Casual Black and White sneakers ready for any trip.',
+                'excerpt' => 'Casual Black and White sneakers',
+                'img_filepath' => "https://i.ebayimg.com/images/g/DMEAAOSwWcZiOi-5/s-l1200.jpg",
+                'price' => 50.00,
+                'stock' => 23,
+                'size' => 'L',
+                'variant' => 'Male',
+                'category' => 'Shoes',
+            ],
+            
         ];
         DB::table('products')->insert($products);
     }
