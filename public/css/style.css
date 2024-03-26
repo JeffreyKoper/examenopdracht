@@ -288,9 +288,32 @@ footer {
 
 .product_container {
   display: flex;
-  justify-content: center;
   align-items: center;
   height: 100%;
+  flex-direction: column;
+}
+
+.product_container .product_reviews {
+  align-self: flex-start;
+  width: 50%;
+}
+
+.product_container .product_reviews .stars {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product_container .product_reviews .user-review {
+  display: flex;
+  flex-direction: column;
+}
+
+.product_container .product_reviews .item-review {
+  background-color: #fff;
+  margin: 1rem;
+  padding: 1rem;
+  text-align: center;
 }
 
 .product_container .productContainer_flex {
