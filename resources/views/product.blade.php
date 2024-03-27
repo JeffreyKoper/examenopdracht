@@ -27,14 +27,31 @@
             @endauth
         </div>
     </div>
-    
+    <div class="reviews">
+        <h1>Reviews:</h1>
+        @foreach ($review_data as $review)
+        <div class="reviews_content">
+            <h1>{{$review->title}}</h1>
+            <h3>{{$review->rating}} out of 5</h3>
+            <p>{{$review->description}}</p>
+        </div>
+        @endforeach
+    </div>  
     <div class="card_header">
+        
+        
+ 
         <h1 class="card_title">Want to leave your own review for this product?</h1>
-
+        @guest
+        <p class="card_text">Login to submit your experience with us!</p>
+        <div class=""><a class="button" href="{{route('login')}}">Login</a></div>
+        @endguest
+        @auth
         <p class="card_text">Please let us know about your experience. All feedback is appreciated 
             to help us improve our offering!</p>
         <form method="POST" action="{{route('review.create')}}">
-        <input type="hidden" name="product_id" value="{{$data->id}}">
+        @csrf
+        <input type="hidden" name="productId" value="{{$data->id}}">
         <input type="text" class="card_review_title" name="title"  maxlength="23" placeholder="title">
         <div class="card_stars">
             <ul class="stars">
@@ -44,11 +61,14 @@
                 <li value="4">4</li>
                 <li value="5">5</li>
             </ul>
+            <input type="hidden" name="rating">
             <textarea class="card_description" name="description" id="review" placeholder="Write your review here" required></textarea>
             <button class="card_stars_submit" id="submitReview" type="submit" required>Submit</button>
+        </form>
+        @endauth
         </div>
     </div>
-    </form>
+    
 </div>
 </div>
 <script src="{{ asset('js/review.js')}}"></script>

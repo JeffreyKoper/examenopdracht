@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('rating');
             $table->string('title');
             $table->string('description', 1000);
+            $table->timestamps();
         });
     }
 

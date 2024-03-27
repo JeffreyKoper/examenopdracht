@@ -35,14 +35,14 @@ class ReviewController extends Controller
             'description' => 'required|string',
             ]);
         $reviews->title = $request->title;
-        $reviews->user_id = $user;
+        $reviews->user_id = $user->id;
         $reviews->product_id = $request->productId;
-       // $reviews->rating = $request->rating;
+        $reviews->rating = $request->rating;
         $reviews->description = $request->description;
         
         $reviews->save();
         
-        return view('home');
+        return redirect()->route('products');
     }
 
     /**
@@ -50,7 +50,7 @@ class ReviewController extends Controller
      */
     public function show(string $id)
     {
-        return view('home');
+
     }
 
     /**
