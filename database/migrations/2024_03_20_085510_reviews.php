@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('product_id')->references('id')->on('products');
             $table->integer('rating');
             $table->string('title');
-            $table->string('description');
+            $table->string('description', 1000);
         });
     }
 

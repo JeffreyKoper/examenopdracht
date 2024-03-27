@@ -1,5 +1,6 @@
 @extends('layouts.default')
 @section('content')
+
 <div class="product_container">
     <div class="productContainer_flex">
         <img class="product_image" src="{{ $data->img_filepath }}" alt="productImage" />
@@ -12,47 +13,44 @@
             <h3 class="">€ {{$data->price}}</h6>
             <h6 class="">stock: {{$data->stock}}</h6>
             @guest
-                <div class=""><a class="button" href="{{route('login')}}">Login to order</a></div>
-                @endguest
-                @auth
-                    <form method="POST" action="/add_to_cart">
-                        @csrf
-                        <input type="number" name="number" placeholder="Amount" min="1" max="{{$data->stock}}"required>
-                        <input type="hidden" name="product_id" value="{{$data->id}}">
-                        <input type="hidden" name="totaal_prijs" value="{{$data->price}}">
-                        <button type="submit" class="button">Add to cart</button>
-                        <a class="button" href='/products'>Back to products</a>
-                    </form>
-                @endauth
-            </div>
-        </div>
-        <div class="product_reviews">
-            <h1>Reviews:</h1>
-            <div class="item-review">
-                <h3>title</h3>
-                <p>rating</p>
-                <p>description</p>
-            </div>
-            <div class="user-review">
-            <h1>Leave your own review:</h1>
-            <label for="">Title</label>
-            <input type="text">
-            <label for="">Rating</label>
-            <div class="card_stars">
-                <ul class="stars">
-                  <li value="1"><i class="fas fa-star"></i> </li>
-                  <li value="2"><i class="fas fa-star"></i></li>
-                  <li value="3"><i class="fas fa-star"></i></li>
-                  <li value="4"><i class="far fa-star"></i></li>
-                  <li value="5"><i class="far fa-star"></i></li>
-                </ul>
-            </div>
-            <textarea style="resize: none" name="" id="" cols="30" rows="10"></textarea>
+            <div class=""><a class="button" href="{{route('login')}}">Login to order</a></div>
+            @endguest
+            @auth
+            <form method="POST" action="/add_to_cart">
+                @csrf
+                <input type="number" name="number" placeholder="Amount" min="1" max="{{$data->stock}}" required>
+                <input type="hidden" name="product_id" value="{{$data->id}}">
+                <input type="hidden" name="totaal_prijs" value="{{$data->price}}">
+                <button type="submit" class="button">Add to cart</button>
+                <a class="button" href='/products'>Back to products</a>
+            </form>
+            @endauth
         </div>
     </div>
-</div>
+    
+    <div class="card_header">
+        <h1 class="card_title">Want to leave your own review for this product?</h1>
 
+        <p class="card_text">Please let us know about your experience. All feedback is appreciated 
+            to help us improve our offering!</p>
+        <form method="POST" action="{{route('review.create')}}">
+        <input type="hidden" name="product_id" value="{{$data->id}}">
+        <input type="text" class="card_review_title" name="title"  maxlength="23" placeholder="title">
+        <div class="card_stars">
+            <ul class="stars">
+                <li value="1">1</li>
+                <li value="2">2</li>
+                <li value="3">3</li>
+                <li value="4">4</li>
+                <li value="5">5</li>
+            </ul>
+            <textarea class="card_description" name="description" id="review" placeholder="Write your review here" required></textarea>
+            <button class="card_stars_submit" id="submitReview" type="submit" required>Submit</button>
+        </div>
+    </div>
+    </form>
 </div>
-
+</div>
+<script src="{{ asset('js/review.js')}}"></script>
 
 @endsection

@@ -16,6 +16,7 @@ class ProductController extends Controller
   public function singleProduct($id)
   {
     $data = Products::find($id);
+    
     return view('product', ['data' => $data]);
   }
 }

@@ -25,16 +25,17 @@
         @else
             <p>Your cart is empty.</p>
         @endif
-        </div>  
+        </div>
+        @if (!empty($cartItems))  
         <div class="cart-summary">     
         <h2 name="total_price" id="totalPrice">Total price excl. tax: € {{ number_format($totalPrice, 2) }}</h2>
         <h2 name="shipping_price" id="shippingPrice" value="{{number_format($totalPrice, 2)}}">Shipping Tax € 0.00</h2>
         <h2 name="total_price_tax" id="total_price_tax">Total price incl. tax: € {{ number_format($totalPrice, 2) }}</h2>
-        
         <h2><b>Select a Delivery Date</b></h2>
         <label for="deliveryDate">Delivery Date:</label>
         <input type="text" id="deliveryDate" name="delivery_date" required>
         <button type="submit" id="confirmOrderButton" style="display:none;"> Confirm order</button>
+        @endif
     </div> 
     </div>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

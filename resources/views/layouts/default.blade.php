@@ -19,7 +19,7 @@
                     <li><a href="{{ route('home') }}" class="nav-link">Home</a></li>
                     <li><a href="{{ route('products')}}" class="nav-link">Shop</a></li>
                     <li><a href="{{ route('about')}}" class="nav-link">About</a></li>
-                    <li><a href="#" class="nav-link">Contact</a></li>
+                    <li><a href="{{ route('contact')}}" class="nav-link">Contact</a></li>
                     @guest
                         <li><a href="{{route('login')}}" class="nav-link">Login</a></li>
                         <li><a href="{{route('register')}}" class="nav-link">Register</a></li>
