@@ -618,6 +618,24 @@ footer {
 
 .reviews {
   display: flex;
+  margin: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.reviews .reviews_content {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  max-width: 42rem;
+  background-color: #fff;
+  border: solid #8b4513;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.reviews .reviews_content .star {
+  color: #e9967a;
+  font-size: 2rem;
 }
 
 @media (width <= 600px) {

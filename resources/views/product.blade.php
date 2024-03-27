@@ -27,12 +27,19 @@
             @endauth
         </div>
     </div>
-    <div class="reviews">
         <h1>Reviews:</h1>
+        <div class="reviews">
         @foreach ($review_data as $review)
         <div class="reviews_content">
-            <h1>{{$review->title}}</h1>
-            <h3>{{$review->rating}} out of 5</h3>
+            <h2>{{$review->title}}</h2>
+            <div class="rating">
+                @for ($i = 0; $i < $review->rating; $i++)
+                    <span class="star">&#9733;</span>
+                @endfor
+                @for ($i = $review->rating; $i < 5; $i++)
+                    <span class="star">&#9734;</span>
+                @endfor
+            </div>
             <p>{{$review->description}}</p>
         </div>
         @endforeach

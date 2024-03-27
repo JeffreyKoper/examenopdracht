@@ -122,6 +122,22 @@
 
 .reviews {
     display: flex;
+    margin: 1.5rem;
+    flex-wrap: wrap;
+    .reviews_content {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        max-width: 42rem;
+        background-color: #fff;
+        border: solid $primary-color;
+        padding: 1rem;
+        margin: 1rem;
+        .star {
+            color: $secondary-color;
+            font-size: 2rem;
+        }
+    }
 }
 
 @media (width <= 600px) {
