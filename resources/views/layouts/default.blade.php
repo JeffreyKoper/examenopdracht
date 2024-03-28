@@ -27,6 +27,7 @@
                     @auth
                     <li><a href="{{route('logout')}}" class="nav-link">Log out</a></li>
                     <li><a href="{{route('cart')}}" class="nav-link">Cart</a></li>
+                    <li><a href="{{route('dashboard')}}" class="nav-link">Dashboard</a></li>
                     @endauth    
                 </ul>
             </nav>

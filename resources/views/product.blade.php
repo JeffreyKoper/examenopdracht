@@ -45,9 +45,6 @@
         @endforeach
     </div>  
     <div class="card_header">
-        
-        
- 
         <h1 class="card_title">Want to leave your own review for this product?</h1>
         @guest
         <p class="card_text">Login to submit your experience with us!</p>

@@ -1,17 +1,19 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
+@extends('layouts.default')
+@section('content')
+<div class="dashboard">
+    <div class="dashboard_info">
+        <ul class="account">
+            <li>Name: {{$data->name}}</li>
+            <li>Email: {{$data->email}}</li>
+            <li class="role">Role: {{$data->role}}</li>
+        </ul>
     </div>
-</x-app-layout>
+    <div class="dashboard_buttons">
+        <button class="edit">Edit Account Information</button>
+        <button class="delete">Delete Account</button>
+        @if($data->role == "admin")
+        <button class="create">Create New Account</button>
+        @endif
+    </div>
+</div>
+@endsection

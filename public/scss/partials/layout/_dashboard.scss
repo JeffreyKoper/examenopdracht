@@ -1,0 +1,51 @@
+@use "../abstracts/" as *;
+
+.dashboard {
+    display: flex;
+    gap: 5rem;
+    justify-self: center;
+    border-radius: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: $accent-color;
+    color: $bg-color;
+    &_info {
+        display: flex;
+        flex-direction: column;
+        font-size: $font-size-md;
+        .account {
+            list-style-type: none;
+            font-weight: $font-weight-700;
+        }
+        .role {
+            text-transform: capitalize;
+        }
+    }
+    &_buttons {
+        display: flex;
+        flex-direction: column;
+        button {
+            margin-block-end: 1rem;
+            cursor: pointer;
+        }
+        .create {
+            background-color: $succes-color;
+            color: $bg-color;
+            font-weight: $font-weight-700;
+            border: solid $bg-color 0.2rem;
+        }
+        .edit {
+            border: solid $secondary-color 0.2rem;
+            background-color: $bg-color;
+            font-weight: $font-weight-400;
+        }
+        .delete {
+            background-color: $error-color;
+            color: $bg-color;
+            font-weight: $font-weight-700;
+            border: solid $bg-color 0.2rem;
+        }
+    }
+}
