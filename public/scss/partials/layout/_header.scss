@@ -28,6 +28,10 @@
     font-weight: $font-weight-700;
     list-style: none;
 }
+.right {
+    align-self: flex-end;
+    justify-self: flex-end;
+}
 
 .nav-link {
     display: inline;

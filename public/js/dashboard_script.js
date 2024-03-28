@@ -9,6 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     editButton.addEventListener("click", function () {
         // Toggle the visibility of the edit form
         editForm.style.display =
-            editForm.style.display === "none" ? "block" : "none";
+            editForm.style.display === "block" ? "none" : "block";
     });
 });

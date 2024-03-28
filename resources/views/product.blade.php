@@ -41,6 +41,7 @@
                 @endfor
             </div>
             <p>{{$review->description}}</p>
+            <p class="author">-review written by {{$review->user_name}}</p>
         </div>
         @endforeach
     </div>  
@@ -66,7 +67,7 @@
                 <li value="5">5</li>
             </ul>
             <input type="hidden" name="rating">
-            <textarea class="card_description" name="description" id="review" placeholder="Write your review here" required></textarea>
+            <textarea class="card_description" name="description" id="review" maxlength="1000"  placeholder="Write your review here" required></textarea>
             <button class="card_stars_submit" id="submitReview" type="submit" required>Submit</button>
         </form>
         @endauth

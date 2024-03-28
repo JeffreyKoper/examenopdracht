@@ -107,6 +107,11 @@ body {
   list-style: none;
 }
 
+.right {
+  align-self: flex-end;
+  justify-self: flex-end;
+}
+
 .nav-link {
   display: inline;
   max-height: 40px;
@@ -521,6 +526,8 @@ footer {
 .card_review_title {
   align-self: center;
   margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 
 .card_description {
@@ -622,7 +629,7 @@ footer {
   flex-wrap: wrap;
 }
 
-.reviews .reviews_content {
+.reviews_content {
   display: flex;
   flex-direction: column;
   max-width: 42rem;
@@ -632,7 +639,13 @@ footer {
   margin: 1rem;
 }
 
-.reviews .reviews_content .star {
+.reviews_content .author {
+  font-size: clamp(0.75rem, 0.34vw + 0.66rem, 0.94rem);
+  align-self: flex-end;
+  font-weight: 500;
+}
+
+.reviews_content .star {
   color: #e9967a;
   font-size: 2rem;
 }
@@ -721,6 +734,7 @@ footer {
 .dashboard_buttons .delete {
   background-color: red;
   color: #f5f5dc;
+  width: 100%;
   font-weight: 700;
   border: solid #f5f5dc 0.2rem;
 }

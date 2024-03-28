@@ -60,6 +60,7 @@
         .delete {
             background-color: $error-color;
             color: $bg-color;
+            width: 100%;
             font-weight: $font-weight-700;
             border: solid $bg-color 0.2rem;
         }

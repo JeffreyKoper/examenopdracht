@@ -21,6 +21,8 @@
     &_review_title {
         align-self: center;
         margin-bottom: 1rem;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
     }
     &_description {
         width: 100%;
@@ -124,7 +126,7 @@
     display: flex;
     margin: 1.5rem;
     flex-wrap: wrap;
-    .reviews_content {
+    &_content {
         display: flex;
         flex-direction: column;
         max-width: 42rem;
@@ -132,6 +134,11 @@
         border: solid $primary-color;
         padding: 1rem;
         margin: 1rem;
+        .author {
+            font-size: $font-size-xs;
+            align-self: flex-end;
+            font-weight: 500;
+        }
         .star {
             color: $secondary-color;
             font-size: 2rem;

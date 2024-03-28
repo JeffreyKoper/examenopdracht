@@ -91,4 +91,17 @@ flatpickr("#deliveryDate", {
     maxDate: new Date().fp_incr(22),
     inline: true,
     weekNumbers: true,
+    disable: [
+        "2024-01-01", // New Year's Day
+        "2024-03-29", // Good Friday
+        "2024-03-31", // Easter Sunday
+        "2024-04-01", // Easter Monday
+        "2024-04-27", // King's Day
+        "2024-05-05", // Liberation Day
+        "2024-05-09", // Ascension Day
+        "2024-05-20", // Whit Sunday
+        "2024-07-01", // Keti Koti (Emancipation Day)
+        "2024-12-25", // Christmas Day
+        "2024-12-26", // Boxing Day
+    ],
 });
