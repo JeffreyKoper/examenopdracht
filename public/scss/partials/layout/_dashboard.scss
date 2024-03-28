@@ -2,15 +2,31 @@
 
 .dashboard {
     display: flex;
-    gap: 5rem;
+    gap: 4rem;
     justify-self: center;
     border-radius: 2rem;
     align-items: center;
-    justify-content: space-between;
     margin: 1rem;
     padding: 1rem;
     background-color: $accent-color;
     color: $bg-color;
+    &_edit {
+        display: none;
+        justify-self: center;
+        button {
+            margin-top: 1rem;
+            background-color: $primary-color;
+            color: $bg-color;
+            font-weight: $font-weight-700;
+            border: solid $secondary-color 0.2rem;
+            cursor: pointer;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+    }
     &_info {
         display: flex;
         flex-direction: column;

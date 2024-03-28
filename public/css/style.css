@@ -651,15 +651,33 @@ footer {
 }
 .dashboard {
   display: flex;
-  gap: 5rem;
+  gap: 4rem;
   justify-self: center;
   border-radius: 2rem;
   align-items: center;
-  justify-content: space-between;
   margin: 1rem;
   padding: 1rem;
   background-color: #cd5c5c;
   color: #f5f5dc;
+}
+
+.dashboard_edit {
+  display: none;
+  justify-self: center;
+}
+
+.dashboard_edit button {
+  margin-top: 1rem;
+  background-color: #8b4513;
+  color: #f5f5dc;
+  font-weight: 700;
+  border: solid #e9967a 0.2rem;
+  cursor: pointer;
+}
+
+.dashboard_edit form {
+  display: flex;
+  flex-direction: column;
 }
 
 .dashboard_info {

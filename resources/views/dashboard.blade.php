@@ -10,10 +10,25 @@
     </div>
     <div class="dashboard_buttons">
         <button class="edit">Edit Account Information</button>
-        <button class="delete">Delete Account</button>
+        <form method="post" action="{{route('user.delete')}}">
+            @csrf
+            <button type="submit" class="delete">Delete Account</button>
+        </form>
         @if($data->role == "admin")
         <button class="create">Create New Account</button>
         @endif
     </div>
+    <div class="dashboard_edit">
+        <br>
+        <form method="POST" action="{{route('user.update')}}" class="dashboard_edit_form">
+            @csrf
+            <label for="accountName">Name</label>
+            <input type="text" name="accountName" id="accountName" value="{{$data->name}}">
+            <label for="accountEmail">Email</label>
+            <input type="email" name="accountEmail" id="accountEmail" value="{{$data->email}}">
+            <button type="submit">Save</button>
+        </form>
+    </div>
 </div>
+<script src="js/dashboard_script.js"></script>
 @endsection

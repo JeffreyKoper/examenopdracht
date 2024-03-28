@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Cart;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -76,5 +77,21 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    public function singleUserUpdate(Request $request){
+        $user_id = auth()->user();
+        $user = User::find($user_id->id);
+        $user->name = $request->accountName;
+        $user->email = $request->accountEmail;
+        $user->save();
+        return redirect()->route('dashboard');
+    }
+    public function singleUserDelete(Request $request){
+        $user_id= auth()->user();
+        $user = User::find($user_id->id);
+        Auth::logout();
+        $user->delete();
+        return redirect()->route('home');
     }
 }
