@@ -1,3 +1,4 @@
+window.onload = calcTotalPrice();
 document.getElementById("deliveryDate").addEventListener("change", function () {
     var confirmOrderButton = document.getElementById("confirmOrderButton");
     if (this.value !== "") {
@@ -40,9 +41,37 @@ function calcTotalPrice() {
         totalPrice += subtotal;
 
         var totalPrice_element = document.getElementById("totalPrice");
+        var shipping_element = document.getElementById("shippingPrice");
+        var totalPriceMax_element = document.getElementById("total_price_tax");
+
+        var totalPrice_input = document.getElementsByName("totalPriceExcl");
+        var shipping_input = document.getElementsByName("shippingPrice");
+        var taxTotalPrice_input = document.getElementsByName("totalPriceIncl");
+
         totalPrice_element.innerHTML =
             "Total price excl. tax: € " + totalPrice.toFixed(2);
+        totalPrice_input.value = totalPrice.toFixed(2);
         console.log(totalPrice);
+        var taxTotalPrice = totalPrice + 50;
+        if (totalPrice >= 50) {
+            taxTotalPrice = totalPrice;
+            shipping_element.innerHTML = "Shipping Tax € 0.00";
+            shipping_input.value = "0.00";
+            totalPriceMax_element.innerHTML =
+                "Total price incl. tax: € " + taxTotalPrice.toFixed(2);
+            taxTotalPrice_input.value = totalPrice.toFixed(2);
+            totalPrice_input.value = totalPrice.toFixed(2);
+        } else if (totalPrice < 50) {
+            shipping_element.innerHTML = "Shipping Tax € 50.00";
+            shipping_input.value = "50.00";
+            taxTotalPrice = totalPrice + 50;
+            totalPriceMax_element.innerHTML =
+                "Total price incl. tax: € " + taxTotalPrice.toFixed(2);
+            taxTotalPrice_input.value = taxTotalPrice.toFixed(2);
+        }
+        console.log(totalPrice_input);
+        console.log(shipping_input);
+        console.log(taxTotalPrice_input);
     }
 }
 
@@ -50,7 +79,6 @@ function increase(itemId, itemPrice) {
     var count_element = document.getElementById("itemAmount_" + itemId);
     var inputEl = document.getElementById("itemAmountInput_" + itemId);
     var stock = document.getElementById("ItemAmountStock_" + itemId);
-    console.log(stock);
     var maxCount = Number(stock.value);
     var count = Number(count_element.innerHTML);
     count += 1;

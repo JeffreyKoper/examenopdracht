@@ -29,8 +29,11 @@
         @if (!empty($cartItems))  
         <div class="cart-summary">     
         <h2 name="total_price" id="totalPrice">Total price excl. tax: € {{ number_format($totalPrice, 2) }}</h2>
-        <h2 name="shipping_price" id="shippingPrice" value="{{number_format($totalPrice, 2)}}">Shipping Tax € 0.00</h2>
+        <input type="hidden" name="totalPriceExcl" value="{{ number_format($totalPrice, 2) }}">
+        <h2 name="shipping_price" id="shippingPrice">Shipping Tax € 0.00</h2>
+        <input type="hidden" name="shippingPrice" value="">
         <h2 name="total_price_tax" id="total_price_tax">Total price incl. tax: € {{ number_format($totalPrice, 2) }}</h2>
+        <input type="hidden" name="totalPriceIncl" value="">
         <h2><b>Select a Delivery Date</b></h2>
         <label for="deliveryDate">Delivery Date:</label>
         <input type="text" id="deliveryDate" name="delivery_date" required>
