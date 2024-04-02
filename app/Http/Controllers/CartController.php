@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Product_Cart;
+use App\Models\Products;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -61,4 +62,44 @@ class CartController extends Controller
         return view('cart', ['cart' => $cart, 'cartItems' => $cartItems, 'product_cart' => $product_cart, 'totalPrice' => $totalPrice,]);
     }
     
+    public function confirmPayment(Request $request)
+    {
+        $userId = auth()->user()->id;
+
+        // Check if a cart exists for the user
+        $cart = Cart::where('user_id', $userId)->where('payment_complete', 0)->first();
+        if (!$cart) {
+            return response()->json(['error' => 'Cart not found'], 404);
+        }
+
+        // Update product amounts based on user input
+        foreach($request->products as $productId => $amount){
+            // Check if the product already exists in the cart
+            if ($cart->products->contains($productId)) {
+                $cart->products()->updateExistingPivot($productId, ['amount' => $amount]);
+            } else {
+                // If not, create a new entry in the pivot table
+                $cart->products()->attach($productId, ['amount' => $amount]);
+            }
+        }
+
+        // Recalculate total price
+        $totalPrice = 0;
+        foreach($cart->products as $product){
+            $totalPrice += $product->price * $product->pivot->amount;
+            // Update product stock
+            $product->stock -= $product->pivot->amount;
+            $product->save();
+        }
+
+        // Update cart details
+        $cart->delivery_date = $request->delivery_date;
+        $cart->payment_complete = true;
+        $cart->total_price = $totalPrice;
+        $cart->save();
+
+        return redirect()->route('home');
+    }
+
+
 }

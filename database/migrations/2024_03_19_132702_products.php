@@ -22,6 +22,7 @@ return new class extends Migration
             $table->enum('size', ['S', 'M', 'L', 'XL', 'XXL']);
             $table->enum('variant', ['female', 'male', 'unisex']);
             $table->string('category', 20);
+            $table->timestamps();
         });
     }
 

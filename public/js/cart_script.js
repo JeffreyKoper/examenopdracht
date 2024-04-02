@@ -44,34 +44,20 @@ function calcTotalPrice() {
         var shipping_element = document.getElementById("shippingPrice");
         var totalPriceMax_element = document.getElementById("total_price_tax");
 
-        var totalPrice_input = document.getElementsByName("totalPriceExcl");
-        var shipping_input = document.getElementsByName("shippingPrice");
-        var taxTotalPrice_input = document.getElementsByName("totalPriceIncl");
-
         totalPrice_element.innerHTML =
             "Total price excl. tax: € " + totalPrice.toFixed(2);
-        totalPrice_input.value = totalPrice.toFixed(2);
-        console.log(totalPrice);
         var taxTotalPrice = totalPrice + 50;
         if (totalPrice >= 50) {
             taxTotalPrice = totalPrice;
             shipping_element.innerHTML = "Shipping Tax € 0.00";
-            shipping_input.value = "0.00";
             totalPriceMax_element.innerHTML =
                 "Total price incl. tax: € " + taxTotalPrice.toFixed(2);
-            taxTotalPrice_input.value = totalPrice.toFixed(2);
-            totalPrice_input.value = totalPrice.toFixed(2);
         } else if (totalPrice < 50) {
             shipping_element.innerHTML = "Shipping Tax € 50.00";
-            shipping_input.value = "50.00";
             taxTotalPrice = totalPrice + 50;
             totalPriceMax_element.innerHTML =
                 "Total price incl. tax: € " + taxTotalPrice.toFixed(2);
-            taxTotalPrice_input.value = taxTotalPrice.toFixed(2);
         }
-        console.log(totalPrice_input);
-        console.log(shipping_input);
-        console.log(taxTotalPrice_input);
     }
 }
 

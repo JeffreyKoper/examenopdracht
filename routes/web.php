@@ -26,7 +26,7 @@ Route::get('/contact', function () {
 
 Route::post('/add_to_cart', [CartController::class, 'create'])->middleware(['auth', 'verified']);
 Route::get('/cart', [CartController::class, 'cartpage'])->name('cart');
-
+Route::post('/confirmPayment', [CartController::class, 'confirmPayment'])->name('confirm_payment');
 
 
 
@@ -40,5 +40,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__.'/auth.php';
