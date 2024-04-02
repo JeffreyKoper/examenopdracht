@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Cart;
 use App\Models\User;
+use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -93,5 +95,14 @@ class ProfileController extends Controller
         Auth::logout();
         $user->delete();
         return redirect()->route('home');
+    }
+    public function create(Request $request){
+        $user = new User();
+        $user->name = $request->accountName;
+        $user->email = $request->accountEmail;
+        $user->role = $request->accountRole;
+        $user->password = Hash::make($request->accountPassword);;
+        $user->save();
+        return redirect()->route('dashboard');  
     }
 }

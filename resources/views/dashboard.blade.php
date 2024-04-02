@@ -22,6 +22,7 @@
         <br>
         <form method="POST" action="{{route('user.update')}}" class="dashboard_edit_form">
             @csrf
+            <h4>Edit your account:</h4>
             <label for="accountName">Name</label>
             <input type="text" name="accountName" id="accountName" value="{{$data->name}}">
             <label for="accountEmail">Email</label>
@@ -29,6 +30,29 @@
             <button type="submit">Save</button>
         </form>
     </div>
+    @if($data->role == "admin")
+        
+       
+    <div class="dashboard_create">
+        <br>
+        <form method="POST" action="{{route('user.create')}}" class="dashboard_edit_form">
+            @csrf
+            <h4>Create new User:</h4>
+            <label for="accountName">Name</label>
+            <input type="text" name="accountName" id="accountName">
+            <label for="accountEmail">Email</label>
+            <input type="email" name="accountEmail" id="accountEmail">
+            <label for="accountPassword">Password</label>
+            <input type="password" name="accountPassword" id="accountPassword">
+            <label for="accountRole">Role:</label>
+            <select name="accountRole">
+                <option value="admin">admin</option>
+                <option value="user">user</option>
+            </select>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+    @endif
 </div>
 <script src="js/dashboard_script.js"></script>
 @endsection

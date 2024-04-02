@@ -33,6 +33,7 @@ Route::get('/cart', [CartController::class, 'cartpage'])->name('cart');
 Route::get('/dashboard',[ProfileController::class, "singleUserDashboard"])->middleware(['auth', 'verified'])->name('dashboard');
 Route::post('/dashboard/user_save',[ProfileController::class, "singleUserUpdate"])->middleware(['auth', 'verified'])->name('user.update');
 Route::post('/dashboard/user_delete',[ProfileController::class, "singleUserDelete"])->middleware(['auth', 'verified'])->name('user.delete');
+Route::post('/dashboard/user_create',[ProfileController::class, "create"])->middleware(['auth', 'verified'])->name('user.create');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
