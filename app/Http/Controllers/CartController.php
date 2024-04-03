@@ -63,43 +63,51 @@ class CartController extends Controller
     }
     
     public function confirmPayment(Request $request)
-    {
-        $userId = auth()->user()->id;
+{
+    $userId = auth()->user()->id;
 
-        // Check if a cart exists for the user
-        $cart = Cart::where('user_id', $userId)->where('payment_complete', 0)->first();
-        if (!$cart) {
-            return response()->json(['error' => 'Cart not found'], 404);
-        }
-
-        // Update product amounts based on user input
-        foreach($request->products as $productId => $amount){
-            // Check if the product already exists in the cart
-            if ($cart->products->contains($productId)) {
-                $cart->products()->updateExistingPivot($productId, ['amount' => $amount]);
-            } else {
-                // If not, create a new entry in the pivot table
-                $cart->products()->attach($productId, ['amount' => $amount]);
-            }
-        }
-
-        // Recalculate total price
-        $totalPrice = 0;
-        foreach($cart->products as $product){
-            $totalPrice += $product->price * $product->pivot->amount;
-            // Update product stock
-            $product->stock -= $product->pivot->amount;
-            $product->save();
-        }
-
-        // Update cart details
-        $cart->delivery_date = $request->delivery_date;
-        $cart->payment_complete = true;
-        $cart->total_price = $totalPrice;
-        $cart->save();
-
-        return redirect()->route('home');
+    // Check if a cart exists for the user
+    $cart = Cart::where('user_id', $userId)->where('payment_complete', 0)->first();
+    if (!$cart) {
+        return response()->json(['error' => 'Cart not found'], 404);
     }
+
+    $syncData = [];
+
+    foreach($request->product_id as $productId){
+        $amount = $request->input('products.' . $productId);
+        $syncData[$productId] = ['amount' => $amount];
+    }
+
+    // Sync products with updated quantities
+    $cart->products()->sync($syncData);
+
+    $products = $cart->products()->get();
+
+    $totalPrice = 0;
+
+    foreach($products as $product) {
+        $amount = $product->pivot->amount; // Amount from pivot table
+        $product->stock -= $amount; // Adjust stock
+
+        // Recalculate price based on new amount
+        $price = $product->price * $amount;
+
+        // Update total price
+        $totalPrice += $price;
+
+        // Save changes to product
+        $product->save();
+    }
+
+    // Update cart total price
+    $cart->total_price = $totalPrice;
+    $cart->delivery_date = now(); // Assuming delivery date is set to now for simplicity
+    $cart->payment_complete = true;
+    $cart->save();
+
+    return redirect()->route('home');
+}
 
 
 }

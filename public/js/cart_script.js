@@ -74,16 +74,16 @@ function increase(itemId, itemPrice) {
     var infoPrice_element = document.getElementById("infoPrice_" + itemId);
     var sum = itemPrice * count;
 
-    infoPrice_element.innerHTML = "€ " + "<b>" + sum.toFixed(2);
-    +"</b>";
+    infoPrice_element.innerHTML = "€ " + "<b>" + sum.toFixed(2) + "</b>";
     count_element.innerHTML = count;
-    inputEl.value = count;
+    inputEl.value = count; // Update hidden input field with new amount
 
     calcTotalPrice();
 }
 
 function decrease(itemId, itemPrice) {
     var count_element = document.getElementById("itemAmount_" + itemId);
+    var inputEl = document.getElementById("itemAmountInput_" + itemId);
     var count = Number(count_element.innerHTML);
     count -= 1;
     if (count <= 1) {
@@ -91,9 +91,9 @@ function decrease(itemId, itemPrice) {
     }
     var infoPrice_element = document.getElementById("infoPrice_" + itemId);
     var sum = itemPrice * count;
-    infoPrice_element.innerHTML = "€ " + "<b>" + sum.toFixed(2);
-    +"</b>";
+    infoPrice_element.innerHTML = "€ " + "<b>" + sum.toFixed(2) + "</b>";
     count_element.innerHTML = count;
+    inputEl.value = count; // Update hidden input field with new amount
 
     calcTotalPrice();
 }
