@@ -99,6 +99,9 @@ class CartController extends Controller
             // Save changes to product
             $product->save();
         }
+        if($totalPrice < 50){
+            $totalPrice += 50;
+        }
 
         // Update cart total price
         $cart->total_price = $totalPrice;
