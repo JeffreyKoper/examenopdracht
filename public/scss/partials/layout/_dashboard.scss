@@ -72,6 +72,7 @@
 .order_history {
     padding: 1rem;
     display: flex;
+    flex-direction: column;
     background-color: $accent-color;
     color: $bg-color;
     margin: 0.5rem;

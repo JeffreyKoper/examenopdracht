@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('cart_id');
             $table->foreign('cart_id')->references('id')->on('cart')->onDelete('cascade');
             $table->integer('amount');
+            $table->double('product_cart_price');
             $table->timestamps();
         });
     }
