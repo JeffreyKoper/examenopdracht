@@ -31,8 +31,6 @@
         </form>
     </div>
     @if($data->role == "admin")
-        
-       
     <div class="dashboard_create">
         <br>
         <form method="POST" action="{{route('user.create')}}" class="dashboard_edit_form">
@@ -53,6 +51,30 @@
         </form>
     </div>
     @endif
+</div>
+<div class="order_history">
+    @foreach ($order_data as $order)
+<div class="orders">
+    <h2>Order #{{$order->id}}</h2>
+    <table>
+        @foreach ($order->products as $product)
+        <tr>
+            <td><img src="{{$product->image}}" alt="{{$product->name}}" height="50%" width="50%"></td>
+            <td>{{$product->name}}</td>
+            <td>Amount placeholder</td>
+            <td>€{{$product->price}}</td>
+        </tr>
+        @endforeach
+    </table>
+    <h2>Total Price: € {{$order->total_price}}</h2>
+    @if($order->code_used != NULL)
+    <h3> code used: {{$order->code}}</h3>
+    <h2> Total Price incl. discounts: € {{$order->discounted_price}}</h2>
+    @endif
+    <h2>Delivered on: {{$order->delivery_date}}</h2>
+    <a class="disclaimer" href="{{@route('contact')}}">Not delivered? Let us know! Click here to be sent to the contact page.</a>
+</div>
+@endforeach
 </div>
 <script src="js/dashboard_script.js"></script>
 @endsection

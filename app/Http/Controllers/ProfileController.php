@@ -26,10 +26,11 @@ class ProfileController extends Controller
 
         // Check if the user is authenticated
         if ($user) {
-            $pickup_data = Cart::join('users', 'cart.user_id', '=', 'users.id')
+            $order_data = Cart::join('users', 'cart.user_id', '=', 'users.id')
+            ->where('cart.user_id', $user->id) 
             ->where('cart.payment_complete', 1)
-            ->get(['cart.id', 'users.name', 'cart.delivery_date']);
-            return view('dashboard', ['data' => $user, 'pickup_data' => $pickup_data]);
+            ->get();
+            return view('dashboard', ['data' => $user, 'order_data' => $order_data]);
         } else {
             // Handle the case where the user is not authenticated
             // Redirect to login or display an error message

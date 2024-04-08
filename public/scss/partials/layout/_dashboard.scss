@@ -69,3 +69,27 @@
         }
     }
 }
+.order_history {
+    padding: 1rem;
+    display: flex;
+    background-color: $accent-color;
+    color: $bg-color;
+    margin: 0.5rem;
+    border-radius: 2rem;
+    justify-content: center;
+    .orders {
+        display: flex;
+        flex-direction: column;
+        a {
+            color: $bg-color;
+            opacity: 0.8;
+            font-weight: $font-weight-400;
+            font-size: $font-size-xs;
+            transition: font-weight 0.5s ease-in-out;
+            &:hover {
+                opacity: 1;
+                font-weight: $font-weight-700;
+            }
+        }
+    }
+}
