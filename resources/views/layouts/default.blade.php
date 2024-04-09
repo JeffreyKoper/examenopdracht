@@ -13,7 +13,7 @@
 <body>
     <header>
         <div class="header">
-                <a href="/" class="logo-title"><img class="logo" src="{{ asset('img/logo.png')}}" alt=""></a>
+                <a href="/"><img class="logo" src="{{ asset('img/logo.png')}}" alt=""></a>
             <nav>
                 <ul class="navigation">
                     <li><a href="{{ route('home') }}" class="nav-link">Home</a></li>
@@ -25,9 +25,9 @@
                         <li><a href="{{route('register')}}" class="nav-link">Register</a></li>
                     @endguest
                     @auth
-                    <li><a href="{{route('cart')}}" class="nav-link">Cart</a></li>
-                    <li><a href="{{route('dashboard')}}" class="nav-link">{{ auth()->user()->name }}</a></li>
-                    <li><a href="{{route('logout')}}" class="nav-link">Log out</a></li>
+                        <li><a href="{{route('cart')}}" class="nav-link">Cart</a></li>
+                        <li><a href="{{route('dashboard')}}" class="nav-link">{{ auth()->user()->name }}</a></li>
+                        <li><a href="{{route('logout')}}" class="nav-link">Log out</a></li>
                     @endauth    
                 </ul>
             </nav>

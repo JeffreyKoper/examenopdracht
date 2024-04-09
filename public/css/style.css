@@ -603,7 +603,7 @@ footer {
   font-weight: 700;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
-  cursor: pointer; /* Add cursor pointer for better usability */
+  cursor: pointer;
 }
 
 .card_stars_submit:focus, .card_stars_submit:hover {
@@ -838,23 +838,72 @@ footer {
 
 .contact {
   display: flex;
+  border-radius: 2rem;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
   background-color: #cd5c5c;
   padding: 2rem;
   color: #f5f5dc;
   margin-inline: 2rem;
   margin-block-end: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact_header {
+  width: 75%;
+  text-align: center;
 }
 
 .contact_items {
   display: flex;
-  width: 50%;
+  width: 80%;
+  max-width: 500px;
   flex-direction: column;
+  padding: 1rem;
+}
+
+.contact_items label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.contact_items input[type=text],
+.contact_items textarea {
+  border: 1px solid #e9967a;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.contact_items input[type=text]:focus,
+.contact_items textarea:focus {
+  outline: none;
+  border-color: #8b4513;
 }
 
 .contact_items textarea {
   resize: none;
+  min-height: 150px;
+}
+
+.contact_items button {
+  block-size: 3rem;
+  border: none;
+  border-radius: 30rem;
+  background-color: #e9967a;
+  color: #f5f5dc;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 1rem;
+}
+
+.contact_items button:hover {
+  background-color: #e2734e;
 }
 
 /*# sourceMappingURL=style.css.map */
