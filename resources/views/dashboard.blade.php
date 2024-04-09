@@ -53,28 +53,34 @@
     @endif
 </div>
 <div class="order_history">
-    @foreach ($order_data as $order)
+    <h1>Past Orders:</h1>
+@if($order_data->isEmpty())
+<h2 style="text-align: center"> You don't have any past purchases made on this account.</h2>
+@endif
+
+@foreach ($order_data as $order)
 <div class="orders">
     <h2>Order #{{$order->id}}</h2>
     <table>
         @foreach ($order->products as $product)
         <tr>
-            <td><img src="{{$product->image}}" alt="{{$product->name}}" height="50%" width="50%"></td>
-            <td>{{$product->name}}</td>
-            <td>Amount placeholder</td>
-            <td>€{{$product->price}}</td>
+            <td><img src="{{$product->img_filepath}}" alt="{{$product->product_name}}" height="10%" width="10%"></td>
+            <td>{{$product->product_name}}</td>
+            <td>{{$product->pivot->amount}}</td>
+            <td>€ {{$product->pivot->product_cart_price}}</td>
         </tr>
         @endforeach
     </table>
     <h2>Total Price: € {{$order->total_price}}</h2>
     @if($order->code_used != NULL)
-    <h3> code used: {{$order->code}}</h3>
+    <h3> code used: {{$order->code_used}}</h3>
     <h2> Total Price incl. discounts: € {{$order->discounted_price}}</h2>
     @endif
     <h2>Delivered on: {{$order->delivery_date}}</h2>
-    <a class="disclaimer" href="{{@route('contact')}}">Not delivered? Let us know! Click here to be sent to the contact page.</a>
+    <a class="disclaimer" href="{{ route('contact') }}">Not delivered? Let us know! Click here to be sent to the contact page.</a>
 </div>
 @endforeach
+
 </div>
 <script src="js/dashboard_script.js"></script>
 @endsection

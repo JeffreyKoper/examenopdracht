@@ -22,13 +22,13 @@ class UserSeeder extends Seeder
                 'role' => "admin",
             ],
             [
-                'name' => "nika Mancev",
+                'name' => "Nika Mancev",
                 'email' => "nicha.work@outlook.com",
                 'password' => hash::make('LegendOfZelda'),
                 'role' => "user",
             ]
-            ];
-            
-            DB::table('users')->insert($users);
+        ];
+
+        DB::table('users')->insert($users);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Cart;
+use App\Models\Product_cart;
 use App\Models\User;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\RedirectResponse;
@@ -19,7 +20,7 @@ class ProfileController extends Controller
      * Display the user's profile form.
      */
 
-     public function singleUserDashboard()
+    public function singleUserDashboard()
     {
         // Retrieve the currently authenticated user
         $user = auth()->user();
@@ -27,10 +28,19 @@ class ProfileController extends Controller
         // Check if the user is authenticated
         if ($user) {
             $order_data = Cart::join('users', 'cart.user_id', '=', 'users.id')
-            ->where('cart.user_id', $user->id) 
-            ->where('cart.payment_complete', 1)
-            ->get();
-            return view('dashboard', ['data' => $user, 'order_data' => $order_data]);
+                ->where('cart.user_id', $user->id)
+                ->where('cart.payment_complete', 1)
+                ->select('cart.id', 'users.id as user_id', 'users.name', 'cart.created_at', 'cart.total_price', 'cart.delivery_date', 'cart.code_used', 'cart.discounted_price', 'cart.code_used')
+                ->get();
+            $products = [];
+            foreach ($order_data as $order) {
+                $product_cart = Product_cart::join('products', 'product_cart.product_id', '=', 'products.id')
+                    ->where('product_cart.cart_id', $order->id)
+                    ->select('product_cart.*', 'products.price as product_cart_price')
+                    ->get();
+                $products[$order->id] = $product_cart;
+            }
+            return view('dashboard', ['data' => $user, 'order_data' => $order_data, 'products_data' => $products]);
         } else {
             // Handle the case where the user is not authenticated
             // Redirect to login or display an error message
@@ -82,7 +92,8 @@ class ProfileController extends Controller
         return Redirect::to('/');
     }
 
-    public function singleUserUpdate(Request $request){
+    public function singleUserUpdate(Request $request)
+    {
         $user_id = auth()->user();
         $user = User::find($user_id->id);
         $user->name = $request->accountName;
@@ -90,20 +101,22 @@ class ProfileController extends Controller
         $user->save();
         return redirect()->route('dashboard');
     }
-    public function singleUserDelete(Request $request){
-        $user_id= auth()->user();
+    public function singleUserDelete(Request $request)
+    {
+        $user_id = auth()->user();
         $user = User::find($user_id->id);
         Auth::logout();
         $user->delete();
         return redirect()->route('home');
     }
-    public function create(Request $request){
+    public function create(Request $request)
+    {
         $user = new User();
         $user->name = $request->accountName;
         $user->email = $request->accountEmail;
         $user->role = $request->accountRole;
         $user->password = Hash::make($request->accountPassword);;
         $user->save();
-        return redirect()->route('dashboard');  
+        return redirect()->route('dashboard');
     }
 }

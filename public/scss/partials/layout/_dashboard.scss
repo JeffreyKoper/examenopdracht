@@ -87,6 +87,7 @@
             font-weight: $font-weight-400;
             font-size: $font-size-xs;
             transition: font-weight 0.5s ease-in-out;
+            max-inline-size: 38%;
             &:hover {
                 opacity: 1;
                 font-weight: $font-weight-700;
