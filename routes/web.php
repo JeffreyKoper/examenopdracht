@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
@@ -24,16 +25,18 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+Route::post('/sendMessage', [ContactController::class, 'create'])->middleware(['auth', 'verified']);
+
 Route::post('/add_to_cart', [CartController::class, 'create'])->middleware(['auth', 'verified']);
 Route::get('/cart', [CartController::class, 'cartpage'])->name('cart');
 Route::post('/confirmPayment', [CartController::class, 'confirmPayment'])->name('confirm_payment');
 
 
 
-Route::get('/dashboard',[ProfileController::class, "singleUserDashboard"])->middleware(['auth', 'verified'])->name('dashboard');
-Route::post('/dashboard/user_save',[ProfileController::class, "singleUserUpdate"])->middleware(['auth', 'verified'])->name('user.update');
-Route::post('/dashboard/user_delete',[ProfileController::class, "singleUserDelete"])->middleware(['auth', 'verified'])->name('user.delete');
-Route::post('/dashboard/user_create',[ProfileController::class, "create"])->middleware(['auth', 'verified'])->name('user.create');
+Route::get('/dashboard', [ProfileController::class, "singleUserDashboard"])->middleware(['auth', 'verified'])->name('dashboard');
+Route::post('/dashboard/user_save', [ProfileController::class, "singleUserUpdate"])->middleware(['auth', 'verified'])->name('user.update');
+Route::post('/dashboard/user_delete', [ProfileController::class, "singleUserDelete"])->middleware(['auth', 'verified'])->name('user.delete');
+Route::post('/dashboard/user_create', [ProfileController::class, "create"])->middleware(['auth', 'verified'])->name('user.create');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -42,4 +45,4 @@ Route::middleware('auth')->group(function () {
 });
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

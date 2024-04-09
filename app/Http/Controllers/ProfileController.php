@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Cart;
+use App\Models\Contact;
 use App\Models\Product_cart;
 use App\Models\User;
 use GuzzleHttp\Psr7\Response;
@@ -27,6 +28,7 @@ class ProfileController extends Controller
 
         // Check if the user is authenticated
         if ($user) {
+            $contacts = Contact::where('user_id', $user->id)->get();
             $order_data = Cart::join('users', 'cart.user_id', '=', 'users.id')
                 ->where('cart.user_id', $user->id)
                 ->where('cart.payment_complete', 1)
@@ -40,7 +42,7 @@ class ProfileController extends Controller
                     ->get();
                 $products[$order->id] = $product_cart;
             }
-            return view('dashboard', ['data' => $user, 'order_data' => $order_data, 'products_data' => $products]);
+            return view('dashboard', ['data' => $user, 'order_data' => $order_data, 'products_data' => $products, 'contacts' => $contacts]);
         } else {
             // Handle the case where the user is not authenticated
             // Redirect to login or display an error message

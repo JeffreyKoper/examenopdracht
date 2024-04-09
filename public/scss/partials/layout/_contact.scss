@@ -3,8 +3,15 @@
 .contact {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    background-color: $accent-color;
+    padding: 2rem;
+    color: $bg-color;
+    margin-inline: 2rem;
+    margin-block-end: 1rem;
     &_items {
         display: flex;
+        width: 50%;
         flex-direction: column;
         textarea {
             resize: none;

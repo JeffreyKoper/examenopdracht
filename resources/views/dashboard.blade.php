@@ -53,8 +53,8 @@
     @endif
 </div>
 <div class="titles">
-<h1>Past Orders:</h1>
-<h1>Inbox:</h1>
+<h1>Previous Orders:</h1>
+<h1>Mail Inbox:</h1>
 </div>
 
 <div class="bottom_section">
@@ -94,10 +94,17 @@
 @endforeach
 </div>
 <div class="contact_messages">
+    @foreach ($contacts as $contact)
+    
     <div class="contact_messages_list">
-    <h1>hello world!</h1>
-    <p class="inboxText">Testing the text inside a inbox to see if it gets shortend</p>
+    <h1>{{$contact->title}}</h1>
+    <p class="inboxText">{{$contact->description}}</p>
+    @if($contact->admin_reply != NULL)
+    <p style="font-weight: 700">This message got a reply! click to view it!</p>
+    @endif
 </div>
+    @endforeach
+
 </div>
 </div>
 
