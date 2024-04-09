@@ -39,26 +39,38 @@ function calcTotalPrice() {
 
         // Add the product subtotal to the total price
         totalPrice += subtotal;
-
-        var totalPrice_element = document.getElementById("totalPrice");
-        var shipping_element = document.getElementById("shippingPrice");
-        var totalPriceMax_element = document.getElementById("total_price_tax");
-
-        totalPrice_element.innerHTML =
-            "Total price excl. tax: € " + totalPrice.toFixed(2);
-        var taxTotalPrice = totalPrice + 50;
-        if (totalPrice >= 50) {
-            taxTotalPrice = totalPrice;
-            shipping_element.innerHTML = "Shipping Tax € 0.00";
-            totalPriceMax_element.innerHTML =
-                "Total price incl. tax: € " + taxTotalPrice.toFixed(2);
-        } else if (totalPrice < 50) {
-            shipping_element.innerHTML = "Shipping Tax € 50.00";
-            taxTotalPrice = totalPrice + 50;
-            totalPriceMax_element.innerHTML =
-                "Total price incl. tax: € " + taxTotalPrice.toFixed(2);
-        }
     }
+
+    var totalPrice_element = document.getElementById("totalPrice");
+    var shipping_element = document.getElementById("shippingPrice");
+    var totalPriceMax_element = document.getElementById("total_price_tax");
+
+    totalPrice_element.innerHTML =
+        "Total price excl. tax: € " + totalPrice.toFixed(2);
+    var taxTotalPrice = totalPrice + 50;
+    if (totalPrice >= 50) {
+        taxTotalPrice = totalPrice;
+        shipping_element.innerHTML = "Shipping Tax € 0.00";
+        totalPriceMax_element.innerHTML =
+            "Total price incl. tax: € " + taxTotalPrice.toFixed(2);
+    } else if (totalPrice < 50) {
+        shipping_element.innerHTML = "Shipping Tax € 50.00";
+        taxTotalPrice = totalPrice + 50;
+        totalPriceMax_element.innerHTML =
+            "Total price incl. tax: € " + taxTotalPrice.toFixed(2);
+    }
+
+    totalPrice_element.style.animation = "none"; // Reset animation
+    shipping_element.style.animation = "none"; // Reset animation
+    totalPriceMax_element.style.animation = "none"; // Reset animation
+
+    totalPrice_element.offsetHeight; /* trigger reflow */
+    shipping_element.offsetHeight; /* trigger reflow */
+    totalPriceMax_element.offsetHeight; /* trigger reflow */
+
+    totalPrice_element.style.animation = null; // Remove inline style to trigger animation
+    shipping_element.style.animation = null; // Remove inline style to trigger animation
+    totalPriceMax_element.style.animation = null; // Remove inline style to trigger animation
 }
 
 function increase(itemId, itemPrice) {

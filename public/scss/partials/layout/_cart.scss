@@ -64,3 +64,19 @@
     background-color: $secondary-color;
     border-radius: 1rem;
 }
+@keyframes changePrice {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#totalPrice,
+#shippingPrice,
+#total_price_tax {
+    animation: changePrice 0.3s ease;
+}

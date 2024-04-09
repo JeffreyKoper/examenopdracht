@@ -1,0 +1,13 @@
+@use "../abstracts/" as *;
+
+.contact {
+    display: flex;
+    justify-content: center;
+    &_items {
+        display: flex;
+        flex-direction: column;
+        textarea {
+            resize: none;
+        }
+    }
+}

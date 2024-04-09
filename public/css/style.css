@@ -505,6 +505,22 @@ footer {
   border-radius: 1rem;
 }
 
+@keyframes changePrice {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#totalPrice,
+#shippingPrice,
+#total_price_tax {
+  animation: changePrice 0.3s ease;
+}
+
 .card_header {
   display: flex;
   flex-direction: column;
@@ -730,7 +746,7 @@ footer {
 .dashboard_buttons .edit {
   border: solid #e9967a 0.2rem;
   background-color: #f5f5dc;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .dashboard_buttons .delete {
@@ -741,34 +757,90 @@ footer {
   border: solid #f5f5dc 0.2rem;
 }
 
-.order_history {
+.titles {
+  display: flex;
+  justify-content: space-around;
+}
+
+.contact_messages {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.contact_messages_list {
+  display: flex;
+  flex-direction: column;
+  background-color: #cd5c5c;
+  color: #f5f5dc;
+  border-radius: 2rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.bottom_section {
+  display: flex;
+  justify-content: space-around;
+}
+
+.bottom_section .order_list {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+}
+
+.bottom_section .order_list .order_history {
   padding: 1rem;
   display: flex;
   flex-direction: column;
   background-color: #cd5c5c;
   color: #f5f5dc;
-  margin: 0.5rem;
+  margin: 1rem;
   border-radius: 2rem;
   justify-content: center;
 }
 
-.order_history .orders {
+.bottom_section .order_list .order_history .orders {
   display: flex;
   flex-direction: column;
 }
 
-.order_history .orders a {
+.bottom_section .order_list .order_history .orders table {
+  text-align: center;
+}
+
+.bottom_section .order_list .order_history .orders table img {
+  aspect-ratio: 1/1;
+  max-width: 200px;
+  border-radius: 1rem;
+  max-height: 150px;
+}
+
+.bottom_section .order_list .order_history .orders a {
   color: #f5f5dc;
   opacity: 0.8;
   font-weight: 400;
   font-size: clamp(0.75rem, 0.34vw + 0.66rem, 0.94rem);
   transition: font-weight 0.5s ease-in-out;
-  max-inline-size: 38%;
 }
 
-.order_history .orders a:hover {
+.bottom_section .order_list .order_history .orders a:hover {
   opacity: 1;
   font-weight: 700;
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+}
+
+.contact_items {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact_items textarea {
+  resize: none;
 }
 
 /*# sourceMappingURL=style.css.map */

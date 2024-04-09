@@ -58,7 +58,7 @@
         .edit {
             border: solid $secondary-color 0.2rem;
             background-color: $bg-color;
-            font-weight: $font-weight-400;
+            font-weight: $font-weight-500;
         }
         .delete {
             background-color: $error-color;
@@ -69,28 +69,63 @@
         }
     }
 }
-.order_history {
-    padding: 1rem;
+.titles {
+    display: flex;
+    justify-content: space-around;
+}
+.contact_messages {
     display: flex;
     flex-direction: column;
-    background-color: $accent-color;
-    color: $bg-color;
-    margin: 0.5rem;
-    border-radius: 2rem;
-    justify-content: center;
-    .orders {
+    text-align: center;
+    &_list {
         display: flex;
         flex-direction: column;
-        a {
+        background-color: $accent-color;
+        color: $bg-color;
+        border-radius: 2rem;
+        width: 100%;
+        padding: 1rem;
+    }
+}
+.bottom_section {
+    display: flex;
+    justify-content: space-around;
+    .order_list {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        .order_history {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            background-color: $accent-color;
             color: $bg-color;
-            opacity: 0.8;
-            font-weight: $font-weight-400;
-            font-size: $font-size-xs;
-            transition: font-weight 0.5s ease-in-out;
-            max-inline-size: 38%;
-            &:hover {
-                opacity: 1;
-                font-weight: $font-weight-700;
+            margin: 1rem;
+            border-radius: 2rem;
+            justify-content: center;
+            .orders {
+                display: flex;
+                flex-direction: column;
+                table {
+                    text-align: center;
+                    img {
+                        aspect-ratio: 1/1;
+                        max-width: 200px;
+                        border-radius: 1rem;
+                        max-height: 150px;
+                    }
+                }
+                a {
+                    color: $bg-color;
+                    opacity: 0.8;
+                    font-weight: $font-weight-400;
+                    font-size: $font-size-xs;
+                    transition: font-weight 0.5s ease-in-out;
+                    &:hover {
+                        opacity: 1;
+                        font-weight: $font-weight-700;
+                    }
+                }
             }
         }
     }

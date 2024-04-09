@@ -3,7 +3,14 @@
 
 
 <h1>CONTACT</h1>
-
+<form class="contact" action="">
+    <div class="contact_items">
+    <label for="">Title</label>
+    <input type="text">
+    <label for="">Message</label>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+</div>    
+</form>
 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo ut magni quibusdam exercitationem. Molestias ea expedita quae earum eveniet adipisci eaque aut ipsa itaque quo architecto, officia, perspiciatis, iusto repudiandae. Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
 Molestias ducimus similique dolores voluptatem recusandae ullam, officiis fuga eligendi accusantium minus suscipit laudantium cupiditate placeat consequatur veniam maiores qui aliquam earum. 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis facere veniam aliquam incidunt sequi tenetur obcaecati suscipit dicta saepe voluptatem nisi eius vel officiis ratione expedita voluptas, consequatur rerum natus! 

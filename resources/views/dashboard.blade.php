@@ -22,7 +22,7 @@
         <br>
         <form method="POST" action="{{route('user.update')}}" class="dashboard_edit_form">
             @csrf
-            <h4>Edit your account:</h4>
+            <h4>Edit your account information:</h4>
             <label for="accountName">Name</label>
             <input type="text" name="accountName" id="accountName" value="{{$data->name}}">
             <label for="accountEmail">Email</label>
@@ -52,35 +52,54 @@
     </div>
     @endif
 </div>
-<div class="order_history">
-    <h1>Past Orders:</h1>
-@if($order_data->isEmpty())
-<h2 style="text-align: center"> You don't have any past purchases made on this account.</h2>
-@endif
+<div class="titles">
+<h1>Past Orders:</h1>
+<h1>Inbox:</h1>
+</div>
 
+<div class="bottom_section">
+@if($order_data->isEmpty())
+    <h2 class="dashboard" style="text-align: center"> You don't have any past purchases made on this account.</h2>
+@endif
+<div class="order_list">
 @foreach ($order_data as $order)
-<div class="orders">
-    <h2>Order #{{$order->id}}</h2>
-    <table>
-        @foreach ($order->products as $product)
-        <tr>
-            <td><img src="{{$product->img_filepath}}" alt="{{$product->product_name}}" height="10%" width="10%"></td>
-            <td>{{$product->product_name}}</td>
-            <td>{{$product->pivot->amount}}</td>
-            <td>€ {{$product->pivot->product_cart_price}}</td>
-        </tr>
-        @endforeach
-    </table>
-    <h2>Total Price: € {{$order->total_price}}</h2>
-    @if($order->code_used != NULL)
-    <h3> code used: {{$order->code_used}}</h3>
-    <h2> Total Price incl. discounts: € {{$order->discounted_price}}</h2>
-    @endif
-    <h2>Delivered on: {{$order->delivery_date}}</h2>
-    <a class="disclaimer" href="{{ route('contact') }}">Not delivered? Let us know! Click here to be sent to the contact page.</a>
+<div class="order_history">
+    <div class="orders">
+        <h2>Order #{{$order->id}}</h2>
+        <table>
+            <tr>
+                <th>Product Image</th>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Price</th>
+            </tr>
+            @foreach ($order->products as $product)
+            <tr>
+                <td align="center"><img src="{{$product->img_filepath}}" alt="{{$product->product_name}}"></td>
+                <td>{{$product->product_name}}</td>
+                <td>{{$product->pivot->amount}}</td>
+                <td>€ {{number_format($product->pivot->product_cart_price, 2)}}</td>
+            </tr>
+            @endforeach
+        </table>
+        <h2>Total Price incl. tax: € {{number_format($order->total_price, 2) }}</h2>
+        @if($order->code_used != NULL)
+        <h3> code used: {{$order->code_used}}</h3>
+        <h2> Total Price incl. discounts: € {{number_format($order->discounted_price, 2)}}</h2>
+        @endif
+        <h2>Delivered on: {{$order->delivery_date}}</h2>
+        <a class="disclaimer" href="{{ route('contact') }}">Not delivered? Let us know! Click here to be sent to the contact page.</a>
+    </div>
 </div>
 @endforeach
-
 </div>
+<div class="contact_messages">
+    <div class="contact_messages_list">
+    <h1>hello world!</h1>
+    <p class="inboxText">Testing the text inside a inbox to see if it gets shortend</p>
+</div>
+</div>
+</div>
+
 <script src="js/dashboard_script.js"></script>
 @endsection
