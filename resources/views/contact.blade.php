@@ -2,7 +2,7 @@
 @section('content')
 
 
-<h1>CONTACT</h1>
+<h1>CONTACT:</h1>
 @auth
 <form class="contact" action="/sendMessage" method="POST">
     @csrf

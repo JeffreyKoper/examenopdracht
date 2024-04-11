@@ -23,6 +23,7 @@
         width: 80%; // Adjusted width for better responsiveness
         max-width: 500px; // Added max-width for better scalability
         flex-direction: column;
+        border: solid 0.4rem $secondary-color;
         padding: 1rem; // Added padding for better spacing
         label {
             font-weight: bold; // Added bold font for labels
@@ -30,22 +31,22 @@
         }
         input[type="text"],
         textarea {
-            border: 1px solid $secondary-color; // Added border for input fields
-            border-radius: 0.5rem; // Added border-radius for input fields
-            padding: 0.5rem; // Added padding for input fields
-            margin-bottom: 1rem; // Added margin for spacing
-            width: 100%; // Ensured input fields occupy full width
+            border: 0.3rem solid $secondary-color;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            width: 100%;
             &:focus {
-                outline: none; // Removed default focus outline
-                border-color: $primary-color; // Changed border color on focus
+                outline: none;
+                border-color: $primary-color;
             }
         }
         textarea {
             resize: none;
-            min-height: 150px; // Ensured textarea has a minimum height
+            min-height: 150px;
         }
         button {
-            block-size: 3rem; // Increased button height for better clickability
+            block-size: 3rem;
             border: none;
             border-radius: 30rem;
             background-color: $secondary-color;

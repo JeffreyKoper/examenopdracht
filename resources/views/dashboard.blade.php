@@ -54,12 +54,12 @@
 </div>
 <div class="titles">
 <h1>Previous Orders:</h1>
-<h1>Mail Inbox:</h1>
+<h1>Your Messages:</h1>
 </div>
 
 <div class="bottom_section">
 @if($order_data->isEmpty())
-    <h2 class="dashboard" style="text-align: center"> You don't have any past purchases made on this account.</h2>
+    <h2 class="order_list"> You don't have any past purchases made on this account.</h2>
 @endif
 <div class="order_list">
 @foreach ($order_data as $order)
@@ -97,10 +97,10 @@
     @foreach ($contacts as $contact)
     
     <div class="contact_messages_list">
-    <h1>{{$contact->title}}</h1>
+    <h2>{{$contact->title}}</h2>
     <p class="inboxText">{{$contact->description}}</p>
     @if($contact->admin_reply != NULL)
-    <p style="font-weight: 700">This message got a reply! click to view it!</p>
+    <a href="" class="contact_messages_link">This message got a reply! click to view it!</a>
     @endif
 </div>
     @endforeach

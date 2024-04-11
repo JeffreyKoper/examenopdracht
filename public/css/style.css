@@ -442,6 +442,7 @@ footer {
 .container {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
 }
 
 .cart-list {
@@ -768,31 +769,16 @@ footer {
   justify-content: space-around;
 }
 
-.contact_messages {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.contact_messages_list {
-  display: flex;
-  flex-direction: column;
-  background-color: #cd5c5c;
-  color: #f5f5dc;
-  border-radius: 1rem;
-  width: 100%;
-  border: solid 0.3rem #e9967a;
-  padding: 1rem;
-}
-
 .bottom_section {
   display: flex;
+  align-items: flex-start;
 }
 
 .bottom_section .order_list {
   display: flex;
   width: 50%;
   flex-direction: column;
+  flex-shrink: 0;
 }
 
 .bottom_section .order_list .order_history {
@@ -836,6 +822,37 @@ footer {
   font-weight: 700;
 }
 
+.bottom_section .contact_messages {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0.2rem;
+  background-color: #e9967a;
+  text-align: center;
+  border-radius: 2rem;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+  max-width: 50rem;
+}
+
+.bottom_section .contact_messages_list {
+  display: flex;
+  margin: 0.5rem;
+  flex-direction: column;
+  background-color: #cd5c5c;
+  color: #f5f5dc;
+  border-radius: 1rem;
+  width: 15rem;
+  max-height: 20rem;
+  padding: 1rem;
+}
+
+.bottom_section .contact_messages_link {
+  margin-top: 0.5rem;
+  color: #f5f5dc;
+  font-weight: 700;
+}
+
 .contact {
   display: flex;
   border-radius: 2rem;
@@ -860,6 +877,7 @@ footer {
   width: 80%;
   max-width: 500px;
   flex-direction: column;
+  border: solid 0.4rem #e9967a;
   padding: 1rem;
 }
 
@@ -870,7 +888,7 @@ footer {
 
 .contact_items input[type=text],
 .contact_items textarea {
-  border: 1px solid #e9967a;
+  border: 0.3rem solid #e9967a;
   border-radius: 0.5rem;
   padding: 0.5rem;
   margin-bottom: 1rem;

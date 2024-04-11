@@ -3,6 +3,7 @@
 .container {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
 }
 .cart-list {
     display: flex;
