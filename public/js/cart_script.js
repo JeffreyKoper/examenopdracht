@@ -1,4 +1,3 @@
-window.onload = calcTotalPrice();
 document.getElementById("deliveryDate").addEventListener("change", function () {
     var confirmOrderButton = document.getElementById("confirmOrderButton");
     if (this.value !== "") {
