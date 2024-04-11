@@ -32,7 +32,7 @@ class ProfileController extends Controller
             $order_data = Cart::join('users', 'cart.user_id', '=', 'users.id')
                 ->where('cart.user_id', $user->id)
                 ->where('cart.payment_complete', 1)
-                ->select('cart.id', 'users.id as user_id', 'users.name', 'cart.created_at', 'cart.total_price', 'cart.delivery_date', 'cart.code_used', 'cart.discounted_price', 'cart.code_used')
+                ->select('cart.id', 'users.id as user_id', 'users.name', 'cart.created_at', 'cart.total_price', 'cart.delivery_date', 'cart.code_used', 'cart.discounted_price', 'cart.code_used', 'cart.updated_at')
                 ->get();
             $products = [];
             foreach ($order_data as $order) {

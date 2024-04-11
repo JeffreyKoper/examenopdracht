@@ -25,6 +25,10 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+Route::get('/contact/admin', function () {
+    return view('contact.admin');
+})->name('contact.admin');
+
 Route::post('/sendMessage', [ContactController::class, 'create'])->middleware(['auth', 'verified']);
 
 Route::post('/add_to_cart', [CartController::class, 'create'])->middleware(['auth', 'verified']);
@@ -37,6 +41,8 @@ Route::get('/dashboard', [ProfileController::class, "singleUserDashboard"])->mid
 Route::post('/dashboard/user_save', [ProfileController::class, "singleUserUpdate"])->middleware(['auth', 'verified'])->name('user.update');
 Route::post('/dashboard/user_delete', [ProfileController::class, "singleUserDelete"])->middleware(['auth', 'verified'])->name('user.delete');
 Route::post('/dashboard/user_create', [ProfileController::class, "create"])->middleware(['auth', 'verified'])->name('user.create');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -58,10 +58,12 @@
 </div>
 
 <div class="bottom_section">
-@if($order_data->isEmpty())
-    <h2 class="order_list"> You don't have any past purchases made on this account.</h2>
-@endif
 <div class="order_list">
+    @if($order_data->isEmpty())
+    <div class="order_history">
+    <h2 class="orders"> You don't have any past purchases made on this account.</h2>
+    </div>
+@endif
 @foreach ($order_data as $order)
 <div class="order_history">
     <div class="orders">
@@ -87,6 +89,7 @@
         <h3> code used: {{$order->code_used}}</h3>
         <h2> Total Price incl. discounts: € {{number_format($order->discounted_price, 2)}}</h2>
         @endif
+        <h3>ordered on: {{$order->updated_at}} (UTC+2)</h3>
         <h2>Delivered on: {{$order->delivery_date}}</h2>
         <a class="disclaimer" href="{{ route('contact') }}">Not delivered? Let us know! Click here to be sent to the contact page.</a>
     </div>

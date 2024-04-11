@@ -776,7 +776,7 @@ footer {
 
 .bottom_section .order_list {
   display: flex;
-  width: 50%;
+  width: 46%;
   flex-direction: column;
   flex-shrink: 0;
 }
@@ -843,7 +843,7 @@ footer {
   color: #f5f5dc;
   border-radius: 1rem;
   width: 15rem;
-  max-height: 20rem;
+  max-height: 30rem;
   padding: 1rem;
 }
 
@@ -865,6 +865,25 @@ footer {
   margin-inline: 2rem;
   margin-block-end: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact_admin {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.contact_admin .admin_messages {
+  display: flex;
+  flex-flow: column wrap;
+  background-color: #cd5c5c;
+  color: #f5f5dc;
+  border-radius: 2rem;
+  padding: 1rem;
+}
+
+.contact_admin .admin_messages textarea {
+  resize: none;
 }
 
 .contact_header {

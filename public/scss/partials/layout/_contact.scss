@@ -13,6 +13,22 @@
     margin-block-end: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // Added box-shadow for depth
 
+    &_admin {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        .admin_messages {
+            display: flex;
+            flex-flow: column wrap;
+            background-color: $accent-color;
+            color: $bg-color;
+            border-radius: 2rem;
+            padding: 1rem;
+            textarea {
+                resize: none;
+            }
+        }
+    }
     &_header {
         width: 75%;
         text-align: center;
