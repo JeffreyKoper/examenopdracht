@@ -22,6 +22,9 @@ class ContactController extends Controller
     }
     public function showAdmin()
     {
+        if (auth()->user()->role !== 'admin') {
+            return redirect()->route('home');
+        }
         $contacts = contact::where('admin_reply', '=', NULL)->get();
         return view('contact.admin', ['contacts' => $contacts]);
     }

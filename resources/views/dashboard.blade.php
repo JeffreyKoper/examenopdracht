@@ -16,6 +16,7 @@
         </form>
         @if($data->role == "admin")
         <button class="create">Create New Account</button>
+        <a href="{{@route('contact.admin')}}">Click here to go to the admin page</a>
         @endif
     </div>
     <div class="dashboard_edit">
@@ -54,7 +55,7 @@
 </div>
 <div class="titles">
 <h1>Previous Orders:</h1>
-<h1>Your Messages:</h1>
+<h1>Your Inbox:</h1>
 </div>
 
 <div class="bottom_section">
@@ -97,6 +98,12 @@
 @endforeach
 </div>
 <div class="contact_messages">
+    @if($contacts->isEmpty())
+    <div class="contact_messages_list">
+            <p>You haven't send any messages on this account.</p>
+    </div>
+    
+    @endif
     @foreach ($contacts as $contact)
     
     <div class="contact_messages_list">
