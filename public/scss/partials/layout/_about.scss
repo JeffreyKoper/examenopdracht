@@ -10,7 +10,7 @@
 .section-title {
     font-size: 24px;
     color: $primary-color;
-    margin-bottom: 20px;
+    margin-block-end: 20px;
 }
 
 .about-text,
@@ -26,19 +26,19 @@
 }
 .values-section,
 .team-section {
-    margin-top: 1rem;
+    margin-block-start: 1rem;
 }
 
 .value-item,
 .team-member {
-    margin-bottom: 20px;
+    margin-block-end: 20px;
 }
 
 .value-title,
 .team-member-name {
     font-size: 20px;
     color: $primary-color;
-    margin-bottom: 10px;
+    margin-block-end: 10px;
 }
 
 .value-description,
@@ -51,9 +51,9 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    margin-bottom: 10px;
+    margin-block-end: 10px;
 }
 
 .contact-section {
-    margin-top: 40px;
+    margin-block-start: 40px;
 }

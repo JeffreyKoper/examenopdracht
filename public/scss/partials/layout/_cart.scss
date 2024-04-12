@@ -19,7 +19,7 @@
     }
     .cart-arrows {
         display: flex;
-        margin-top: 2rem;
+        margin-block-start: 2rem;
         h6 {
             font-size: 1.5rem;
             margin-inline: 0.5rem;
@@ -34,7 +34,7 @@
         margin: 1rem;
     }
     .cart-info {
-        margin-left: 2rem;
+        margin-inline-start: 2rem;
         align-self: flex-start;
     }
 }
@@ -60,7 +60,7 @@
     align-items: center;
     justify-content: space-between;
     margin-inline: 6rem;
-    margin-bottom: 2rem;
+    margin-block-end: 2rem;
     padding: 2rem;
     background-color: $secondary-color;
     border-radius: 1rem;

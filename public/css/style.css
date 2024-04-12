@@ -118,7 +118,7 @@ body {
   max-height: 40px;
   color: #cd5c5c;
   text-decoration: none;
-  margin-right: 3rem;
+  margin-inline-end: 3rem;
   transition: color 0.3s ease-in-out;
 }
 
@@ -142,12 +142,12 @@ footer {
 }
 
 .footer-content {
-  margin-bottom: 1rem;
+  margin-block-end: 1rem;
 }
 
 .footer-content h3 {
   font-size: 1.2rem;
-  margin-bottom: 1rem;
+  margin-block-end: 1rem;
 }
 
 .footer-content ul {
@@ -156,29 +156,29 @@ footer {
 }
 
 .footer-content ul li {
-  margin-bottom: 0.5rem;
+  margin-block-end: 0.5rem;
   font-size: 0.9rem;
 }
 
 .footer-thankyou p {
   font-size: 0.9rem;
-  margin-top: 1rem;
+  margin-block-start: 1rem;
 }
 
 .footer-content ul li {
-  margin-bottom: 0.5rem;
+  margin-block-end: 0.5rem;
   font-size: 0.9rem;
 }
 
 .footer-thankyou p {
   font-size: 0.9rem;
-  margin-top: 1rem;
+  margin-block-start: 1rem;
 }
 
 .copyright {
   font-size: 0.8rem;
   color: #8b4513;
-  margin-top: 1rem;
+  margin-block-start: 1rem;
 }
 
 .copyright:hover {
@@ -196,13 +196,13 @@ footer {
 
 .homepage .homepage-text {
   flex: 1;
-  margin-right: 20px;
+  margin-inline-end: 20px;
 }
 
 .homepage .homepage-text h1 {
   color: #8b4513;
   font-size: 2rem;
-  margin-bottom: 10px;
+  margin-block-end: 10px;
 }
 
 .homepage .homepage-text p {
@@ -226,14 +226,14 @@ footer {
   }
   .homepage .homepage-text,
   .homepage .homepage-image {
-    margin-right: 0;
+    margin-inline-end: 0;
     width: 100%;
   }
 }
 .button {
   display: inline-block;
   padding: 10px 20px;
-  margin-top: 20px;
+  margin-block-start: 20px;
   background-color: #cd5c5c;
   color: #fff;
   text-decoration: none;
@@ -269,7 +269,7 @@ footer {
 
 .products-container .product-card img {
   border-radius: 8px;
-  margin-bottom: 10px;
+  margin-block-end: 10px;
   height: auto;
   aspect-ratio: 1/1;
   max-width: 250px;
@@ -278,16 +278,16 @@ footer {
 
 .products-container .product-card h3 {
   font-size: 1.5rem;
-  margin-bottom: 10px;
+  margin-block-end: 10px;
 }
 
 .products-container .product-card .excerpt {
-  margin-bottom: 10px;
+  margin-block-end: 10px;
 }
 
 .products-container .product-card .price {
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-block-end: 5px;
 }
 
 .products-container .product-card .stock,
@@ -295,7 +295,7 @@ footer {
 .products-container .product-card .variant,
 .products-container .product-card .category {
   font-size: 0.9rem;
-  margin-bottom: 5px;
+  margin-block-end: 5px;
   color: #666666;
 }
 
@@ -305,7 +305,7 @@ footer {
 .products-container .product-card .category::before {
   content: "•";
   display: inline-block;
-  margin-right: 5px;
+  margin-inline-end: 5px;
 }
 
 .products-container .product-card:hover {
@@ -346,27 +346,27 @@ footer {
 
 .product_container .productContainer_flex .product_data h2 {
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-block-end: 10px;
 }
 
 .product_container .productContainer_flex .product_data h3 {
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-block-end: 10px;
 }
 
 .product_container .productContainer_flex .product_data h6 {
   font-size: 16px;
-  margin-bottom: 5px;
+  margin-block-end: 5px;
 }
 
 .product_container .productContainer_flex .product_data form {
-  margin-top: 20px;
+  margin-block-start: 20px;
 }
 
 .product_container .productContainer_flex .product_data form input[type=number] {
   width: 100px;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-block-end: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
@@ -389,7 +389,7 @@ footer {
 .section-title {
   font-size: 24px;
   color: #8b4513;
-  margin-bottom: 20px;
+  margin-block-end: 20px;
 }
 
 .about-text,
@@ -407,19 +407,19 @@ footer {
 
 .values-section,
 .team-section {
-  margin-top: 1rem;
+  margin-block-start: 1rem;
 }
 
 .value-item,
 .team-member {
-  margin-bottom: 20px;
+  margin-block-end: 20px;
 }
 
 .value-title,
 .team-member-name {
   font-size: 20px;
   color: #8b4513;
-  margin-bottom: 10px;
+  margin-block-end: 10px;
 }
 
 .value-description,
@@ -432,11 +432,11 @@ footer {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  margin-bottom: 10px;
+  margin-block-end: 10px;
 }
 
 .contact-section {
-  margin-top: 40px;
+  margin-block-start: 40px;
 }
 
 .container {
@@ -461,7 +461,7 @@ footer {
 
 .cart-list .cart-arrows {
   display: flex;
-  margin-top: 2rem;
+  margin-block-start: 2rem;
 }
 
 .cart-list .cart-arrows h6 {
@@ -479,7 +479,7 @@ footer {
 }
 
 .cart-list .cart-info {
-  margin-left: 2rem;
+  margin-inline-start: 2rem;
   align-self: flex-start;
 }
 
@@ -506,7 +506,7 @@ footer {
   align-items: center;
   justify-content: space-between;
   margin-inline: 6rem;
-  margin-bottom: 2rem;
+  margin-block-end: 2rem;
   padding: 2rem;
   background-color: #e9967a;
   border-radius: 1rem;
@@ -536,7 +536,7 @@ footer {
   padding: 1.5rem;
   border-radius: 1.5rem;
   background-color: #e9967a;
-  margin-bottom: 2rem;
+  margin-block-end: 2rem;
 }
 
 .card_header form {
@@ -548,7 +548,7 @@ footer {
 
 .card_review_title {
   align-self: center;
-  margin-bottom: 1rem;
+  margin-block-end: 1rem;
   border-radius: 0.5rem;
   padding: 0.5rem;
 }
@@ -560,7 +560,7 @@ footer {
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin-block-end: 10px;
   resize: vertical;
 }
 
@@ -703,7 +703,7 @@ footer {
 }
 
 .dashboard_edit button, .dashboard_create button {
-  margin-top: 1rem;
+  margin-block-start: 1rem;
   background-color: #8b4513;
   color: #f5f5dc;
   font-weight: 700;
@@ -830,7 +830,7 @@ footer {
   background-color: #e9967a;
   text-align: center;
   border-radius: 2rem;
-  margin-bottom: 1rem;
+  margin-block-end: 1rem;
   flex-shrink: 0;
   max-width: 50rem;
 }
@@ -848,7 +848,7 @@ footer {
 }
 
 .bottom_section .contact_messages_link {
-  margin-top: 0.5rem;
+  margin-block-start: 0.5rem;
   color: #f5f5dc;
   font-weight: 700;
 }
@@ -869,21 +869,101 @@ footer {
 
 .contact_admin {
   display: flex;
-  width: 100%;
+  justify-content: center;
+  gap: 1rem;
   flex-wrap: wrap;
+  margin-block-end: 1rem;
 }
 
 .contact_admin .admin_messages {
   display: flex;
+  justify-content: space-between;
   flex-flow: column wrap;
   background-color: #cd5c5c;
   color: #f5f5dc;
+  max-width: 30rem;
+  flex-basis: 40%;
   border-radius: 2rem;
   padding: 1rem;
 }
 
+.contact_admin .admin_messages p {
+  max-width: 25rem;
+}
+
 .contact_admin .admin_messages textarea {
   resize: none;
+  font-size: clamp(0.75rem, 0.34vw + 0.66rem, 0.94rem);
+}
+
+.contact_admin .admin_messages button {
+  block-size: 3rem;
+  border: none;
+  border-radius: 30rem;
+  background-color: #e9967a;
+  color: #f5f5dc;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-block-start: 1rem;
+}
+
+.contact_admin .admin_messages button:hover {
+  background-color: #e2734e;
+}
+
+.contact_info {
+  display: flex;
+  margin-inline: 25rem;
+  margin-block: 1rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #cd5c5c;
+  color: #f5f5dc;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.contact_info_items {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact_info_items button {
+  block-size: 3rem;
+  border: none;
+  border-radius: 30rem;
+  background-color: #e9967a;
+  color: #f5f5dc;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-block-start: 1rem;
+}
+
+.contact_info_items button:hover {
+  background-color: #e2734e;
+}
+
+.contact_info_items p {
+  margin-block-end: 1rem;
+}
+
+.contact_info_items textarea {
+  margin-block-end: 1rem;
+  resize: vertical;
+  padding: 1rem;
+  font-size: clamp(0.94rem, 0.23vw + 0.88rem, 1.06rem);
+  border: solid #e9967a 0.5rem;
+  border-radius: 1rem;
+}
+
+.contact_info_items textarea:hover, .contact_info_items textarea:focus {
+  outline-color: #8b4513;
 }
 
 .contact_header {
@@ -902,7 +982,7 @@ footer {
 
 .contact_items label {
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin-block-end: 0.5rem;
 }
 
 .contact_items input[type=text],
@@ -910,7 +990,7 @@ footer {
   border: 0.3rem solid #e9967a;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  margin-bottom: 1rem;
+  margin-block-end: 1rem;
   width: 100%;
 }
 
@@ -936,7 +1016,7 @@ footer {
   text-transform: uppercase;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-  margin-top: 1rem;
+  margin-block-start: 1rem;
 }
 
 .contact_items button:hover {

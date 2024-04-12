@@ -25,10 +25,9 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::get('/contact/admin', function () {
-    return view('contact.admin');
-})->name('contact.admin');
 
+Route::get('/contact/admin', [ContactController::class, 'showAdmin'])->middleware(['auth', 'verified'])->name('contact.admin');
+Route::get('/contact/admin/{id}', [ContactController::class, 'showInfo'])->middleware(['auth', 'verified'])->name('contact.info');
 Route::post('/sendMessage', [ContactController::class, 'create'])->middleware(['auth', 'verified']);
 
 Route::post('/add_to_cart', [CartController::class, 'create'])->middleware(['auth', 'verified']);

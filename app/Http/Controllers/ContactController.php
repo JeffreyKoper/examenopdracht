@@ -20,4 +20,14 @@ class ContactController extends Controller
 
         return redirect()->route('dashboard');
     }
+    public function showAdmin()
+    {
+        $contacts = contact::where('admin_reply', '=', NULL)->get();
+        return view('contact.admin', ['contacts' => $contacts]);
+    }
+    public function showInfo($id)
+    {
+        $data = contact::find($id);
+        return view('contact.info', ['info' => $data]);
+    }
 }

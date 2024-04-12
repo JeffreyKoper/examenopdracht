@@ -4,14 +4,16 @@
 <h1>INCOMING ISSUES:</h1>
 
 <div class="contact_admin">
-    <form class="admin_messages">
+@foreach($contacts as $contact)
+    <form class="admin_messages" action="{{route('contact.info', ['id' => $contact->id]) }}">
         @csrf
-        <h1>Title Placeholder</h1>
-        <p>Description Placeholder</p>
-        <label for="">Reply Field</label>
-        <textarea name="admin_reply" id="admin_reply" cols="30" rows="5"></textarea>
-    </div>
+        <h2>{{$contact->title}}</h2>
+        <p class="messageDescription">{{$contact->description}}</p>
+        <input type="hidden" name="messageId" value="{{$contact->id}}">
+        <button type="submit">More info</button>
+    </form>
+ @endforeach
 </div>
 
-    
+<script src="{{ asset('js/contact_script.js') }}"></script>
 @endsection

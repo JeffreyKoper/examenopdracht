@@ -15,7 +15,7 @@
         display: none;
         justify-self: center;
         button {
-            margin-top: 1rem;
+            margin-block-start: 1rem;
             background-color: $primary-color;
             color: $bg-color;
             font-weight: $font-weight-700;
@@ -126,7 +126,7 @@
         background-color: $secondary-color;
         text-align: center;
         border-radius: 2rem;
-        margin-bottom: 1rem;
+        margin-block-end: 1rem;
         flex-shrink: 0;
         max-width: 50rem;
 
@@ -142,7 +142,7 @@
             padding: 1rem;
         }
         &_link {
-            margin-top: 0.5rem;
+            margin-block-start: 0.5rem;
             color: $bg-color;
             font-weight: $font-weight-700;
         }
