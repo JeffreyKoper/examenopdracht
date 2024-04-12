@@ -91,7 +91,7 @@
         <h2> Total Price incl. discounts: € {{number_format($order->discounted_price, 2)}}</h2>
         @endif
         <h3>ordered on: {{$order->updated_at}} (UTC+2)</h3>
-        <h2>Delivered on: {{$order->delivery_date}}</h2>
+        <h3>Delivered on: {{$order->delivery_date}}</h3>
         <a class="disclaimer" href="{{ route('contact') }}">Not delivered? Let us know! Click here to be sent to the contact page.</a>
     </div>
 </div>

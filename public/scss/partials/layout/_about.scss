@@ -8,9 +8,18 @@
     border: solid $accent-color 0.3rem;
     border-radius: 1rem;
 }
-
+.underline {
+    text-decoration: underline;
+    a {
+        color: $accent-color;
+        transition: color 0.3s ease-in-out;
+        &:hover {
+            color: lighten($accent-color, $amount: 15);
+        }
+    }
+}
 .section-title {
-    font-size: 24px;    
+    font-size: 24px;
     color: $primary-color;
     margin-block-end: 20px;
 }

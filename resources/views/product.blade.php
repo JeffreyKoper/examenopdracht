@@ -57,7 +57,8 @@
         <form method="POST" action="{{route('review.create')}}">
         @csrf
         <input type="hidden" name="productId" value="{{$data->id}}">
-        <input type="text" class="card_review_title" name="title"  maxlength="23" placeholder="title">
+        <input type="text" class="card_review_title" name="title"  maxlength="23" placeholder="title" required>
+        <label for="Rating">Number Rating:</label>
         <div class="card_stars">
             <ul class="stars">
                 <li value="1">1</li>

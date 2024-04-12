@@ -62,7 +62,7 @@
     
     <div class="contact-section">
       <h2 class="section-title">Get in Touch</h2>
-      <p class="contact-info">Have questions, feedback, or suggestions? We'd love to hear from you! Whether it's a style dilemma or a simple hello, feel free to reach out to us. You can drop us an email at info@wardrobewonders.com, give us a call at 1-800-WARDROBE, or connect with us on social media. Your voice matters, and we're here to listen!</p>
+      <p class="contact-info">Have questions, feedback, or suggestions? We'd love to hear from you! Whether it's a style dilemma or a simple hello, feel free to reach out to us. You can drop us an email at <span class="underline"><b><a href="mailto:info@wardrobewonders.com">info@wardrobewonders.com</a></b></span>, give us a call at <span class="underline"><b><a href="tel:1-800-WARDROBE">1-800-WARDROBE</a></b></span>, or connect with us on social media. Your voice matters, and we're here to listen!</p>
     </div>
   </div>
 @endsection
