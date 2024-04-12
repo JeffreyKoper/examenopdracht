@@ -64,6 +64,25 @@
     padding: 2rem;
     background-color: $secondary-color;
     border-radius: 1rem;
+    button {
+        block-size: 3rem;
+        border: solid $accent-color 0.3rem;
+        border-radius: 30rem;
+        background-color: $primary-color;
+        color: $bg-color;
+        font-weight: 700;
+        letter-spacing: 0.1rem;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out,
+            border 0.3s ease-in-out;
+        margin-block-start: 1rem; // Added margin for spacing
+        &:hover {
+            background-color: darken($secondary-color, 10%);
+            border: solid $bg-color 0.3rem;
+            color: $primary-color;
+        }
+    }
 }
 @keyframes changePrice {
     from {

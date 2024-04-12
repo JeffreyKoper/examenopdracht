@@ -10,6 +10,10 @@
     padding: 1rem;
     background-color: $accent-color;
     color: $bg-color;
+    a {
+        color: $bg-color;
+        
+    }
     &_edit,
     &_create {
         display: none;

@@ -16,7 +16,7 @@
         </form>
         @if($data->role == "admin")
         <button class="create">Create New Account</button>
-        <a href="{{@route('contact.admin')}}">Click here to go to the admin page</a>
+        <a href="{{@route('contact.admin')}}">Admin Messageboard</a>
         @endif
     </div>
     <div class="dashboard_edit">
