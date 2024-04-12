@@ -91,12 +91,13 @@
         justify-content: space-around;
         align-items: center;
         width: 80%;
+        border: solid $accent-color 0.1rem;
         max-width: 1200px;
         margin: 50px auto;
         padding: 20px;
         background-color: $bg-color;
         border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
 
         .product_image {
             width: 40%;
