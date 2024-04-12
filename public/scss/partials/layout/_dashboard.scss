@@ -3,7 +3,7 @@
 .dashboard {
     display: flex;
     gap: 4rem;
-    justify-self: center;
+    justify-content: space-evenly;
     border-radius: 2rem;
     align-items: center;
     margin: 1rem;
@@ -12,7 +12,6 @@
     color: $bg-color;
     a {
         color: $bg-color;
-        
     }
     &_edit,
     &_create {
@@ -58,11 +57,25 @@
             color: $bg-color;
             font-weight: $font-weight-700;
             border: solid $bg-color 0.2rem;
+            transition: all 0.3s ease-in-out;
+
+            &:hover,
+            &:focus {
+                background-color: darken($succes-color, $amount: 15);
+                border-color: $succes-color;
+            }
         }
         .edit {
             border: solid $secondary-color 0.2rem;
             background-color: $bg-color;
             font-weight: $font-weight-500;
+            transition: all 0.3s ease-in-out;
+
+            &:hover,
+            &:focus {
+                background-color: $secondary-color;
+                border-color: $bg-color;
+            }
         }
         .delete {
             background-color: $error-color;
@@ -70,6 +83,13 @@
             width: 100%;
             font-weight: $font-weight-700;
             border: solid $bg-color 0.2rem;
+            transition: all 0.3s ease-in-out;
+
+            &:hover,
+            &:focus {
+                background-color: darken($error-color, $amount: 15);
+                border-color: $error-color;
+            }
         }
     }
 }
@@ -144,6 +164,7 @@
             width: 15rem;
             max-height: 30rem;
             padding: 1rem;
+            border: solid thick;
         }
         &_link {
             margin-block-start: 0.5rem;

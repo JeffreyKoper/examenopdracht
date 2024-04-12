@@ -33,4 +33,24 @@ class ContactController extends Controller
         $data = contact::find($id);
         return view('contact.info', ['info' => $data]);
     }
+    public function updateAdminReply(Request $request, $id)
+    {
+        if (auth()->user()->role !== 'admin') {
+            return redirect()->route('home')->with('error', 'You are not authorized to perform this action.');
+        }
+        
+        $request->validate([
+            'admin_reply' => 'required|string',
+        ]);
+
+        $contact = Contact::find($id);
+        if (!$contact) {
+            return redirect()->route('contact.admin')->with('error', 'Contact not found');
+        }
+
+        $contact->admin_reply = $request->admin_reply;
+        $contact->save();
+
+        return redirect()->route('contact.admin')->with('success', 'Admin reply updated successfully');
+    }
 }
