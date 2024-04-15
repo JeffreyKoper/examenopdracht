@@ -175,8 +175,19 @@
         border-radius: 2rem;
         margin-block-end: 1rem;
         flex-shrink: 0;
+        overflow-y: auto;
+        max-block-size: 85rem;
         max-width: 50rem;
 
+        .disclaimer {
+            font-size: 14px;
+            color: $bg-color;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid $bg-color;
+            background-color: $accent-color;
+            border-radius: 5px;
+        }
         &_list {
             display: flex;
             margin: 0.5rem;

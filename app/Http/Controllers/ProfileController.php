@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\Contact;
 use App\Models\Product_cart;
 use App\Models\User;
+use Carbon\Carbon;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -28,7 +29,12 @@ class ProfileController extends Controller
 
         // Check if the user is authenticated
         if ($user) {
-            $contacts = Contact::where('user_id', $user->id)->get();
+            $tenDaysAgo = Carbon::now()->subDays(10);
+
+            // Retrieve messages within the last 10 days
+            $contacts = Contact::where('user_id', $user->id)
+                ->where('updated_at', '>=', $tenDaysAgo)
+                ->get();
             $orderData = Cart::join('users', 'cart.user_id', '=', 'users.id')
                 ->where('cart.user_id', $user->id)
                 ->where('cart.payment_complete', 1)

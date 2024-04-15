@@ -112,6 +112,7 @@
             <p>You haven't send any messages on this account.</p>
     </div>
     @else
+    <p class="disclaimer">Note that messages that haven't been updated in the last 10 days will be removed from your inbox. You can still find them by typing the ID in the url(https/www.WardrobeWonders/contact/message/{id here}), or by contacting support again.</p>
     @foreach ($contacts as $contact)
     
     <div class="contact_messages_list">
