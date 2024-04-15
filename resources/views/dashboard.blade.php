@@ -60,12 +60,12 @@
 
 <div class="bottom_section">
 <div class="order_list">
-    @if($order_data->isEmpty())
+    @if($orderData->isEmpty())
     <div class="order_history">
     <h2 class="orders"> You don't have any past purchases made on this account.</h2>
     </div>
 @endif
-@foreach ($order_data as $order)
+@foreach ($orderData as $order)
 <div class="order_history">
     <div class="orders">
         <h2>Order #{{$order->id}}</h2>

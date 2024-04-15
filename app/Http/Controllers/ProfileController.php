@@ -29,20 +29,20 @@ class ProfileController extends Controller
         // Check if the user is authenticated
         if ($user) {
             $contacts = Contact::where('user_id', $user->id)->get();
-            $order_data = Cart::join('users', 'cart.user_id', '=', 'users.id')
+            $orderData = Cart::join('users', 'cart.user_id', '=', 'users.id')
                 ->where('cart.user_id', $user->id)
                 ->where('cart.payment_complete', 1)
                 ->select('cart.id', 'users.id as user_id', 'users.name', 'cart.created_at', 'cart.total_price', 'cart.delivery_date', 'cart.code_used', 'cart.discounted_price', 'cart.code_used', 'cart.updated_at')
                 ->get();
             $products = [];
-            foreach ($order_data as $order) {
-                $product_cart = Product_cart::join('products', 'product_cart.product_id', '=', 'products.id')
+            foreach ($orderData as $order) {
+                $productCart = Product_cart::join('products', 'product_cart.product_id', '=', 'products.id')
                     ->where('product_cart.cart_id', $order->id)
                     ->select('product_cart.*', 'products.price as product_cart_price')
                     ->get();
-                $products[$order->id] = $product_cart;
+                $products[$order->id] = $productCart;
             }
-            return view('dashboard', ['data' => $user, 'order_data' => $order_data, 'products_data' => $products, 'contacts' => $contacts]);
+            return view('dashboard', ['data' => $user, 'orderData' => $orderData, 'contacts' => $contacts]);
         } else {
             // Handle the case where the user is not authenticated
             // Redirect to login or display an error message
@@ -96,8 +96,8 @@ class ProfileController extends Controller
 
     public function singleUserUpdate(Request $request)
     {
-        $user_id = auth()->user();
-        $user = User::find($user_id->id);
+        $userId = auth()->user();
+        $user = User::find($userId->id);
         $user->name = $request->accountName;
         $user->email = $request->accountEmail;
         $user->save();
@@ -105,8 +105,8 @@ class ProfileController extends Controller
     }
     public function singleUserDelete(Request $request)
     {
-        $user_id = auth()->user();
-        $user = User::find($user_id->id);
+        $userId = auth()->user();
+        $user = User::find($userId->id);
         Auth::logout();
         $user->delete();
         return redirect()->route('home');
