@@ -5,7 +5,6 @@
       <h2 class="section-title">Welcome to Wardrobe Wonders</h2>
       <p class="about-text">Welcome to Wardrobe Wonders, where fashion meets passion! Our journey began with a simple belief: clothing should be more than just fabric stitched together. It should be a canvas for self-expression, a reflection of personality, and a tool for empowerment. Here at Wardrobe Wonders, we're dedicated to bringing you not just clothes, but a curated collection of confidence-boosting ensembles that speak volumes about who you are.</p>
     </div>
-    
     <div class="values-section">
       <h2 class="section-title">Our Values</h2>
       <div class="value-item">
@@ -59,7 +58,6 @@
             </div>
         </div>
     </div>
-    
     <div class="contact-section">
       <h2 class="section-title">Get in Touch</h2>
       <p class="contact-info">Have questions, feedback, or suggestions? We'd love to hear from you! Whether it's a style dilemma or a simple hello, feel free to reach out to us. You can drop us an email at <span class="underline"><b><a href="mailto:info@wardrobewonders.com">info@wardrobewonders.com</a></b></span>, give us a call at <span class="underline"><b><a href="tel:1-800-WARDROBE">1-800-WARDROBE</a></b></span>, or connect with us on social media. Your voice matters, and we're here to listen!</p>

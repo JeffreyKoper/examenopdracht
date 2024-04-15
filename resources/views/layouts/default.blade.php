@@ -13,7 +13,7 @@
 <body>
     <header>
         <div class="header">
-                <a href="/"><img class="logo" src="{{ asset('img/logo.png')}}" alt=""></a>
+            <a href="/"><img class="logo" src="{{ asset('img/logo.png')}}" alt=""></a>
             <nav>
                 <ul class="navigation">
                     <li><a href="{{ route('home') }}" class="nav-link">Home</a></li>
@@ -33,21 +33,21 @@
             </nav>
         </div>
     </header>
-@yield('content')
-<footer>
-    <div class="footer-content">
-        <h3>Stay connected with Wardrobe Wonders:</h3>
-        <ul>
-            <li>Follow us on social media for the latest trends and updates.</li>
-            <li>Contact us for any inquiries or assistance with your orders.</li>
-        </ul>
-    </div>
-    <div class="footer-thankyou">
-        <p>Thank you for choosing Wardrobe Wonders for your fashion needs!</p>
-    </div>
-    <div class="copyright">
-        <p>&copy; 2024 Wardrobe Wonders. All rights reserved.</p>
-    </div>
-</footer>
+    @yield('content')
+    <footer>
+        <div class="footer-content">
+            <h3>Stay connected with Wardrobe Wonders:</h3>
+            <ul>
+                <li>Follow us on social media for the latest trends and updates.</li>
+                <li>Contact us for any inquiries or assistance with your orders.</li>
+            </ul>
+        </div>
+        <div class="footer-thankyou">
+            <p>Thank you for choosing Wardrobe Wonders for your fashion needs!</p>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Wardrobe Wonders. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
