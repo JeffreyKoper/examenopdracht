@@ -314,6 +314,32 @@ footer {
   transition: all 0.3s ease;
 }
 
+.product_pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #cd5c5c;
+  color: #f5f5dc;
+  font-weight: 500;
+  align-self: center;
+  font-size: clamp(1.5rem, 0.45vw + 1.39rem, 1.75rem);
+  padding: 0.5rem;
+  border-radius: 2rem;
+  margin-block-end: 0.5rem;
+  border: solid #e9967a 0.3rem;
+  margin-inline: auto;
+}
+
+.product_pagination a {
+  color: #e58564;
+  transition: all 0.3s ease-in-out;
+}
+
+.product_pagination a:hover {
+  color: #e9967a;
+  font-weight: 700;
+}
+
 .product_container {
   display: flex;
   align-items: center;
@@ -321,7 +347,7 @@ footer {
   flex-direction: column;
 }
 
-.product_container .productContainer_flex {
+.productContainer_flex {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -335,36 +361,36 @@ footer {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
 }
 
-.product_container .productContainer_flex .product_image {
+.productContainer_flex .product_image {
   width: 40%;
   max-width: 400px;
   border-radius: 10px;
 }
 
-.product_container .productContainer_flex .product_data {
+.productContainer_flex .product_data {
   width: 50%;
 }
 
-.product_container .productContainer_flex .product_data h2 {
+.productContainer_flex .product_data h2 {
   font-size: 24px;
   margin-block-end: 10px;
 }
 
-.product_container .productContainer_flex .product_data h3 {
+.productContainer_flex .product_data h3 {
   font-size: 20px;
   margin-block-end: 10px;
 }
 
-.product_container .productContainer_flex .product_data h6 {
+.productContainer_flex .product_data h6 {
   font-size: 16px;
   margin-block-end: 5px;
 }
 
-.product_container .productContainer_flex .product_data form {
+.productContainer_flex .product_data form {
   margin-block-start: 20px;
 }
 
-.product_container .productContainer_flex .product_data form input[type=number] {
+.productContainer_flex .product_data form input[type=number] {
   width: 100px;
   padding: 10px;
   margin-block-end: 10px;
@@ -887,6 +913,31 @@ footer {
 
 .bottom_section .order_list .order_history .orders a:hover {
   opacity: 1;
+  font-weight: 700;
+}
+
+.bottom_section .order_list .order_pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #cd5c5c;
+  color: #f5f5dc;
+  font-weight: 500;
+  align-self: center;
+  font-size: clamp(1.5rem, 0.45vw + 1.39rem, 1.75rem);
+  padding: 0.5rem;
+  border-radius: 2rem;
+  margin-block-end: 0.5rem;
+  border: solid #e9967a 0.3rem;
+}
+
+.bottom_section .order_list .order_pagination a {
+  color: #e58564;
+  transition: all 0.3s ease-in-out;
+}
+
+.bottom_section .order_list .order_pagination a:hover {
+  color: #e9967a;
   font-weight: 700;
 }
 

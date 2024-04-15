@@ -141,6 +141,29 @@
                 }
             }
         }
+        .order_pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $accent-color;
+            color: $bg-color;
+            font-weight: $font-weight-500;
+            align-self: center;
+            font-size: $font-size-md;
+            padding: 0.5rem;
+            border-radius: 2rem;
+            margin-block-end: 0.5rem;
+            border: solid $secondary-color 0.3rem;
+            a {
+                color: darken($secondary-color, 5);
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    color: $secondary-color;
+                    font-weight: $font-weight-700;
+                }
+            }
+        }
     }
     .contact_messages {
         display: flex;

@@ -28,17 +28,17 @@ class ContactController extends Controller
         $contacts = contact::where('admin_reply', '=', NULL)->get();
         return view('contact.admin', ['contacts' => $contacts]);
     }
-    public function showInfo($id)
+    public function showAdminReply($id)
     {
         $data = contact::find($id);
-        return view('contact.info', ['info' => $data]);
+        return view('contact.adminReply', ['info' => $data]);
     }
     public function updateAdminReply(Request $request, $id)
     {
         if (auth()->user()->role !== 'admin') {
             return redirect()->route('home')->with('error', 'You are not authorized to perform this action.');
         }
-        
+
         $request->validate([
             'admin_reply' => 'required|string',
         ]);

@@ -33,7 +33,7 @@ class ProfileController extends Controller
                 ->where('cart.user_id', $user->id)
                 ->where('cart.payment_complete', 1)
                 ->select('cart.id', 'users.id as user_id', 'users.name', 'cart.created_at', 'cart.total_price', 'cart.delivery_date', 'cart.code_used', 'cart.discounted_price', 'cart.code_used', 'cart.updated_at')
-                ->get();
+                ->simplepaginate(3);
             $products = [];
             foreach ($orderData as $order) {
                 $productCart = Product_cart::join('products', 'product_cart.product_id', '=', 'products.id')

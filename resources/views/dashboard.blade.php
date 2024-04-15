@@ -64,7 +64,10 @@
     <div class="order_history">
     <h2 class="orders"> You don't have any past purchases made on this account.</h2>
     </div>
-@endif
+@else
+    <div class="order_pagination">
+    {{ $orderData->links() }}
+    </div>
 @foreach ($orderData as $order)
 <div class="order_history">
     <div class="orders">
@@ -96,24 +99,30 @@
     </div>
 </div>
 @endforeach
+
+<div class="order_pagination">
+{{ $orderData->links() }}
 </div>
+@endif
+</div>
+
 <div class="contact_messages">
     @if($contacts->isEmpty())
     <div class="contact_messages_list">
             <p>You haven't send any messages on this account.</p>
     </div>
-    
-    @endif
+    @else
     @foreach ($contacts as $contact)
     
     <div class="contact_messages_list">
     <h2>{{$contact->title}}</h2>
     <p class="inboxText">{{$contact->description}}</p>
-    @if($contact->admin_reply != NULL)
-    <a href="" class="contact_messages_link">This message got a reply! click to view it!</a>
-    @endif
+        @if($contact->admin_reply != NULL)
+        <a href="" class="contact_messages_link">This message got a reply! click to view it!</a>
+        @endif
 </div>
     @endforeach
+    @endif
 
 </div>
 </div>

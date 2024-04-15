@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
   public function productspage()
   {
-    $products = Products::where('stock', '>', 0)->get();
+    $products = Products::where('stock', '>', 0)->simplepaginate(10);
     return view('products', ['products' => $products]);
   }
 
@@ -21,6 +21,6 @@ class ProductController extends Controller
       ->where('reviews.product_id', $id)
       ->select('reviews.*', 'users.name as user_name')
       ->get();
-    return view('product', ['data' => $data, 'review_data' => $reviewData]);
+    return view('product', ['data' => $data, 'reviewData' => $reviewData]);
   }
 }

@@ -67,7 +67,7 @@
                 <li value="4">4</li>
                 <li value="5">5</li>
             </ul>
-            <input type="hidden" id="Rating" name="rating">
+            <input type="hidden" name="rating">
             <textarea class="card_description" name="description" id="review" maxlength="1000"  placeholder="Write your review here" required></textarea>
             <button class="card_stars_submit" id="submitReview" type="submit" required>Submit</button>
             <p class="disclaimer">By clicking "Submit," you hereby grant the company permission to publish your review, along with your full name, in the reviews section dedicated to this particular product.</p>
