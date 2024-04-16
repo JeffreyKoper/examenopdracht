@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
   public function productspage()
   {
-    $products = Products::where('stock', '>', 0)->simplepaginate(10);
+    $products = Products::where('stock', '>', 0)->simplepaginate(20);
     return view('products', ['products' => $products]);
   }
 

@@ -109,6 +109,7 @@ class ProfileController extends Controller
         $user->save();
         return redirect()->route('dashboard');
     }
+
     public function singleUserDelete(Request $request)
     {
         $userId = auth()->user();
@@ -117,6 +118,7 @@ class ProfileController extends Controller
         $user->delete();
         return redirect()->route('home');
     }
+    
     public function create(Request $request)
     {
         $user = new User();

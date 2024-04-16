@@ -20,6 +20,7 @@ class ContactController extends Controller
 
         return redirect()->route('dashboard');
     }
+
     public function showAdmin()
     {
         if (auth()->user()->role !== 'admin') {
@@ -28,11 +29,13 @@ class ContactController extends Controller
         $contacts = contact::where('admin_reply', '=', NULL)->get();
         return view('contact.admin', ['contacts' => $contacts]);
     }
+
     public function showAdminReply($id)
     {
         $data = contact::find($id);
         return view('contact.adminReply', ['info' => $data]);
     }
+
     public function updateAdminReply(Request $request, $id)
     {
         if (auth()->user()->role !== 'admin') {
