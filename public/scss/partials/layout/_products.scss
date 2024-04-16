@@ -1,4 +1,29 @@
 @use "../abstracts/" as *;
+
+.category {
+    background-color: $secondary-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-block-end: 1.25rem;
+    align-items: center;
+    &_search {
+        /* Apply styling to the search input */
+        border: solid 0.3rem $accent-color;
+        border-radius: 1rem;
+        font-weight: $font-weight-700;
+        color: $accent-color;
+        padding: 0.5rem 1rem;
+        width: 18.75rem;
+        height: 3.125rem;
+    }
+    &_selectbox {
+        border: solid 0.3rem $accent-color;
+        border-radius: 1rem;
+        font-weight: $font-weight-700;
+        color: $accent-color;
+    }
+}
 .button {
     display: inline-block;
     padding: 10px 20px;
@@ -60,7 +85,7 @@
         .stock,
         .size,
         .variant,
-        .category {
+        .product_category {
             font-size: 0.9rem;
             margin-block-end: 5px;
             color: #666666;

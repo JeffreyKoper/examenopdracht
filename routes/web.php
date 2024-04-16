@@ -13,6 +13,7 @@ Route::get('/', function () {
 
 Route::get('/products', [ProductController::class, 'productspage'])->name('products');
 Route::get('/products/{id}', [ProductController::class, 'singleProduct'])->name('product.details');
+Route::get('/search', [ProductController::class, 'search'])->name('products.search');
 
 Route::get('/add_review', [ReviewController::class, 'show'])->name('review.submit');
 Route::post('/add_review', [ReviewController::class, 'store'])->middleware(['auth', 'verified'])->name('review.create');
