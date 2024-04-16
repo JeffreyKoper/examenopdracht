@@ -86,7 +86,7 @@ body {
 }
 
 .logo {
-  inline-size: 10rem;
+  min-inline-size: 10rem;
   block-size: 4rem;
   aspect-ratio: 1/1;
   border-radius: 1rem;
@@ -983,6 +983,52 @@ footer {
   margin-block-start: 0.5rem;
   color: #f5f5dc;
   font-weight: 700;
+}
+
+.message-container {
+  width: 80%;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 50px;
+  background-color: #f5f5dc;
+  border-radius: 20px;
+  border: solid 0.3rem #cd5c5c;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.message-container .message {
+  margin-bottom: 40px;
+}
+
+.message-container .message-title {
+  color: #8b4513;
+}
+
+.message-container .message-subject {
+  color: #e9967a;
+  font-size: 36px;
+}
+
+.message-container .message-body {
+  color: #cd5c5c;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.message-container .admin-reply {
+  border-top: 2px solid #cd5c5c;
+  padding-top: 40px;
+}
+
+.message-container .admin-reply-label {
+  color: #8b4513;
+  font-size: 24px;
+}
+
+.message-container .admin-reply-text {
+  color: #cd5c5c;
+  font-size: 20px;
+  line-height: 1.6;
 }
 
 .contact {

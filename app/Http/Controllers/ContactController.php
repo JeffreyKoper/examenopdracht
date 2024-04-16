@@ -36,6 +36,12 @@ class ContactController extends Controller
         return view('contact.adminReply', ['info' => $data]);
     }
 
+    public function showReply($id)
+    {
+        $data = contact::find($id);
+        return view('contact.replied', ['info' => $data]);
+    }
+
     public function updateAdminReply(Request $request, $id)
     {
         if (auth()->user()->role !== 'admin') {

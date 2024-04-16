@@ -1,5 +1,51 @@
 @use "../abstracts/" as *;
 
+.message-container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 50px;
+    background-color: $bg-color;
+    border-radius: 20px;
+    border: solid 0.3rem $accent-color;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+    .message {
+        margin-bottom: 40px;
+
+        &-title {
+            color: $primary-color;
+        }
+
+        &-subject {
+            color: $secondary-color;
+            font-size: 36px;
+        }
+
+        &-body {
+            color: $accent-color;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+    }
+
+    .admin-reply {
+        border-top: 2px solid $accent-color;
+        padding-top: 40px;
+
+        &-label {
+            color: $primary-color;
+            font-size: 24px;
+        }
+
+        &-text {
+            color: $accent-color;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+    }
+}
+
 .contact {
     display: flex;
     border-radius: 2rem;
@@ -83,10 +129,7 @@
                 transition: background-color 0.3s ease-in-out;
                 margin-block-start: 1rem; // Added margin for spacing
                 &:hover {
-                    background-color: darken(
-                        $secondary-color,
-                        10%
-                    ); 
+                    background-color: darken($secondary-color, 10%);
                 }
             }
             p {

@@ -29,12 +29,15 @@ class ProfileController extends Controller
 
         // Check if the user is authenticated
         if ($user) {
+
+            //Retrieve the date 10 days ago
             $tenDaysAgo = Carbon::now()->subDays(10);
 
             // Retrieve messages within the last 10 days
             $contacts = Contact::where('user_id', $user->id)
                 ->where('updated_at', '>=', $tenDaysAgo)
                 ->get();
+            //fetch all of the cart table where the user_id column is equal to the logged in user's id, and where the cart has been payed. 
             $orderData = Cart::join('users', 'cart.user_id', '=', 'users.id')
                 ->where('cart.user_id', $user->id)
                 ->where('cart.payment_complete', 1)
@@ -42,6 +45,7 @@ class ProfileController extends Controller
                 ->simplepaginate(3);
             $products = [];
             foreach ($orderData as $order) {
+                // Fetch everything in the product cart table where the card_id column is equal to the order's id, then put it in a array.
                 $productCart = Product_cart::join('products', 'product_cart.product_id', '=', 'products.id')
                     ->where('product_cart.cart_id', $order->id)
                     ->select('product_cart.*', 'products.price as product_cart_price')
@@ -118,7 +122,7 @@ class ProfileController extends Controller
         $user->delete();
         return redirect()->route('home');
     }
-    
+
     public function create(Request $request)
     {
         $user = new User();

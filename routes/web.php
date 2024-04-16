@@ -28,6 +28,7 @@ Route::get('/contact', function () {
 
 Route::get('/contact/admin', [ContactController::class, 'showAdmin'])->middleware(['auth', 'verified'])->name('contact.admin');
 Route::get('/contact/admin/{id}', [ContactController::class, 'showAdminReply'])->middleware(['auth', 'verified'])->name('contact.adminInfo');
+Route::get('/contact/message/{id}', [ContactController::class, 'showReply'])->middleware(['auth', 'verified'])->name('contact.info');
 Route::post('/contact/admin/{id}/update', [ContactController::class, 'updateAdminReply'])->name('contact.update');
 Route::post('/sendMessage', [ContactController::class, 'create'])->middleware(['auth', 'verified']);
 

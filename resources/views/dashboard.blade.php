@@ -115,7 +115,7 @@
                         <h2>{{$contact->title}}</h2>
                         <p class="inboxText">{{$contact->description}}</p>
                         @if($contact->admin_reply != NULL)
-                            <a href="" class="contact_messages_link">This message got a reply! click to view it!</a>
+                            <a href="{{@route('contact.info', ['id' => $contact->id])}}" class="contact_messages_link">This message got a reply! click to view it!</a>
                         @endif
                     </div>
                 @endforeach
