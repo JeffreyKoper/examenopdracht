@@ -24,14 +24,10 @@
 }
 
 .navigation {
-    width: 100%;
     display: flex;
+    justify-content: space-around;
     font-weight: $font-weight-700;
     list-style: none;
-}
-.right {
-    align-self: flex-end;
-    justify-self: flex-end;
 }
 
 .nav-link {
