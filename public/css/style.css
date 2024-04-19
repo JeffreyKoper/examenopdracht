@@ -1007,6 +1007,29 @@ footer {
   font-weight: 700;
 }
 
+button {
+  block-size: 3rem;
+  border: none;
+  border-radius: 30rem;
+  background-color: #e9967a;
+  color: #f5f5dc;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-block-start: 1rem;
+}
+
+button a {
+  color: #f5f5dc;
+  padding: 1rem;
+}
+
+button:hover {
+  background-color: #e2734e;
+}
+
 .message-container {
   width: 80%;
   max-width: 1000px;
@@ -1094,24 +1117,6 @@ footer {
 .contact_admin .admin_messages textarea {
   resize: none;
   font-size: clamp(0.75rem, 0.34vw + 0.66rem, 0.94rem);
-}
-
-.contact_admin .admin_messages button {
-  block-size: 3rem;
-  border: none;
-  border-radius: 30rem;
-  background-color: #e9967a;
-  color: #f5f5dc;
-  font-weight: 700;
-  letter-spacing: 0.1rem;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-  margin-block-start: 1rem;
-}
-
-.contact_admin .admin_messages button:hover {
-  background-color: #e2734e;
 }
 
 .contact_info {

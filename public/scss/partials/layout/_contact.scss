@@ -1,5 +1,28 @@
 @use "../abstracts/" as *;
 
+button {
+    block-size: 3rem;
+    a {
+        color: $bg-color;
+        padding: 1rem;
+    }
+    border: none;
+    border-radius: 30rem;
+    background-color: $secondary-color;
+    color: $bg-color;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-block-start: 1rem; // Added margin for spacing
+    &:hover {
+        background-color: darken(
+            $secondary-color,
+            10%
+        ); // Darkened button color on hover
+    }
+}
 .message-container {
     width: 80%;
     max-width: 1000px;
@@ -81,25 +104,6 @@
             textarea {
                 resize: none;
                 font-size: $font-size-xs;
-            }
-            button {
-                block-size: 3rem;
-                border: none;
-                border-radius: 30rem;
-                background-color: $secondary-color;
-                color: $bg-color;
-                font-weight: 700;
-                letter-spacing: 0.1rem;
-                text-transform: uppercase;
-                cursor: pointer;
-                transition: background-color 0.3s ease-in-out;
-                margin-block-start: 1rem; // Added margin for spacing
-                &:hover {
-                    background-color: darken(
-                        $secondary-color,
-                        10%
-                    ); // Darkened button color on hover
-                }
             }
         }
     }
