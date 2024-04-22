@@ -604,6 +604,32 @@ footer {
   border-radius: 1rem;
 }
 
+.cart-summary .promotion {
+  display: flex;
+  align-items: center;
+}
+
+.cart-summary .promotion button {
+  block-size: 4rem;
+  border: solid #cd5c5c 0.3rem;
+  border-radius: 30rem;
+  background-color: #8b4513;
+  color: #f5f5dc;
+  font-weight: 700;
+  font-size: clamp(0.94rem, 0.23vw + 0.88rem, 1.06rem);
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border 0.3s ease-in-out;
+  margin-inline-start: 1rem;
+}
+
+.cart-summary .promotion button:hover {
+  background-color: #e2734e;
+  border: solid #f5f5dc 0.3rem;
+  color: #8b4513;
+}
+
 .cart-summary button {
   block-size: 3rem;
   border: solid #cd5c5c 0.3rem;

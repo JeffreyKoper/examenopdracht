@@ -36,11 +36,19 @@
                 <h2><b>Select a Delivery Date</b></h2>
                 <label for="deliveryDate">Delivery Date:</label>
                 <input type="text" id="deliveryDate" name="delivery_date" required>
+                <div class="promotion">
+                    <label for="promotionCode">promo code:</label>
+                    <input type="text" id="promotionCode" name="promotion_code">
+                    <button type="button" id="applyPromotionButton">Apply Code</button>
+                </div>
+                <span id="promotionError" style="color: red;"></span>
                 <button type="submit" id="confirmOrderButton" style="display:none;"> Confirm order</button>
         @endif
             </div> 
         </div>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/cart_script.js"></script>
+    <script src="js/promotion_script.js"></script>
 @endsection

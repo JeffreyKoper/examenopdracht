@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
@@ -44,6 +45,7 @@ Route::post('/dashboard/user_save', [ProfileController::class, "singleUserUpdate
 Route::post('/dashboard/user_delete', [ProfileController::class, "singleUserDelete"])->middleware(['auth', 'verified'])->name('user.delete');
 Route::post('/dashboard/user_create', [ProfileController::class, "create"])->middleware(['auth', 'verified'])->name('user.create');
 
+Route::get('/check_promo_code', [PromotionController::class, "checkPromoCode"])->name('check_promo_code');
 
 
 Route::middleware('auth')->group(function () {

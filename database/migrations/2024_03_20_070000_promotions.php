@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('promotions', function (Blueprint $table) {
-            $table->id(); 
+            $table->id();
             $table->string('code', 100);
             $table->integer('uses')->nullable();
             $table->integer('percentage');
             $table->boolean('valid')->default(true);
+            $table->timestamps();
         });
     }
 
