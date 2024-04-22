@@ -14,7 +14,7 @@ class PromotionController extends Controller
         // Assuming you have a Promotion model
         $promotion = Promotions::where('code', $promoCode)->first();
 
-        if ($promotion && $promotion->valid) {
+        if ($promotion && $promotion->valid && $promotion->uses >= 1) {
             return response()->json(['valid' => true, 'percentage' => $promotion->percentage]);
         } else {
             return response()->json(['valid' => false]);

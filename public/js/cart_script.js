@@ -47,6 +47,7 @@ function calcTotalPrice() {
 
     totalPrice_element.innerHTML =
         "Total price excl. tax: € " + totalPrice.toFixed(2);
+
     var taxTotalPrice = totalPrice + 50;
     if (totalPrice >= 50) {
         taxTotalPrice = totalPrice;
@@ -59,6 +60,18 @@ function calcTotalPrice() {
         totalPriceMax_element.innerHTML =
             "Total price incl. tax: € " + taxTotalPrice.toFixed(2);
     }
+
+    // Check if discount is applied
+    var discountText = $("#codePrice").text();
+    var discount = 0;
+    if (discountText.includes("Discount")) {
+        discount = parseFloat(discountText.split("=")[1].trim());
+    }
+
+    // Apply discount if it exists
+    var discountedTotalPrice = taxTotalPrice - taxTotalPrice * (discount / 100);
+    totalPriceMax_element.innerHTML =
+        "Total price incl. tax: € " + discountedTotalPrice.toFixed(2);
 
     totalPrice_element.style.animation = "none"; // Reset animation
     shipping_element.style.animation = "none"; // Reset animation

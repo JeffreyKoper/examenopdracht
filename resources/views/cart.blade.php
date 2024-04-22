@@ -32,6 +32,7 @@
             <div class="cart-summary">     
                 <h2 name="total_price" id="totalPrice">Total price excl. tax: € {{ number_format($totalPrice, 2) }}</h2>
                 <h2 name="shipping_price" id="shippingPrice">Shipping Tax € 0.00</h2>
+                <h3 name="code_price" id="codePrice" style="display: none">discount = </h2>
                 <h2 name="total_price_tax" id="total_price_tax">Total price incl. tax: € {{ number_format($totalPrice, 2) }}</h2>       
                 <h2><b>Select a Delivery Date</b></h2>
                 <label for="deliveryDate">Delivery Date:</label>
@@ -44,7 +45,7 @@
                 <span id="promotionError" style="color: red;"></span>
                 <button type="submit" id="confirmOrderButton" style="display:none;"> Confirm order</button>
         @endif
-            </div> 
+            </div>  
         </div>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

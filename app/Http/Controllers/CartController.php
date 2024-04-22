@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Product_Cart;
 use App\Models\Products;
+use App\Models\Promotions;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -108,11 +109,29 @@ class CartController extends Controller
         if ($totalPrice < 50) {
             $totalPrice += 50;
         }
+        $promoCode = $request->promotion_code;
+        $discountPercentage = 0;
+        if ($promoCode) {
+            // Retrieve the discount percentage based on the promo code
+            $promotion = Promotions::where('code', $promoCode)->where('valid', true)->first();
+            if ($promotion) {
+                $discountPercentage = $promotion->percentage;
+                $cart->code_used = $promotion->id; // Set the ID of the promo code used
+                $promotion->uses -= 1;
+                $promotion->save();
+            }
+        }
 
-        // Update cart total price
+        // Apply discount to total price
+        $discountedTotalPrice = $totalPrice - ($totalPrice * ($discountPercentage / 100));
+
+        $discountedTotalPrice = round($discountedTotalPrice, 2);
+
+        // Update cart details
         $cart->total_price = $totalPrice;
         $cart->delivery_date = $request->delivery_date;
         $cart->payment_complete = true;
+        $cart->discounted_price = $discountedTotalPrice;
         $cart->save();
 
         // Now we've updated the total price and other details, let's update the product_cart_price for each product in the cart
