@@ -39,10 +39,12 @@ class ProfileController extends Controller
                 ->get();
             //fetch all of the cart table where the user_id column is equal to the logged in user's id, and where the cart has been payed. 
             $orderData = Cart::join('users', 'cart.user_id', '=', 'users.id')
+                ->leftJoin('promotions', 'cart.code_used', '=', 'promotions.id')
                 ->where('cart.user_id', $user->id)
                 ->where('cart.payment_complete', 1)
-                ->select('cart.id', 'users.id as user_id', 'users.name', 'cart.created_at', 'cart.total_price', 'cart.delivery_date', 'cart.code_used', 'cart.discounted_price', 'cart.code_used', 'cart.updated_at')
+                ->select('cart.id', 'users.id as user_id', 'users.name', 'cart.created_at', 'promotions.code as code_used', 'cart.total_price', 'cart.delivery_date', 'cart.discounted_price', 'cart.updated_at')
                 ->simplepaginate(3);
+
             $products = [];
             foreach ($orderData as $order) {
                 // Fetch everything in the product cart table where the card_id column is equal to the order's id, then put it in a array.

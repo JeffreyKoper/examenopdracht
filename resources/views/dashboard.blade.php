@@ -89,7 +89,7 @@
                             </table>
                             <h2>Total Price incl. tax: € {{number_format($order->total_price, 2) }}</h2>
                             @if($order->code_used != NULL)
-                                <h3> code used: {{$order->code_used}}</h3>
+                                <h3> code used: "{{$order->code_used}}"</h3>
                                 <h2> Total Price incl. discounts: € {{number_format($order->discounted_price, 2)}}</h2>
                             @endif
                             <h3>ordered on: {{$order->updated_at}} (UTC+2)</h3>
