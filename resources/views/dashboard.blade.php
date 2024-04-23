@@ -14,10 +14,14 @@
                 @csrf
                 <button type="submit" class="delete">Delete Account</button>
             </form>
-            @if($data->role == "admin")
+            
+        </div>
+        <div class="dashboard_admin">
+        @if($data->role == "admin")
                 <button class="create">Create New Account</button>
                 <a href="{{@route('contact.admin')}}">Admin Messageboard</a>
-            @endif
+                <a href="{{@route('promo.show')}}">Manage promotional codes</a>
+        @endif
         </div>
         <div class="dashboard_edit">
             <br>

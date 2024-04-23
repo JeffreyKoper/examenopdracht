@@ -848,11 +848,35 @@ footer {
   gap: 4rem;
   justify-content: space-evenly;
   border-radius: 2rem;
-  align-items: center;
+  align-items: flex-start;
   margin: 1rem;
   padding: 1rem;
   background-color: #cd5c5c;
   color: #f5f5dc;
+}
+
+.dashboard_admin {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.dashboard_admin button {
+  margin-block-end: 1rem;
+  cursor: pointer;
+}
+
+.dashboard_admin .create {
+  background-color: #6cc070;
+  color: #f5f5dc;
+  font-weight: 700;
+  border: solid #f5f5dc 0.2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.dashboard_admin .create:hover, .dashboard_admin .create:focus {
+  background-color: #439c47;
+  border-color: #6cc070;
 }
 
 .dashboard a {
@@ -1336,6 +1360,76 @@ footer {
 
 .contact_items button:hover {
   background-color: #e2734e;
+}
+
+.promo table {
+  width: 90%;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-collapse: separate;
+}
+
+.promo table th,
+.promo table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #8b4513;
+}
+
+.promo table th {
+  background-color: #cd5c5c;
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+.promo table tr {
+  background-color: #f5f5dc;
+}
+
+.promo table tr:hover {
+  background-color: #e9967a;
+}
+
+.promo table button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #8b4513;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.promo table button:hover {
+  background-color: #5e2f0d;
+}
+
+.promo .create-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.promo .create-section h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.promo .create-section .create-button button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #8b4513;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.promo .create-section .create-button button:hover {
+  background-color: #5e2f0d;
 }
 
 /*# sourceMappingURL=style.css.map */

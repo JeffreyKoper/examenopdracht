@@ -1,0 +1,72 @@
+@use "../abstracts/" as *;
+
+.promo {
+    table {
+        width: 90%; // Adjust the width of the table
+        margin: 2rem auto; // Add margin around the table
+        padding: 1rem; // Add padding inside the table
+        border-radius: 10px; // Add rounded corners to the table
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Add box shadow for depth
+        border-collapse: separate; // Separate table borders
+        th,
+        td {
+            padding: 12px; // Add padding to table cells
+            text-align: center; // Center align text in cells
+            border: 1px solid $primary-color; // Add borders to table cells
+        }
+        th {
+            background-color: $accent-color; // Set background color for table header
+            color: white; // Set text color for table header
+            border-radius: 10px 10px 0 0; // Add rounded corners to header cells
+        }
+        tr {
+            background-color: $bg-color; // Set background color for table rows
+            &:hover {
+                background-color: $secondary-color; // Hover color for rows
+            }
+        }
+        button {
+            padding: 8px 16px; // Add padding to buttons
+            border: none; // Remove button borders
+            background-color: $primary-color; // Set button background color
+            color: white; // Set button text color
+            font-family: "Roboto", sans-serif; // Custom font family
+            font-size: 14px; // Custom font size
+            cursor: pointer; // Change cursor to pointer on hover
+            &:hover {
+                background-color: darken(
+                    $primary-color,
+                    10%
+                ); // Darken button color on hover
+            }
+        }
+    }
+
+    .create-section {
+        margin-top: 20px; // Add margin to separate the button from the table
+        text-align: center; // Center align the content
+        h2 {
+            font-size: 20px; // Custom font size for heading
+            margin-bottom: 10px; // Add margin below heading
+        }
+        .create-button {
+            button {
+                padding: 10px 20px; // Add padding to the button
+                border: none; // Remove button borders
+                background-color: $primary-color; // Set button background color
+                color: white; // Set button text color
+                font-family: "Roboto", sans-serif; // Custom font family
+                font-size: 16px; // Custom font size
+                cursor: pointer; // Change cursor to pointer on hover
+                border-radius: 5px; // Add rounded corners to the button
+                transition: background-color 0.3s; // Add transition for smooth hover effect
+                &:hover {
+                    background-color: darken(
+                        $primary-color,
+                        10%
+                    ); // Darken button color on hover
+                }
+            }
+        }
+    }
+}

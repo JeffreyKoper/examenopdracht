@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class PromotionController extends Controller
 {
+    public function show()
+    {
+
+        $promo = Promotions::all();
+        return view('promo.show', ['promo_data' => $promo]);
+    }
     public function checkPromoCode(Request $request)
     {
         $promoCode = $request->input('promo_code');
