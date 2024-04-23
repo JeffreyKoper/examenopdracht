@@ -15,7 +15,7 @@
                 <tr>
                     <td>{{$data->id}}</td>
                     <td>{{$data->code}}</td>
-                    <td>{{$data->percentage}}</td>
+                    <td>{{$data->percentage}}%</td>
                     <td>{{$data->uses}}</td>
                     @if($data->valid == 1)
                         <td>Active</td>

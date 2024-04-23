@@ -19,7 +19,7 @@
             <div class="form-group">
                 <label for="valid">Active:</label>
                 <select id="valid" name="valid" required>
-                    <option value="1">True</option>
+                    <option value="1">True (default)</option>
                     <option value="0">False</option>
                 </select>
             </div>
