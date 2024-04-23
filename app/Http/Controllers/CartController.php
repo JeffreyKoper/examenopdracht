@@ -153,4 +153,25 @@ class CartController extends Controller
 
         return redirect()->route('dashboard');
     }
+
+    public function updateCartItem(Request $request)
+    {
+        $itemId = $request->input('item_id');
+        $cartId = $request->input('cart_id');
+        $newAmount = $request->input('new_amount');
+
+        // Update the cart item in the product_cart table
+        $productCart = Product_Cart::where('product_id', $itemId)
+            ->where('cart_id', $cartId)
+            ->first();
+
+        if (!$productCart) {
+            return response()->json(['success' => false, 'message' => 'Cart item not found']);
+        }
+
+        $productCart->amount = $newAmount;
+        $productCart->save();
+
+        return response()->json(['success' => true]);
+    }
 }

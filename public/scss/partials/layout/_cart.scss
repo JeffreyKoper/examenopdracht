@@ -64,6 +64,15 @@
     padding: 2rem;
     background-color: $secondary-color;
     border-radius: 1rem;
+    .disclaimer {
+        font-size: 14px;
+        color: $bg-color;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid $bg-color;
+        background-color: $accent-color;
+        border-radius: 5px;
+    }
     .promotion {
         display: flex;
         align-items: center;

@@ -46,6 +46,7 @@ Route::post('/dashboard/user_delete', [ProfileController::class, "singleUserDele
 Route::post('/dashboard/user_create', [ProfileController::class, "create"])->middleware(['auth', 'verified'])->name('user.create');
 
 Route::get('/check_promo_code', [PromotionController::class, "checkPromoCode"])->name('check_promo_code');
+Route::post('/update-cart-item', [CartController::class, "updateCartItem"])->name('update.cart.item');
 
 
 Route::middleware('auth')->group(function () {

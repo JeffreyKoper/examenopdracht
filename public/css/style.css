@@ -604,6 +604,16 @@ footer {
   border-radius: 1rem;
 }
 
+.cart-summary .disclaimer {
+  font-size: 14px;
+  color: #f5f5dc;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #f5f5dc;
+  background-color: #cd5c5c;
+  border-radius: 5px;
+}
+
 .cart-summary .promotion {
   display: flex;
   align-items: center;

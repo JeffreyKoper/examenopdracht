@@ -10,6 +10,7 @@
                         <div class="cart-item">
                             <img src="{{ $cartItem->img_filepath }}"  alt="product image">
                             <div class="cart-info">
+                                <input type="hidden" class="cart-id" value="{{ $cart->id }}">
                                 <h1><b>{{ $cartItem->product_name }}</b></h1>
                                 <h3>{{ $cartItem->excerpt }}</h3>
                                 <h3 id="infoPrice_{{ $cartItem->id }}" class="infoPrice">€ <b>{{ number_format(($cartItem->pivot->amount * $cartItem->price),2) }}</b></h3>
@@ -42,8 +43,9 @@
                     <input type="text" id="promotionCode" name="promotion_code">
                     <button type="button" id="applyPromotionButton">Apply Code</button>
                 </div>
+                <p class="disclaimer">*Only 1 promo code can be used per cart</p>
                 <span id="promotionError" style="color: red;"></span>
-                <button type="submit" id="confirmOrderButton" style="display:none;"> Confirm order</button>
+                <button type="submit" id="confirmOrderButton" style="display:none;">Confirm order</button>
         @endif
             </div>  
         </div>
@@ -52,4 +54,5 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/cart_script.js"></script>
     <script src="js/promotion_script.js"></script>
+    <script src="js/amount_script.js"></script>
 @endsection

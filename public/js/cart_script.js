@@ -100,7 +100,7 @@ function increase(itemId, itemPrice) {
     var sum = itemPrice * count;
 
     infoPrice_element.innerHTML = "€ " + "<b>" + sum.toFixed(2) + "</b>";
-    count_element.innerHTML = count;
+
     inputEl.value = count; // Update hidden input field with new amount
 
     calcTotalPrice();
@@ -117,7 +117,6 @@ function decrease(itemId, itemPrice) {
     var infoPrice_element = document.getElementById("infoPrice_" + itemId);
     var sum = itemPrice * count;
     infoPrice_element.innerHTML = "€ " + "<b>" + sum.toFixed(2) + "</b>";
-    count_element.innerHTML = count;
     inputEl.value = count; // Update hidden input field with new amount
 
     calcTotalPrice();
