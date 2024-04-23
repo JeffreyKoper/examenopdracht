@@ -44,6 +44,7 @@
 
     .create-section {
         margin-top: 20px; // Add margin to separate the button from the table
+        margin-bottom: 2rem;
         text-align: center; // Center align the content
         h2 {
             font-size: 20px; // Custom font size for heading
@@ -67,6 +68,81 @@
                     ); // Darken button color on hover
                 }
             }
+        }
+    }
+}
+.create-form {
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #f5f5f5
+    ); // Set background gradient for the form
+    border: 2px solid $primary-color; // Add border to the form
+    border-radius: 10px; // Add rounded corners to the form
+    padding: 40px; // Add padding to the form
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Add box shadow for depth
+    width: 50%; // Set width of the form
+    max-width: 600px; // Set maximum width of the form
+    margin: 50px auto; // Center the form horizontally with top margin
+    text-align: center; // Center align the content
+    h2 {
+        font-family: "Montserrat", sans-serif; // Custom font family for heading
+        font-size: 32px; // Custom font size for heading
+        color: $primary-color; // Custom color for heading
+        margin-bottom: 20px; // Add margin below heading
+    }
+    .form-group {
+        margin-bottom: 20px; // Add margin between form groups
+        label {
+            display: block; // Display labels as block elements
+            margin-bottom: 10px; // Add margin below labels
+            font-family: "Montserrat", sans-serif; // Custom font family for labels
+            font-size: 18px; // Custom font size for labels
+            color: $primary-color; // Custom color for labels
+            text-transform: uppercase; // Uppercase labels
+            text-align: left; // Align labels to left
+        }
+        input,
+        select {
+            width: 100%; // Set input and select elements to 100% width
+            padding: 15px; // Add padding to input and select elements
+            border: 2px solid $primary-color; // Add border to inputs
+            background-color: rgba(
+                $primary-color,
+                0.1
+            ); // Set background color for inputs
+            font-family: "Roboto", sans-serif; // Custom font family for inputs
+            font-size: 16px; // Custom font size for inputs
+            color: $primary-color; // Custom color for inputs
+            border-radius: 5px; // Add rounded corners to the inputs
+            transition: border-color 0.3s, background-color 0.3s; // Add transition for border and background color change
+            &:focus {
+                outline: none; // Remove focus outline
+                border-color: $accent-color; // Change border color on focus
+                background-color: rgba(
+                    $primary-color,
+                    0.05
+                ); // Change background color on focus
+            }
+        }
+    }
+    button {
+        width: 100%; // Set button width to 100%
+        padding: 15px; // Add padding to the button
+        border: none; // Remove button borders
+        background-color: $accent-color; // Set button background color
+        color: white; // Set button text color
+        font-family: "Montserrat", sans-serif; // Custom font family for button
+        font-size: 18px; // Custom font size for button
+        text-transform: uppercase; // Uppercase button text
+        cursor: pointer; // Change cursor to pointer on hover
+        border-radius: 5px; // Add rounded corners to the button
+        transition: background-color 0.3s; // Add transition for smooth hover effect
+        &:hover {
+            background-color: darken(
+                $accent-color,
+                10%
+            ); // Darken button color on hover
         }
     }
 }

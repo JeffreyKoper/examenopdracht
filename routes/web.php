@@ -45,8 +45,12 @@ Route::post('/dashboard/user_save', [ProfileController::class, "singleUserUpdate
 Route::post('/dashboard/user_delete', [ProfileController::class, "singleUserDelete"])->middleware(['auth', 'verified'])->name('user.delete');
 Route::post('/dashboard/user_create', [ProfileController::class, "create"])->middleware(['auth', 'verified'])->name('user.create');
 
-Route::get('/check_promo_code', [PromotionController::class, "checkPromoCode"])->name('check_promo_code');
-Route::get('/promo', [PromotionController::class, "show"])->name('promo.show');
+Route::get('/check_promo_code', [PromotionController::class, "checkPromoCode"])->middleware(['auth', 'verified'])->name('check_promo_code');
+Route::get('/promo/create', [PromotionController::class, "createForm"])->middleware(['auth', 'verified'])->name('promo.createForm');
+Route::post('/promo/create/code', [PromotionController::class, "create"])->middleware(['auth', 'verified'])->name('promo.create');
+Route::get('/promo', [PromotionController::class, "show"])->middleware(['auth', 'verified'])->name('promo.show');
+Route::delete('/promo/delete/{id}', [PromotionController::class, "delete"])->name('promo.delete');
+
 Route::post('/update-cart-item', [CartController::class, "updateCartItem"])->name('update.cart.item');
 
 
