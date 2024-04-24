@@ -73,8 +73,14 @@ body {
   display: grid;
   font-family: Montserrat, sans-serif;
   font-size: 20px;
+  padding-bottom: 11rem;
   background-color: #f5f5dc;
   color: #8b4513;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
 }
 
 .header {
@@ -123,17 +129,15 @@ body {
 }
 
 footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   background-color: #e9967a;
   color: #cd5c5c;
   padding: 1rem;
   text-align: center;
   font-weight: 700;
-  position: relative;
-  bottom: 0;
-  width: 100%;
   line-height: 1;
-  display: inline;
-  align-items: center;
 }
 
 .footer-content {

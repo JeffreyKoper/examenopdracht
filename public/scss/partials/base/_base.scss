@@ -4,6 +4,11 @@ body {
     display: grid;
     font-family: $primary-font-family;
     font-size: 20px;
+    padding-bottom: 11rem;
     background-color: $bg-color;
     color: $primary-color;
+}
+html {
+    position: relative;
+    min-height: 100%;
 }
