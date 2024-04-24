@@ -14,9 +14,14 @@
             </select>
             <select name="size" class="category_selectbox">
                 <option value="">Size</option>
-                {{-- REPLACE THIS WITH SIZES LATER --}}
                 @foreach ($sizes as $size)
                     <option value="{{ $size }}">{{ $size }}</option>
+                @endforeach
+            </select>
+            <select name="gender" class="category_selectbox">
+                <option value="">Gender</option>
+                @foreach ($genders as $gender)
+                    <option value="{{ $gender }}">{{ $gender }}</option>
                 @endforeach
             </select>
             <button type="submit" class="button">Search</button>
