@@ -25,11 +25,11 @@
                     @endif
                     <td><a href="{{ route('promo.edit', $data->id) }}"><button>Edit</button></a></td>
                     <td>
-                        <form id="deleteForm{{$data->id}}" action="{{route('promo.delete', $data->id)}}" method="POST">
+                        <form id="deleteForm{{$data->id}}" action="{{route('promo.delete', $data->id)}}" method="POST" onsubmit="return confirm('Are you sure you want to delete this promotional code?')">
                             @csrf
                             @method('DELETE')
                             <button type="submit">Delete</button>
-                        </form>
+                        </form>                        
                     </td>
                 </tr>
             @endforeach
