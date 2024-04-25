@@ -53,6 +53,8 @@ Route::delete('/promo/delete/{id}', [PromotionController::class, "delete"])->nam
 
 Route::post('/update-cart-item', [CartController::class, "updateCartItem"])->name('update.cart.item');
 
+Route::get('/promo/{id}/edit', [PromotionController::class, 'editForm'])->name('promo.edit');
+Route::put('/promo/{id}/update', [PromotionController::class, 'update'])->name('promo.update');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

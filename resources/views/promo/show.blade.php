@@ -23,7 +23,7 @@
                     @else
                         <td>Inactive</td>
                     @endif
-                    <td><button>Edit</button></td>
+                    <td><a href="{{ route('promo.edit', $data->id) }}"><button>Edit</button></a></td>
                     <td>
                         <form id="deleteForm{{$data->id}}" action="{{route('promo.delete', $data->id)}}" method="POST">
                             @csrf

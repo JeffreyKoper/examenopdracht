@@ -62,4 +62,28 @@ class PromotionController extends Controller
             return response()->json(['valid' => false]);
         }
     }
+    public function editForm($id)
+    {
+        $promo = Promotions::findOrFail($id);
+        return view('promo.edit', compact('promo'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $promoCode = Promotions::findOrFail($id);
+
+        $request->validate([
+            'code' => 'required|string',
+            'uses' => 'required|integer',
+        ]);
+
+        $promoCode->code = $request->code;
+        $promoCode->uses = $request->uses;
+        $promoCode->percentage = $request->percentage;
+        $promoCode->valid = $request->valid;
+
+        $promoCode->save();
+
+        return redirect()->route('promo.show')->with('success', 'Promotion updated successfully.');
+    }
 }

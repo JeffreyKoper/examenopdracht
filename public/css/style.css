@@ -1542,4 +1542,75 @@ footer {
   background-color: #bc3a3a;
 }
 
+.promo-edit .edit-form {
+  background: linear-gradient(135deg, #ffffff, #f5f5f5);
+  border: 2px solid #8b4513;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.promo-edit .edit-form h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  color: #8b4513;
+  margin-bottom: 20px;
+}
+
+.promo-edit .edit-form .form-group {
+  margin-bottom: 20px;
+}
+
+.promo-edit .edit-form .form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  color: #8b4513;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.promo-edit .edit-form .form-group input,
+.promo-edit .edit-form .form-group select {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #8b4513;
+  background-color: rgba(139, 69, 19, 0.1);
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #8b4513;
+  border-radius: 5px;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.promo-edit .edit-form .form-group input:focus,
+.promo-edit .edit-form .form-group select:focus {
+  outline: none;
+  border-color: #cd5c5c;
+  background-color: rgba(139, 69, 19, 0.05);
+}
+
+.promo-edit .edit-form button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background-color: #cd5c5c;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.promo-edit .edit-form button:hover {
+  background-color: #bc3a3a;
+}
+
 /*# sourceMappingURL=style.css.map */
