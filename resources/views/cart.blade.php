@@ -8,7 +8,7 @@
                 <div class="cart-list">
                     @foreach ($cartItems as $cartItem)
                         <div class="cart-item">
-                            <img src="{{ $cartItem->img_filepath }}"  alt="product image">
+                            <img src="{{ $cartItem->img_filepath }}" alt="product image">
                             <div class="cart-info">
                                 <input type="hidden" class="cart-id" value="{{ $cart->id }}">
                                 <h1><b>{{ $cartItem->product_name }}</b></h1>
@@ -21,7 +21,14 @@
                                     <input type="hidden" name="product_stock_{{$cartItem->stock}}" id="ItemAmountStock_{{$cartItem->id}}" value="{{ $cartItem->stock }}">
                                     <input type="hidden" name="products[{{ $cartItem->id }}]" id="itemAmountInput_{{ $cartItem->id }}" value="{{ $cartItem->pivot->amount }}">
                                     <button type="button" data-item-price="{{ $cartItem->price }}" class="increase" data-item-id="{{ $cartItem->id }}">+</button>
-                                </div>
+                                </div> 
+                                @foreach ($productCart as $proCart)
+                                    @if ($proCart->product_id == $cartItem->id)
+                                        <button type="button" class="delete-button" data-item-id="{{ $proCart->id }}">Delete</button>
+                                        @break
+                                    @endif
+                                @endforeach
+                               
                             </div>
                         </div>
                     @endforeach
@@ -55,4 +62,30 @@
     <script src="js/cart_script.js"></script>
     <script src="js/promotion_script.js"></script>
     <script src="js/amount_script.js"></script>
+    <script>
+    // Handle delete button click event
+    $(document).on('click', '.delete-button', function(e) {
+        e.preventDefault();
+        var itemId = $(this).data('item-id');
+        if (confirm("Are you sure you want to delete this item?")) {
+            // Perform AJAX request to delete the item
+            $.ajax({
+                url: "{{ url('/cart/delete') }}/" + itemId, // Update the URL to include the item ID
+                type: "DELETE",
+                data: {
+                    _token: "{{ csrf_token() }}"
+                },
+                success: function(response) {
+                    // Reload the page after successful deletion
+                    window.location.reload();
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        }
+    });
+</script>
+
+    
 @endsection

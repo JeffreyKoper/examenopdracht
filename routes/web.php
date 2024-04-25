@@ -36,6 +36,7 @@ Route::post('/sendMessage', [ContactController::class, 'create'])->middleware(['
 
 Route::post('/add_to_cart', [CartController::class, 'create'])->middleware(['auth', 'verified']);
 Route::get('/cart', [CartController::class, 'cartpage'])->name('cart');
+Route::delete('/cart/delete/{id}', [CartController::class, "delete"])->name('cart.delete');
 Route::post('/confirmPayment', [CartController::class, 'confirmPayment'])->name('confirm_payment');
 
 

@@ -49,23 +49,49 @@ class CartController extends Controller
 
         return redirect()->route('cart');
     }
+    public function deleteCart($cartId)
+    {
+        // Find the cart by ID
+        $cart = Cart::find($cartId);
 
+        // Check if the cart exists
+        if (!$cart) {
+            // If the cart doesn't exist, return a response indicating the resource was not found
+            return response()->json(['message' => 'Cart not found'], 404);
+        }
+
+        // Delete the cart
+        $cart->delete();
+
+        // Return a success response
+        return response()->json(['message' => 'Cart deleted successfully'], 200);
+    }
     public function cartpage()
     {
-        $userId = auth()->user()->id; // Get the id of a logged in user
-        $cart = Cart::where('user_id', $userId)->where('payment_complete', 0)->first();  // Get the cart where the user_id is equal to the Id of the user
-        $cartId = Cart::select('id')->where('user_id', $userId)->where('payment_complete', 0)->first(); // get the cart_id of said cart where the user still needs to pay. 
-        $productCart = Product_Cart::where('cart_id', $cartId)->first();
+        $userId = auth()->user()->id;
+        $cart = Cart::where('user_id', $userId)->where('payment_complete', 0)->first();
+        $cartId = Cart::select('id')->where('user_id', $userId)->where('payment_complete', 0)->first();
         $cartItems = $cart ? $cart->products : [];
 
-        // for the total price
-        $totalPrice = 0;
+        // Fetch the product cart if it exists
+        $productCart = null;
+        if ($cartId) {
+            $productCart = Product_Cart::where('cart_id', $cartId->id)->get();
+        }
 
+        // Calculate total price
+        $totalPrice = 0;
         foreach ($cartItems as $cartItem) {
             $totalPrice += $cartItem->pivot->amount * $cartItem->price;
         }
 
-        return view('cart', ['cart' => $cart, 'cartItems' => $cartItems, 'product_cart' => $productCart, 'totalPrice' => $totalPrice,]);
+        // Pass all necessary data to the view
+        return view('cart', [
+            'cart' => $cart,
+            'cartItems' => $cartItems,
+            'productCart' => $productCart,
+            'totalPrice' => $totalPrice,
+        ]);
     }
 
     public function confirmPayment(Request $request)
@@ -154,7 +180,6 @@ class CartController extends Controller
 
         return redirect()->route('dashboard');
     }
-
     public function updateCartItem(Request $request)
     {
         $itemId = $request->input('item_id');
@@ -196,5 +221,33 @@ class CartController extends Controller
             ->sum('amount'); // Sum of the amount of products in the cart
 
         return $productCount;
+    }
+    public function delete($id)
+    {
+        // Find the product_cart record by ID
+        $productCart = Product_Cart::find($id);
+
+        // Check if the record exists
+        if (!$productCart) {
+            // If the record doesn't exist, return a response indicating the resource was not found
+            return response()->json(['message' => 'Product cart item not found'], 404);
+        }
+
+        // Get the cart ID associated with this product cart
+        $cartId = $productCart->cart_id;
+
+        // Delete the product cart
+        $productCart->delete();
+
+        // Check if there are any remaining items in the cart
+        $remainingItems = Product_Cart::where('cart_id', $cartId)->count();
+
+        // If there are no remaining items, delete the cart itself
+        if ($remainingItems === 0) {
+            Cart::find($cartId)->delete();
+        }
+
+        // Return a success response
+        return response()->json(['message' => 'Product cart item deleted successfully'], 200);
     }
 }
