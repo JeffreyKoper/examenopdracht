@@ -32,19 +32,22 @@ $(document).ready(function () {
     });
 
     // Function to update cart item via AJAX
+    // Function to update cart item via AJAX
     function updateCartItem(itemId, cartId, newAmount) {
         $.ajax({
             url: "/update-cart-item",
             method: "POST",
             data: {
                 item_id: itemId,
-                cart_id: cartId, // Include the cart_id in the request data
+                cart_id: cartId,
                 new_amount: newAmount,
             },
             success: function (response) {
                 // Update the UI with the new amount or handle success accordingly
                 if (response.success) {
                     $("#itemAmount_" + itemId).text(newAmount);
+                    // Update the count in the navbar
+                    updateNavbarProductCount(response.product_count);
                 } else {
                     // Handle error response
                     console.log(response.message);
@@ -55,5 +58,10 @@ $(document).ready(function () {
                 console.error(xhr.responseText);
             },
         });
+    }
+
+    // Function to update the count in the navbar
+    function updateNavbarProductCount(count) {
+        $(".cart-count").text(count);
     }
 });

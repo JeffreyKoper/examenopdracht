@@ -37,7 +37,18 @@
     text-decoration: none;
     margin-inline-end: 3rem;
     transition: color 0.3s ease-in-out;
-
+    &-cart {
+        display: inline;
+        max-height: 40px;
+        color: $accent-color;
+        text-decoration: none;
+        margin-inline-end: 3rem;
+        transition: color 0.3s ease-in-out;
+        &:hover {
+            text-decoration: none;
+            color: $bg-color;
+        }
+    }
     &:hover,
     &:focus {
         text-decoration: underline;

@@ -123,6 +123,20 @@ html {
   transition: color 0.3s ease-in-out;
 }
 
+.nav-link-cart {
+  display: inline;
+  max-height: 40px;
+  color: #cd5c5c;
+  text-decoration: none;
+  margin-inline-end: 3rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link-cart:hover {
+  text-decoration: none;
+  color: #f5f5dc;
+}
+
 .nav-link:hover, .nav-link:focus {
   text-decoration: underline;
   color: #f5f5dc;
@@ -712,6 +726,22 @@ footer {
 #shippingPrice,
 #total_price_tax {
   animation: changePrice 0.3s ease;
+}
+
+.cart-count {
+  display: inline-block;
+  min-width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  position: relative;
+  top: -10px;
+  left: -5px;
 }
 
 .card_header {

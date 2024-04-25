@@ -26,7 +26,17 @@
                         <li><a href="{{route('register')}}" class="nav-link">Register</a></li>
                     @endguest
                     @auth
-                        <li><a href="{{route('cart')}}" class="nav-link">Cart</a></li>
+                    <li>
+                        <a href="{{ route('cart') }}" class="nav-link-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            @php $productCount = app('App\Http\Controllers\CartController')->getProductCountInCart(); @endphp
+                            @if($productCount > 0)
+                                <span class="cart-count">{{ $productCount }}</span>
+                            @endif
+                        </a>
+                        
+                    </li>
+                    
                         <li><a href="{{route('dashboard')}}" class="nav-link">{{ auth()->user()->name }}</a></li>
                         <li><a href="{{route('logout')}}" class="nav-link">Log out</a></li>
                     @endauth    

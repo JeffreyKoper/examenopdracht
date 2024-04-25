@@ -7,6 +7,7 @@ use App\Models\Product_Cart;
 use App\Models\Products;
 use App\Models\Promotions;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -172,6 +173,28 @@ class CartController extends Controller
         $productCart->amount = $newAmount;
         $productCart->save();
 
-        return response()->json(['success' => true]);
+        // Get updated product count
+        $productCount = $this->getProductCountInCart();
+
+        return response()->json(['success' => true, 'product_count' => $productCount]);
+    }
+
+
+    public function getProductCountInCart()
+    {
+        $userId = Auth::id(); // Get the id of the logged-in user
+        $cartId = Cart::where('user_id', $userId)
+            ->where('payment_complete', 0)
+            ->value('id'); // Get the id of the cart where payment is not complete
+
+        // If cartId is null, there are no products in the cart
+        if (!$cartId) {
+            return 0;
+        }
+
+        $productCount = Product_Cart::where('cart_id', $cartId)
+            ->sum('amount'); // Sum of the amount of products in the cart
+
+        return $productCount;
     }
 }

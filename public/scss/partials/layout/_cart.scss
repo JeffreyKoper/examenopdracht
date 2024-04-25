@@ -133,3 +133,19 @@
 #total_price_tax {
     animation: changePrice 0.3s ease;
 }
+
+.cart-count {
+    display: inline-block;
+    min-width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    position: relative;
+    top: -10px;
+    left: -5px;
+}
