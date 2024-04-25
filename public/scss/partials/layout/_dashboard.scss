@@ -2,115 +2,125 @@
 
 .dashboard {
     display: flex;
-    gap: 4rem;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 2rem;
+    gap: 2rem;
+    justify-content: center;
     border-radius: 2rem;
-    align-items: flex-start;
-    margin: 1rem;
-    padding: 1rem;
+    padding: 2rem;
     background-color: $accent-color;
     color: $bg-color;
-    &_admin {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        button {
-            margin-block-end: 1rem;
-            cursor: pointer;
-        }
-        .create {
-            background-color: $succes-color;
-            color: $bg-color;
-            font-weight: $font-weight-700;
-            border: solid $bg-color 0.2rem;
-            transition: all 0.3s ease-in-out;
 
-            &:hover,
-            &:focus {
-                background-color: darken($succes-color, $amount: 15);
-                border-color: $succes-color;
-            }
-        }
-    }
-    a {
-        color: $bg-color;
-    }
-    &_edit,
-    &_create {
-        display: none;
-        justify-self: center;
-        button {
-            margin-block-start: 1rem;
-            background-color: $primary-color;
-            color: $bg-color;
-            font-weight: $font-weight-700;
-            border: solid $secondary-color 0.2rem;
-            cursor: pointer;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
-        }
-    }
-    &_info {
-        display: flex;
-        flex-direction: column;
-        font-size: $font-size-md;
-        .account {
+    .dashboard_info {
+        flex: 1;
+        padding: 1rem;
+        ul {
             list-style-type: none;
-            font-weight: $font-weight-700;
-        }
-        .role {
-            text-transform: capitalize;
+            padding: 0;
+            li {
+                margin-bottom: 1rem;
+            }
+            .role {
+                text-transform: capitalize;
+            }
         }
     }
-    &_buttons {
+
+    .dashboard_buttons {
+        flex: 1;
+        padding: 1rem;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        gap: 1rem;
         button {
-            margin-block-end: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
             cursor: pointer;
-        }
-        .create {
-            background-color: $succes-color;
-            color: $bg-color;
-            font-weight: $font-weight-700;
-            border: solid $bg-color 0.2rem;
-            transition: all 0.3s ease-in-out;
-
-            &:hover,
-            &:focus {
-                background-color: darken($succes-color, $amount: 15);
-                border-color: $succes-color;
-            }
         }
         .edit {
+            background-color: $primary-color;
+            color: $bg-color;
             border: solid $secondary-color 0.2rem;
-            background-color: $bg-color;
-            font-weight: $font-weight-500;
-            transition: all 0.3s ease-in-out;
-
-            &:hover,
-            &:focus {
+            transition: background-color 0.3s ease-in-out;
+            &:hover {
                 background-color: $secondary-color;
-                border-color: $bg-color;
             }
         }
         .delete {
             background-color: $error-color;
             color: $bg-color;
-            width: 100%;
+            border: solid $bg-color 0.2rem;
+            transition: background-color 0.3s ease-in-out;
+            &:hover {
+                background-color: darken($error-color, 15%);
+            }
+        }
+    }
+
+    .dashboard_admin {
+        flex: 1;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        .create {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            background-color: $succes-color;
+            color: $bg-color;
             font-weight: $font-weight-700;
             border: solid $bg-color 0.2rem;
-            transition: all 0.3s ease-in-out;
+            transition: background-color 0.3s ease-in-out;
+            &:hover {
+                background-color: darken($succes-color, 15%);
+            }
+        }
+        a {
+            color: $bg-color;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+            &:hover {
+                color: $secondary-color;
+            }
+        }
+    }
 
-            &:hover,
-            &:focus {
-                background-color: darken($error-color, $amount: 15);
-                border-color: $error-color;
+    .dashboard_edit,
+    .dashboard_create {
+        flex-basis: 100%;
+        padding: 1rem;
+        display: none;
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            label {
+                font-weight: $font-weight-700;
+            }
+            input,
+            select {
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+                border: 1px solid $secondary-color;
+                &:focus {
+                    outline: none;
+                    border-color: $primary-color;
+                }
+            }
+            button {
+                padding: 0.5rem 1rem;
+                border-radius: 0.5rem;
+                background-color: $primary-color;
+                color: $bg-color;
+                font-weight: $font-weight-700;
+                border: solid $secondary-color 0.2rem;
+                cursor: pointer;
+                transition: background-color 0.3s ease-in-out;
+                &:hover {
+                    background-color: $secondary-color;
+                }
             }
         }
     }
