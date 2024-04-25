@@ -29,7 +29,7 @@
         }
     }
 
-    .button {
+    button {
         padding: 12px 24px;
         background-color: $accent-color;
         color: #fff;
@@ -152,6 +152,21 @@
     background-color: $bg-color;
     border-radius: 10px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+    button {
+        padding: 12px 24px;
+        background-color: $accent-color;
+        color: #fff;
+        font-size: 1.2rem;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: darken($accent-color, 10%);
+        }
+    }
 
     .product_image {
         width: 40%;

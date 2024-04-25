@@ -1,5 +1,6 @@
 @extends('layouts.default')
 @section('content')
+    <h1>Promo codes:</h1>
     <div class="promo">
         <table>
             <tr>

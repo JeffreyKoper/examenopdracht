@@ -286,7 +286,7 @@ footer {
   border-color: #cd5c5c;
 }
 
-.category .button {
+.category button {
   padding: 12px 24px;
   background-color: #cd5c5c;
   color: #fff;
@@ -298,7 +298,7 @@ footer {
   transition: background-color 0.3s ease;
 }
 
-.category .button:hover {
+.category button:hover {
   background-color: #bc3a3a;
 }
 
@@ -414,6 +414,22 @@ footer {
   background-color: #f5f5dc;
   border-radius: 10px;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+.productContainer_flex button {
+  padding: 12px 24px;
+  background-color: #cd5c5c;
+  color: #fff;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.productContainer_flex button:hover {
+  background-color: #bc3a3a;
 }
 
 .productContainer_flex .product_image {
