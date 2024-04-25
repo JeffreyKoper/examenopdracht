@@ -10,6 +10,12 @@
                         <div class="cart-item">
                             <img src="{{ $cartItem->img_filepath }}" alt="product image">
                             <div class="cart-info">
+                                @foreach ($productCart as $proCart)
+                                    @if ($proCart->product_id == $cartItem->id)
+                                        <button type="button" class="delete-button" data-item-id="{{ $proCart->id }}">X</button>
+                                        @break
+                                    @endif
+                                @endforeach
                                 <input type="hidden" class="cart-id" value="{{ $cart->id }}">
                                 <h1><b>{{ $cartItem->product_name }}</b></h1>
                                 <h3>{{ $cartItem->excerpt }}</h3>
@@ -22,12 +28,7 @@
                                     <input type="hidden" name="products[{{ $cartItem->id }}]" id="itemAmountInput_{{ $cartItem->id }}" value="{{ $cartItem->pivot->amount }}">
                                     <button type="button" data-item-price="{{ $cartItem->price }}" class="increase" data-item-id="{{ $cartItem->id }}">+</button>
                                 </div> 
-                                @foreach ($productCart as $proCart)
-                                    @if ($proCart->product_id == $cartItem->id)
-                                        <button type="button" class="delete-button" data-item-id="{{ $proCart->id }}">Delete</button>
-                                        @break
-                                    @endif
-                                @endforeach
+                                
                                
                             </div>
                         </div>

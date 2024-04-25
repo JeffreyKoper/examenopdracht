@@ -149,3 +149,33 @@
     top: -10px;
     left: -5px;
 }
+.delete-button {
+    width: 30px;
+    height: 30px;
+    background-color: red; // Change color as desired
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px; // Adjust margin for spacing between buttons
+    margin-bottom: 10px; // Add margin to prevent buttons from stacking vertically
+}
+
+.delete-button:hover {
+    background-color: darkred; // Change hover color as desired
+}
+
+.cart-item {
+    position: relative; // Ensure relative positioning for the delete button
+}
+
+.delete-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+}
