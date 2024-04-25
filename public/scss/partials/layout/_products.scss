@@ -45,7 +45,22 @@
         }
     }
 }
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-block-start: 20px;
+    background-color: $accent-color;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 
+    &:hover {
+        background-color: darken($accent-color, 10%);
+    }
+}
 .products-container {
     display: flex;
     flex-wrap: wrap;

@@ -302,6 +302,23 @@ footer {
   background-color: #bc3a3a;
 }
 
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-block-start: 20px;
+  background-color: #cd5c5c;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #bc3a3a;
+}
+
 .products-container {
   display: flex;
   flex-wrap: wrap;
