@@ -1,3 +1,4 @@
+calcTotalPrice();
 document.getElementById("deliveryDate").addEventListener("change", function () {
     var confirmOrderButton = document.getElementById("confirmOrderButton");
     if (this.value !== "") {
@@ -47,15 +48,15 @@ function calcTotalPrice() {
     totalPrice_element.innerHTML =
         "Total price excl. tax: € " + totalPrice.toFixed(2);
 
-    var taxTotalPrice = totalPrice + 50;
+    var taxTotalPrice = totalPrice + 7.5;
     if (totalPrice >= 50) {
         taxTotalPrice = totalPrice;
         shipping_element.innerHTML = "Shipping Tax € 0.00";
         totalPriceMax_element.innerHTML =
             "Total price incl. tax: € " + taxTotalPrice.toFixed(2);
     } else if (totalPrice < 50) {
-        shipping_element.innerHTML = "Shipping Tax € 50.00";
-        taxTotalPrice = totalPrice + 50;
+        shipping_element.innerHTML = "Shipping Tax € 7.50";
+        taxTotalPrice = totalPrice + 7.5;
         totalPriceMax_element.innerHTML =
             "Total price incl. tax: € " + taxTotalPrice.toFixed(2);
     }

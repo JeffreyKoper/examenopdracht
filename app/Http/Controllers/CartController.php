@@ -108,7 +108,7 @@ class CartController extends Controller
 
         // Check if the total price is less than 50 and adjust if necessary
         if ($totalPrice < 50) {
-            $totalPrice += 50;
+            $totalPrice += 7.50;
         }
         $promoCode = $request->promotion_code;
         $discountPercentage = 0;
