@@ -499,12 +499,19 @@ footer-content h3 {
   margin-inline: auto;
 }
 
-.product_pagination a {
+.product_pagination a,
+.product_pagination span,
+.product_pagination nav {
   color: #e58564;
+  background-color: #cd5c5c !important;
   transition: all 0.3s ease-in-out;
+  border: none !important;
+  padding: 0.2rem !important;
 }
 
-.product_pagination a:hover {
+.product_pagination a a:hover,
+.product_pagination span a:hover,
+.product_pagination nav a:hover {
   color: #e9967a;
   font-weight: 700;
 }

@@ -9,7 +9,6 @@ const promoMessages = [
     "Limited Time Offer: 30% Off!",
     "Elevate Your Wardrobe",
     "Join Our Fashion Community",
-    "New Arrivals Just In!",
     "Upgrade Your Basics",
 ];
 const promoMessageElement = document.getElementById("promo-message");
