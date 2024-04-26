@@ -140,7 +140,10 @@
     .homepage {
         flex-direction: column;
         padding: 30px;
-
+        margin-bottom: 10rem;
+        a {
+            margin-block-end: 1rem;
+        }
         .homepage-text,
         .homepage-image {
             margin-right: 0;
@@ -158,5 +161,8 @@
                 font-size: 1.3rem;
             }
         }
+    }
+    #promo-message {
+        font-size: $font-size-md;
     }
 }

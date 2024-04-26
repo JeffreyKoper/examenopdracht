@@ -6,46 +6,67 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Wardrobe Wonders</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_orange.css">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    <link rel="icon" href="{{ asset('img/icon.png')}}" type="image/png">
+    <link rel="icon" href="{{ asset('img/icon.png')}}" type="image/png">   
 </head>
 <body>
     <header>
-        <div class="header">
-            <a href="/"><img class="logo" src="{{ asset('img/logo.png')}}" alt=""></a>
-            <nav>
-                <ul class="navigation">
-                    <li><a href="{{ route('home') }}" class="nav-link">Home</a></li>
-                    <li><a href="{{ route('products')}}" class="nav-link">Shop</a></li>
-                    <li><a href="{{ route('about')}}" class="nav-link">About</a></li>
-                    <li><a href="{{ route('contact')}}" class="nav-link">Contact</a></li>
-                    @guest
-                        <li><a href="{{route('login')}}" class="nav-link">Login</a></li>
-                        <li><a href="{{route('register')}}" class="nav-link">Register</a></li>
-                    @endguest
-                    @auth
-                    <li>
-                        <a href="{{ route('cart') }}" class="nav-link-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            @php $productCount = app('App\Http\Controllers\CartController')->getProductCountInCart(); @endphp
-                            @if($productCount > 0)
-                                <span class="cart-count">{{ $productCount }}</span>
-                            @endif
-                        </a>
-                        
-                    </li>
-                    
-                        <li><a href="{{route('dashboard')}}" class="nav-link">{{ auth()->user()->name }}</a></li>
-                        <li><a href="{{route('logout')}}" class="nav-link">Log out</a></li>
-                    @endauth    
-                </ul>
-            </nav>
-        </div>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="/"><img class="logo" src="{{ asset('img/logo.png')}}" alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('products')}}">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('about')}}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contact')}}">Contact</a>
+                        </li>
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('login')}}">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('register')}}">Register</a>
+                            </li>
+                        @endguest
+                        @auth
+                        <li class="nav-item">
+                            <a href="{{ route('cart') }}" class="nav-link">
+                                <i class="fas fa-shopping-cart"></i>
+                                @php $productCount = app('App\Http\Controllers\CartController')->getProductCountInCart(); @endphp
+                                @if($productCount > 0)
+                                    <span class="cart-count">{{ $productCount }}</span>
+                                @endif
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboard')}}">{{ auth()->user()->name }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('logout')}}">Log out</a>
+                        </li>
+                        @endauth    
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
     @yield('content')
-    <footer>
+    <footer class="footer">
         <div class="footer-content">
             <h3>Stay connected with Wardrobe Wonders:</h3>
             <ul>
@@ -60,5 +81,8 @@
             <p>&copy; 2024 Wardrobe Wonders. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

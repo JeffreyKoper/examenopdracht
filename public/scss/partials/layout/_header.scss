@@ -1,11 +1,7 @@
 @use "../abstracts/" as *;
 
-.header {
+nav {
     background-color: $secondary-color;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 0.5rem;
-    display: flex;
-    align-items: center;
 }
 .logo {
     min-inline-size: 10rem;
@@ -25,7 +21,6 @@
 
 .navigation {
     display: flex;
-    justify-content: space-around;
     font-weight: $font-weight-700;
     list-style: none;
 }
@@ -35,7 +30,6 @@
     max-height: 40px;
     color: $accent-color;
     text-decoration: none;
-    margin-inline-end: 3rem;
     transition: color 0.3s ease-in-out;
     &-cart {
         display: inline;
@@ -53,5 +47,29 @@
     &:focus {
         text-decoration: underline;
         color: $bg-color;
+    }
+}
+
+@media (max-width: 749px) {
+    @media (max-width: 749px) {
+        .header {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navigation {
+            margin-top: 1rem;
+        }
+
+        .nav-link {
+            margin: 0.5rem 0;
+            display: block;
+            text-align: center;
+        }
+
+        .nav-link-cart {
+            display: block;
+            text-align: center;
+        }
     }
 }
