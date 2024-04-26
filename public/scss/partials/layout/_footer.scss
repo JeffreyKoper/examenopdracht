@@ -10,32 +10,18 @@ footer {
     text-align: center;
     font-weight: $font-weight-700;
     line-height: 1;
+    &-content {
+        margin-block-end: 1rem;
+        h3 {
+            font-size: 1.2rem;
+            margin-block-end: 1rem;
+        }
+    }
 }
-
-.footer-content {
-    margin-block-end: 1rem;
-}
-
-.footer-content h3 {
-    font-size: 1.2rem;
-    margin-block-end: 1rem;
-}
-
 .footer-content ul {
     list-style: none;
     padding: 0;
 }
-
-.footer-content ul li {
-    margin-block-end: 0.5rem;
-    font-size: 0.9rem;
-}
-
-.footer-thankyou p {
-    font-size: 0.9rem;
-    margin-block-start: 1rem;
-}
-
 .footer-content ul li {
     margin-block-end: 0.5rem;
     font-size: 0.9rem;
@@ -59,5 +45,6 @@ footer {
 @media (max-width: 940px) {
     footer {
         position: fixed;
+        font-size: $font-size-xs;
     }
 }
