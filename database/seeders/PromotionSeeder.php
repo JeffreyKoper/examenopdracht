@@ -38,6 +38,13 @@ class PromotionSeeder extends Seeder
                 'uses' => 10,
                 'valid' => 0, // Set as invalid
             ],
+            [
+                'code' => "SPRINGSALE20",
+                'percentage' => 20,
+                'uses' => 10000,
+                'valid' => 1,
+            ]
+
         ];
         DB::table('promotions')->insert($promotions);
     }

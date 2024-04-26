@@ -1,5 +1,13 @@
 @extends('layouts.default')
 @section('content')
+    <div class="banner">
+        <div class="carousel">
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+        </div>
+        <h1 id="promo-message">Welcome to Wardrobe Wonders</h1>
+    </div>
     <div class="homepage">
         <div class="homepage-text">
             <h1>Welcome to Wardrobe Wonders</h1>
@@ -11,4 +19,9 @@
             <img src="{{asset('img/winkel_producten.png')}}" alt="placeholder">
         </div>
     </div>
+    <script src="js/caroussel_script.js"></script>
+       
+    
+    
+    
 @endsection

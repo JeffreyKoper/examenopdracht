@@ -52,6 +52,90 @@
     }
 }
 
+.banner {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.carousel {
+    display: flex;
+    width: 300%; /* Adjust width based on the number of slides */
+    animation: slideAndGradient 10s infinite;
+}
+
+.slide {
+    flex: 0 0 33.33%; /* Adjust based on the number of slides */
+    height: 150px; /* Adjust height as needed */
+    position: relative; /* Position for pseudo-element */
+}
+
+.slide:nth-child(1) {
+    background: linear-gradient(
+        to right,
+        $gradient-color-1,
+        $gradient-color-2
+    ); /* Gradient background for first slide */
+}
+
+.slide:nth-child(2) {
+    background: linear-gradient(
+        to right,
+        $gradient-color-2,
+        $gradient-color-1
+    ); /* Gradient background for second slide */
+}
+
+.slide:nth-child(3) {
+    background: linear-gradient(
+        to right,
+        $gradient-color-1,
+        $gradient-color-2
+    ); /* Gradient background for third slide */
+}
+
+.slide::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start position */
+    width: 200%;
+    height: 100%;
+    background: inherit; /* Inherit gradient background from slide */
+}
+
+#promo-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: $font-size-lg;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: moveMessage 10s infinite alternate; /* Apply movement animation */
+}
+
+@keyframes slideAndGradient {
+    0%,
+    100% {
+        transform: translateX(0); /* Initial and final position */
+        animation-delay: 0.5ms;
+    }
+    33.33%,
+    66.67% {
+        transform: translateX(-50%); /* Intermediate positions for sliding */
+    }
+}
+
+@keyframes moveMessage {
+    0% {
+        transform: translate(-50%, -50%) rotate(-2deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(2deg);
+    }
+}
+
 @media (max-width: 768px) {
     .homepage {
         flex-direction: column;
