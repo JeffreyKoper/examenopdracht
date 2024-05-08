@@ -21,6 +21,7 @@
                 <button class="create">Create New Account</button>
                 <a href="{{@route('contact.admin')}}">Admin Messageboard</a>
                 <a href="{{@route('promo.show')}}">Manage promotional codes</a>
+                <a href="{{@route('users.show')}}">Manage users</a>
         @endif
         </div>
         <div class="dashboard_edit">

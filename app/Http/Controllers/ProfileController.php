@@ -12,6 +12,7 @@ use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
@@ -134,5 +135,51 @@ class ProfileController extends Controller
         $user->password = Hash::make($request->accountPassword);;
         $user->save();
         return redirect()->route('dashboard');
+    }
+    public function allUserDashboard()
+    {
+        $user = User::all();
+        return view('users.show', ['user_data' => $user]);
+    }
+    public function editForm($id)
+    {
+        $user = User::findOrFail($id);
+        return view('users.edit', compact('user'));
+    }
+    public function updateUser(Request $request, $id)
+    {
+        $user_data = User::findOrFail($id);
+
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|string',
+            'password' => 'nullable|string|min:6',
+        ]);
+
+        $user_data->name = $request->name;
+        $user_data->email = $request->email;
+        if ($request->has('password')) {
+            $user_data->password = Hash::make($request->password);
+        }
+        $user_data->role = $request->role;
+
+        $user_data->save();
+
+        return redirect()->route('users.show')->with('success', 'user updated successfully.');
+    }
+    public function delete($id)
+    {
+        try {
+            // Delete the promotion without foreign key constraint checks
+            DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+            User::where('id', $id)->delete();
+            DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
+            // Redirect the user back to the promotions page
+            return redirect()->route('users.show')->with('success', 'User deleted successfully.');
+        } catch (\Exception $e) {
+            // Handle any exceptions or errors
+            return redirect()->route('users.show')->with('error', 'An error occurred while deleting the user.');
+        }
     }
 }
