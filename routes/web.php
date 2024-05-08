@@ -59,6 +59,7 @@ Route::get('/promo/{id}/edit', [PromotionController::class, 'editForm'])->name('
 Route::put('/promo/{id}/update', [PromotionController::class, 'update'])->name('promo.update');
 
 Route::get('/users', [ProfileController::class, "allUserDashboard"])->middleware(['auth', 'verified'])->name('users.show');
+Route::get('/users/create', [ProfileController::class, 'showCreate'])->name('users.showCreate');
 Route::get('/users/{id}/edit', [ProfileController::class, 'editForm'])->name('users.edit');
 Route::put('/users/{id}/update', [ProfileController::class, 'updateUser'])->name('users.update');
 Route::delete('/users/{id}', [ProfileController::class, 'delete'])->name('users.delete');

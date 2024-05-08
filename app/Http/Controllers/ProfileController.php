@@ -182,4 +182,8 @@ class ProfileController extends Controller
             return redirect()->route('users.show')->with('error', 'An error occurred while deleting the user.');
         }
     }
+    public function showCreate()
+    {
+        return view('users.create');
+    }
 }
