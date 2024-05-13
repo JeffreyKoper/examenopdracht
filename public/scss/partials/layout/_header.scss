@@ -3,6 +3,10 @@
 nav {
     background-color: $secondary-color;
 }
+
+.flex-row {
+    flex-direction: row;
+}
 .logo {
     min-inline-size: 10rem;
     block-size: 4rem;

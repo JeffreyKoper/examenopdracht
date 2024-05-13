@@ -129,6 +129,9 @@ flatpickr("#deliveryDate", {
     maxDate: new Date().fp_incr(22),
     inline: true,
     weekNumbers: true,
+    locale: {
+        firstDayOfWeek: 1,
+    },
     disable: [
         "2024-01-01", // New Year's Day
         "2024-03-29", // Good Friday

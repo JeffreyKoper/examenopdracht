@@ -87,12 +87,17 @@ nav {
   background-color: #e9967a;
 }
 
+.flex-row {
+  flex-direction: row;
+}
+
 .logo {
   min-inline-size: 10rem;
   block-size: 4rem;
   aspect-ratio: 1/1;
   border-radius: 1rem;
   resize: none;
+  flex-shrink: 0;
 }
 
 .logo-title {
@@ -725,7 +730,6 @@ footer-content h3 {
 .cart-list {
   display: flex;
   flex-direction: column;
-  width: 50%;
   justify-content: flex-start;
 }
 
@@ -756,7 +760,6 @@ footer-content h3 {
 }
 
 .cart-list .cart-info {
-  margin-inline-start: 2rem;
   align-self: flex-start;
 }
 
@@ -782,7 +785,6 @@ footer-content h3 {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-inline: 6rem;
   margin-block-end: 2rem;
   padding: 2rem;
   background-color: #e9967a;
@@ -845,6 +847,23 @@ footer-content h3 {
   color: #8b4513;
 }
 
+@media (max-width: 768px) {
+  .cart-summary {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 2rem;
+  }
+  .cart-summary .promotion {
+    margin-top: 1rem;
+  }
+  .cart-summary .disclaimer {
+    margin-top: 1rem;
+  }
+  .cart-summary button {
+    margin-top: 1rem;
+  }
+}
 @keyframes changePrice {
   from {
     opacity: 0;
@@ -907,6 +926,54 @@ footer-content h3 {
   transform: translate(50%, -50%);
 }
 
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cart-list {
+    width: 100%; /* Take full width of the container */
+  }
+  .cart-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    margin: 1rem;
+  }
+  .cart-info {
+    margin-top: 1rem; /* Add some space between image and info */
+    text-align: center; /* Center align text */
+  }
+  .cart-arrows {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem; /* Add some space between arrows and item amount */
+  }
+  .cart-arrows button {
+    width: 30px; /* Adjust width of buttons */
+    height: 30px; /* Adjust height of buttons */
+  }
+  .cart-arrows h6 {
+    margin: 0 0.5rem; /* Add some space between item amount and buttons */
+  }
+  .cart-summary {
+    width: 100%; /* Take full width of the container */
+    margin-top: 2rem; /* Add some space between cart items and summary */
+  }
+  .promotion {
+    margin-top: 1rem; /* Add some space between promotion input and disclaimer */
+  }
+  .disclaimer {
+    margin-top: 1rem; /* Add some space between disclaimer and button */
+  }
+  .cart-summary button {
+    margin-top: 1rem; /* Add some space between button and disclaimer */
+  }
+}
 .card_header {
   display: flex;
   flex-direction: column;
