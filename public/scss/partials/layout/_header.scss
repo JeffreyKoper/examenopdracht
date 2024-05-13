@@ -50,26 +50,24 @@ nav {
     }
 }
 
-@media (max-width: 749px) {
-    @media (max-width: 749px) {
-        .header {
-            flex-direction: column;
-            align-items: center;
-        }
+@media (max-width: 991px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
 
-        .navigation {
-            margin-top: 1rem;
-        }
+    .navigation {
+        margin-top: 1rem;
+    }
 
-        .nav-link {
-            margin: 0.5rem 0;
-            display: block;
-            text-align: center;
-        }
+    .nav-link {
+        margin: 0.5rem 0;
+        display: block;
+        text-align: center;
+    }
 
-        .nav-link-cart {
-            display: block;
-            text-align: center;
-        }
+    .nav-link-cart {
+        display: block;
+        text-align: center;
     }
 }
