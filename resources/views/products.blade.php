@@ -48,7 +48,7 @@
         @endforeach
     </div>
     @if($count >= 20 )
-        <div class="product_pagination">
+        <div class="product_pagination second-pagination">
             {{ $products->links() }}
         </div>
     @endif

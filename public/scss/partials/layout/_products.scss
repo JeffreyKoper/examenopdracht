@@ -1,9 +1,10 @@
 @use "../abstracts/" as *;
 
+// Styles
 .category {
     background-color: $secondary-color;
     border: solid 0.3rem $accent-color;
-    margin-inline: 2rem;
+    margin-inline: $category-margin;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -30,37 +31,17 @@
     }
 
     button {
-        padding: 12px 24px;
-        background-color: $accent-color;
-        color: #fff;
-        font-size: 1.2rem;
-        text-decoration: none;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-            background-color: darken($accent-color, 10%);
-        }
+        @include button-styles;
     }
 }
+
 .button {
+    @include button-styles;
     display: inline-block;
     padding: 10px 20px;
     margin-block-start: 20px;
-    background-color: $accent-color;
-    color: #fff;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-        background-color: darken($accent-color, 10%);
-    }
 }
+
 .products-container {
     display: flex;
     flex-wrap: wrap;
@@ -82,7 +63,6 @@
         img {
             border-radius: 8px;
             margin-block-end: 10px;
-
             height: auto;
             aspect-ratio: 1/1;
             max-width: 250px;
@@ -125,6 +105,7 @@
         }
     }
 }
+
 .product_pagination {
     display: flex;
     align-items: center;
@@ -139,6 +120,7 @@
     margin-block-end: 0.5rem;
     border: solid $secondary-color 0.3rem;
     margin-inline: auto;
+
     a,
     span,
     nav {
@@ -148,18 +130,24 @@
         border: none !important;
         padding: 0.2rem !important;
 
-        a:hover {
+        &:hover {
             color: $secondary-color;
             font-weight: $font-weight-700;
         }
     }
 }
+
 .product_container {
     display: flex;
     align-items: center;
     height: 100%;
     flex-direction: column;
 }
+
+.second-pagination {
+    margin-bottom: 2rem;
+}
+
 .productContainer_flex {
     display: flex;
     justify-content: space-around;
@@ -172,20 +160,9 @@
     background-color: $bg-color;
     border-radius: 10px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
-    button {
-        padding: 12px 24px;
-        background-color: $accent-color;
-        color: #fff;
-        font-size: 1.2rem;
-        text-decoration: none;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
 
-        &:hover {
-            background-color: darken($accent-color, 10%);
-        }
+    button {
+        @include button-styles;
     }
 
     .product_image {
@@ -227,11 +204,17 @@
 }
 
 @media (max-width: 768px) {
+    .category,
     .products-container {
-        justify-content: flex-start;
+        margin-inline: 0;
+    }
 
-        .product-card {
-            width: 100%;
-        }
+    .product_pagination,
+    .second-pagination {
+        margin-bottom: 5rem;
+    }
+
+    .product-card {
+        width: 100%;
     }
 }

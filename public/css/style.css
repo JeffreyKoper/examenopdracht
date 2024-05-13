@@ -400,16 +400,18 @@ footer-content h3 {
 }
 
 .button {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-block-start: 20px;
+  padding: 12px 24px;
   background-color: #cd5c5c;
   color: #fff;
+  font-size: 1.2rem;
   text-decoration: none;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  display: inline-block;
+  padding: 10px 20px;
+  margin-block-start: 20px;
 }
 
 .button:hover {
@@ -509,9 +511,9 @@ footer-content h3 {
   padding: 0.2rem !important;
 }
 
-.product_pagination a a:hover,
-.product_pagination span a:hover,
-.product_pagination nav a:hover {
+.product_pagination a:hover,
+.product_pagination span:hover,
+.product_pagination nav:hover {
   color: #e9967a;
   font-weight: 700;
 }
@@ -521,6 +523,10 @@ footer-content h3 {
   align-items: center;
   height: 100%;
   flex-direction: column;
+}
+
+.second-pagination {
+  margin-bottom: 2rem;
 }
 
 .productContainer_flex {
@@ -591,10 +597,15 @@ footer-content h3 {
 }
 
 @media (max-width: 768px) {
+  .category,
   .products-container {
-    justify-content: flex-start;
+    margin-inline: 0;
   }
-  .products-container .product-card {
+  .product_pagination,
+  .second-pagination {
+    margin-bottom: 5rem;
+  }
+  .product-card {
     width: 100%;
   }
 }
