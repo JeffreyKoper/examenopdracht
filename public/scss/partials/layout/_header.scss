@@ -9,6 +9,7 @@ nav {
     aspect-ratio: 1/1;
     border-radius: 1rem;
     resize: none;
+    flex-shrink: 0; // Prevent the logo from shrinking
 
     &-title {
         text-decoration: none;
