@@ -203,8 +203,23 @@ footer-content h3 {
 
 @media (max-width: 940px) {
   footer {
+    padding: 0.3rem;
     position: fixed;
+  }
+  footer .footer-content h3,
+  footer .footer-content ul,
+  footer .footer-content li,
+  footer .footer-content p,
+  footer .footer-thankyou h3,
+  footer .footer-thankyou ul,
+  footer .footer-thankyou li,
+  footer .footer-thankyou p,
+  footer .copyright h3,
+  footer .copyright ul,
+  footer .copyright li,
+  footer .copyright p {
     font-size: clamp(0.75rem, 0.34vw + 0.66rem, 0.94rem);
+    margin: 0.3rem;
   }
 }
 .homepage {
@@ -331,7 +346,6 @@ footer-content h3 {
   .homepage {
     flex-direction: column;
     padding: 30px;
-    margin-bottom: 10rem;
   }
   .homepage a {
     margin-block-end: 1rem;
@@ -600,10 +614,6 @@ footer-content h3 {
   .category,
   .products-container {
     margin-inline: 0;
-  }
-  .product_pagination,
-  .second-pagination {
-    margin-bottom: 5rem;
   }
   .product-card {
     width: 100%;
@@ -1540,7 +1550,7 @@ footer-content h3 {
 .contact_items {
   display: flex;
   width: 80%;
-  max-width: 500px;
+  max-width: 800px;
   flex-direction: column;
   border: solid 0.4rem #e9967a;
   padding: 1rem;
@@ -1589,6 +1599,23 @@ footer-content h3 {
   background-color: #e2734e;
 }
 
+@media (max-width: 768px) {
+  .contact {
+    margin: 0;
+  }
+  .contact_header {
+    width: 100%;
+    font-size: clamp(0.94rem, 0.23vw + 0.88rem, 1.06rem);
+  }
+  .contact_items input[type=text],
+  .contact_items textarea {
+    font-size: clamp(0.94rem, 0.23vw + 0.88rem, 1.06rem);
+  }
+  .contact_items input[type=text]:nth-child(1),
+  .contact_items textarea:nth-child(1) {
+    height: 80px;
+  }
+}
 .promo table {
   width: 90%;
   margin: 2rem auto;

@@ -207,7 +207,7 @@
     &_items {
         display: flex;
         width: 80%; // Adjusted width for better responsiveness
-        max-width: 500px; // Added max-width for better scalability
+        max-width: 800px; // Added max-width for better scalability
         flex-direction: column;
         border: solid 0.4rem $secondary-color;
         padding: 1rem; // Added padding for better spacing
@@ -248,6 +248,24 @@
                     $secondary-color,
                     10%
                 ); // Darkened button color on hover
+            }
+        }
+    }
+}
+@media (max-width: 768px) {
+    .contact {
+        margin: 0;
+        &_header {
+            width: 100%;
+            font-size: $font-size-sm;
+        }
+        &_items {
+            input[type="text"],
+            textarea {
+                font-size: $font-size-sm;
+                &:nth-child(1) {
+                    height: 80px;
+                }
             }
         }
     }

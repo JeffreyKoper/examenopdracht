@@ -44,7 +44,18 @@ footer {
 
 @media (max-width: 940px) {
     footer {
+        padding: 0.3rem;
         position: fixed;
-        font-size: $font-size-xs;
+        .footer-content,
+        .footer-thankyou,
+        .copyright {
+            h3,
+            ul,
+            li,
+            p {
+                font-size: $font-size-xs;
+                margin: 0.3rem;
+            }
+        }
     }
 }
