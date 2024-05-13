@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Reviews;
 use Illuminate\Http\Request;
 
@@ -33,15 +34,15 @@ class ReviewController extends Controller
         $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
-            ]);
+        ]);
         $reviews->title = $request->title;
         $reviews->user_id = $user->id;
         $reviews->product_id = $request->productId;
         $reviews->rating = $request->rating;
         $reviews->description = $request->description;
-        
+
         $reviews->save();
-        
+
         return redirect()->route('products');
     }
 
@@ -50,7 +51,6 @@ class ReviewController extends Controller
      */
     public function show(string $id)
     {
-
     }
 
     /**

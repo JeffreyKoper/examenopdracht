@@ -618,6 +618,28 @@ footer-content h3 {
   .product-card {
     width: 100%;
   }
+  .productContainer_flex {
+    align-items: center;
+  }
+  .product_image {
+    width: 80%; /* Adjust image width for smaller screens */
+    margin-bottom: 20px; /* Add some spacing between image and other content */
+  }
+  .product_data {
+    width: 80%; /* Adjust width of product data */
+    text-align: center; /* Center align text for smaller screens */
+  }
+  .product_data h2,
+  .product_data h3,
+  .product_data h6 {
+    font-size: 16px; /* Adjust font size for smaller screens */
+  }
+  form {
+    margin-top: 20px; /* Add some space between form and other content */
+  }
+  form input[type=number] {
+    width: 100%; /* Make input fields full width */
+  }
 }
 .about-page {
   max-width: 800px;
@@ -889,7 +911,7 @@ footer-content h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-inline-size: 50%;
+  max-inline-size: 70%;
   padding: 1.5rem;
   border-radius: 1.5rem;
   background-color: #e9967a;
@@ -1040,7 +1062,24 @@ footer-content h3 {
   font-size: 2rem;
 }
 
-@media (width <= 600px) {
+@media (width <= 768px) {
+  .reviews {
+    margin: 0;
+    justify-content: center;
+  }
+  .reviews_content {
+    text-align: center; /* Center align review content */
+  }
+  .card_header {
+    max-inline-size: 100%;
+    margin: 0;
+  }
+  .card_review_title {
+    width: 100%; /* Make review title input full width */
+  }
+  .card_stars_submit {
+    margin-top: 20px; /* Add some space between stars and submit button */
+  }
   .card {
     max-inline-size: 21rem;
     padding: 1.5rem;

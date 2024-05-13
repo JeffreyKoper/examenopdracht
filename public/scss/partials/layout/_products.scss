@@ -212,4 +212,31 @@
     .product-card {
         width: 100%;
     }
+    .productContainer_flex {
+        align-items: center;
+    }
+
+    .product_image {
+        width: 80%; /* Adjust image width for smaller screens */
+        margin-bottom: 20px; /* Add some spacing between image and other content */
+    }
+
+    .product_data {
+        width: 80%; /* Adjust width of product data */
+        text-align: center; /* Center align text for smaller screens */
+    }
+
+    .product_data h2,
+    .product_data h3,
+    .product_data h6 {
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+
+    form {
+        margin-top: 20px; /* Add some space between form and other content */
+    }
+
+    form input[type="number"] {
+        width: 100%; /* Make input fields full width */
+    }
 }
