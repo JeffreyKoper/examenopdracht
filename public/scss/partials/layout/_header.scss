@@ -54,6 +54,10 @@ nav {
         color: $bg-color;
     }
 }
+.no_underline:hover,
+.no_underline:focus {
+    text-decoration: none !important;
+}
 
 @media (max-width: 991px) {
     .header {

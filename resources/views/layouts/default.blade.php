@@ -45,7 +45,7 @@
                         @endguest
                         @auth
                         <li class="nav-item">
-                            <a href="{{ route('cart') }}" class="nav-link">
+                            <a href="{{ route('cart') }}" class="nav-link no_underline">
                                 <i class="fas fa-shopping-cart"></i>
                                 @php $productCount = app('App\Http\Controllers\CartController')->getProductCountInCart(); @endphp
                                 @if($productCount > 0)
