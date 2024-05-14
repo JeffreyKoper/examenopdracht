@@ -1225,16 +1225,7 @@ footer-content h3 {
   background-color: #b30000;
 }
 
-.dashboard .dashboard_admin {
-  flex: 1;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.dashboard .dashboard_admin .create {
+.dashboard .create {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   background-color: #6cc070;
@@ -1244,8 +1235,17 @@ footer-content h3 {
   transition: background-color 0.3s ease-in-out;
 }
 
-.dashboard .dashboard_admin .create:hover {
+.dashboard .create:hover {
   background-color: #439c47;
+}
+
+.dashboard .dashboard_admin {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .dashboard .dashboard_admin a {

@@ -57,7 +57,18 @@
             }
         }
     }
-
+    .create {
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        background-color: $succes-color;
+        color: $bg-color;
+        font-weight: $font-weight-700;
+        border: solid $bg-color 0.2rem;
+        transition: background-color 0.3s ease-in-out;
+        &:hover {
+            background-color: darken($succes-color, 15%);
+        }
+    }
     .dashboard_admin {
         flex: 1;
         padding: 1rem;
@@ -65,18 +76,6 @@
         flex-direction: column;
         align-items: center;
         gap: 1rem;
-        .create {
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            background-color: $succes-color;
-            color: $bg-color;
-            font-weight: $font-weight-700;
-            border: solid $bg-color 0.2rem;
-            transition: background-color 0.3s ease-in-out;
-            &:hover {
-                background-color: darken($succes-color, 15%);
-            }
-        }
         a {
             color: $bg-color;
             text-decoration: none;
