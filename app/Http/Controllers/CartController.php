@@ -49,6 +49,7 @@ class CartController extends Controller
 
         return redirect()->route('cart');
     }
+
     public function deleteCart($cartId)
     {
         // Find the cart by ID
@@ -66,6 +67,7 @@ class CartController extends Controller
         // Return a success response
         return response()->json(['message' => 'Cart deleted successfully'], 200);
     }
+
     public function cartpage()
     {
         $userId = auth()->user()->id;
@@ -161,12 +163,11 @@ class CartController extends Controller
         $cart->discounted_price = $discountedTotalPrice;
         $cart->save();
 
-        // Now we've updated the total price and other details, let's update the product_cart_price for each product in the cart
         foreach ($products as $product) {
             // Get the amount of the product from the cart
             $amount = $product->pivot->amount;
 
-            // Get the corresponding product_cart record
+            // Get the corresponding product_cart
             $productCart = Product_Cart::where('cart_id', $cart->id)
                 ->where('product_id', $product->id)
                 ->first();
@@ -180,6 +181,7 @@ class CartController extends Controller
 
         return redirect()->route('dashboard');
     }
+
     public function updateCartItem(Request $request)
     {
         $itemId = $request->input('item_id');
@@ -212,7 +214,7 @@ class CartController extends Controller
             ->where('payment_complete', 0)
             ->value('id'); // Get the id of the cart where payment is not complete
 
-        // If cartId is null, there are no products in the cart
+        // If cartId is null there are no products in the cart
         if (!$cartId) {
             return 0;
         }
@@ -222,6 +224,7 @@ class CartController extends Controller
 
         return $productCount;
     }
+
     public function delete($id)
     {
         // Find the product_cart record by ID

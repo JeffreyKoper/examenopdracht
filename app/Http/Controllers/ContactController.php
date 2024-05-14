@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
+    // Create a new contact entry with user ID, title, and description
     public function create(Request $request)
     {
         $user = auth()->user();
@@ -21,6 +22,7 @@ class ContactController extends Controller
         return redirect()->route('dashboard');
     }
 
+    // Show contacts for admin to reply
     public function showAdmin()
     {
         if (auth()->user()->role !== 'admin') {
@@ -30,18 +32,21 @@ class ContactController extends Controller
         return view('contact.admin', ['contacts' => $contacts]);
     }
 
+    // Show admin reply form
     public function showAdminReply($id)
     {
         $data = contact::find($id);
         return view('contact.adminReply', ['info' => $data]);
     }
 
+    // Show replied contact information
     public function showReply($id)
     {
         $data = contact::find($id);
         return view('contact.replied', ['info' => $data]);
     }
 
+    // Update admin reply for a contact
     public function updateAdminReply(Request $request, $id)
     {
         if (auth()->user()->role !== 'admin') {

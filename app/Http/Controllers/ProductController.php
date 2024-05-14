@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
+  // Display products page with pagination
   public function productspage()
   {
     $count = Products::where('stock', '>', 0)->count();
@@ -19,6 +20,7 @@ class ProductController extends Controller
     return view('products', ['products' => $products, 'categories' => $categories, 'sizes' => $sizes, 'count' => $count, 'genders' => $genders]);
   }
 
+  // Display single product details along with reviews
   public function singleProduct($id)
   {
     $data = Products::find($id);
@@ -29,6 +31,7 @@ class ProductController extends Controller
     return view('product', ['data' => $data, 'reviewData' => $reviewData]);
   }
 
+  // Search for products based on query, category, size, and gender
   public function search(Request $request)
   {
     $query = $request->input('query');
@@ -61,18 +64,25 @@ class ProductController extends Controller
 
     return view('products', ['products' => $data, 'categories' => $categories, 'sizes' => $sizes, 'count' => $productCount, 'genders' => $genders]);
   }
+
+  // Get unique product categories
   private function getCategories()
   {
     // Fetch unique categories from the database
     return DB::table('products')->distinct()->pluck('category');
   }
+
+  // Get unique product sizes
   private function getSizes()
   {
-    // Fetch unique categories from the database
+    // Fetch unique sizes from the database
     return DB::table('products')->distinct()->pluck('size');
   }
+
+  // Get unique product genders
   private function getGenders()
   {
+    // Fetch unique genders from the database
     return DB::table('products')->distinct()->pluck('variant');
   }
 }

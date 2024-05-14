@@ -23,6 +23,8 @@ class ProfileController extends Controller
      * Display the user's profile form.
      */
 
+    // Display single user's dashboard including recent contacts and orders
+    // Display the user's profile form.
     public function singleUserDashboard()
     {
         // Retrieve the currently authenticated user
@@ -63,6 +65,7 @@ class ProfileController extends Controller
         }
     }
 
+    // Display profile edit form
     public function edit(Request $request): View
     {
         return view('profile.edit', [

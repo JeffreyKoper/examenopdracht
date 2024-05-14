@@ -121,11 +121,13 @@ function decrease(itemId, itemPrice) {
 
     calcTotalPrice();
 }
+var tomorrow = new Date();
+tomorrow.setDate(tomorrow.getDate() + 1);
 
 flatpickr("#deliveryDate", {
     enableTime: false,
     dateFormat: "Y-m-d",
-    minDate: "today",
+    minDate: tomorrow,
     maxDate: new Date().fp_incr(22),
     inline: true,
     weekNumbers: true,

@@ -64,14 +64,12 @@
     <script src="js/promotion_script.js"></script>
     <script src="js/amount_script.js"></script>
     <script>
-    // Handle delete button click event
     $(document).on('click', '.delete-button', function(e) {
         e.preventDefault();
         var itemId = $(this).data('item-id');
-        if (confirm("Are you sure you want to delete this item?")) {
-            // Perform AJAX request to delete the item
+        if (confirm("Are you sure you want to delete this item from your cart?")) {
             $.ajax({
-                url: "{{ url('/cart/delete') }}/" + itemId, // Update the URL to include the item ID
+                url: "{{ url('/cart/delete') }}/" + itemId,
                 type: "DELETE",
                 data: {
                     _token: "{{ csrf_token() }}"

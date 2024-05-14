@@ -8,10 +8,13 @@ use Illuminate\Support\Facades\DB;
 
 class PromotionController extends Controller
 {
+    // Display promotion creation form
     public function createForm()
     {
         return view('promo.create');
     }
+
+    // Create a new promotion
     public function create(Request $request)
     {
         $promoCode = new Promotions();
@@ -29,11 +32,15 @@ class PromotionController extends Controller
 
         return redirect()->route('promo.show');
     }
+
+    // Display all promotions
     public function show()
     {
         $promo = Promotions::all();
         return view('promo.show', ['promo_data' => $promo]);
     }
+
+    // Delete a promotion
     public function delete($id)
     {
         try {
@@ -49,6 +56,8 @@ class PromotionController extends Controller
             return redirect()->route('promo.show')->with('error', 'An error occurred while deleting the promotion.');
         }
     }
+
+    // Check if a promo code is valid
     public function checkPromoCode(Request $request)
     {
         $promoCode = $request->input('promo_code');
@@ -62,12 +71,15 @@ class PromotionController extends Controller
             return response()->json(['valid' => false]);
         }
     }
+
+    // Display promotion edit form
     public function editForm($id)
     {
         $promo = Promotions::findOrFail($id);
         return view('promo.edit', compact('promo'));
     }
 
+    // Update an existing promotion
     public function update(Request $request, $id)
     {
         $promoCode = Promotions::findOrFail($id);
