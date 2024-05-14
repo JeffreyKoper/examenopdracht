@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Products;
 use App\Models\Reviews;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -88,55 +89,74 @@ class ProductController extends Controller
 
   public function create(Request $request)
   {
-    $product = new Products();
-    $product->product_name = $request->productName;
-    $product->description = $request->productDescription;
-    $product->excerpt = $request->productExcerpt;
-    $product->img_filepath = $request->productImg_filepath;
-    $product->price = $request->productPrice;
-    $product->size = $request->productSize;
-    $product->variant = $request->productVariant;
-    $product->stock = $request->productStock;
-    $product->category = $request->productCategory;
-    $product->save();
-    return redirect()->route('products.show');
+    if (!$this->checkUserRole()) {
+      return redirect()->route('home');
+    } else {
+
+
+      $product = new Products();
+      $product->product_name = $request->productName;
+      $product->description = $request->productDescription;
+      $product->excerpt = $request->productExcerpt;
+      $product->img_filepath = $request->productImg_filepath;
+      $product->price = $request->productPrice;
+      $product->size = $request->productSize;
+      $product->variant = $request->productVariant;
+      $product->stock = $request->productStock;
+      $product->category = $request->productCategory;
+      $product->save();
+      return redirect()->route('products.show');
+    }
   }
   public function allProductsDashboard()
   {
+    if (!$this->checkUserRole()) {
+      return redirect()->route('home');
+    }
     $products = Products::simplePaginate(30);
     return view('products.show', ['product_data' => $products]);
   }
   public function editForm($id)
   {
+    if (!$this->checkUserRole()) {
+      return redirect()->route('home');
+    }
     $product = Products::findOrFail($id);
     $categories = $this->getCategories();
     return view('products.edit', compact('product'), compact('categories'));
   }
   public function updateProduct(Request $request, $id)
   {
-    $product_data = Products::findOrFail($id);
+    if (!$this->checkUserRole()) {
+      return redirect()->route('home');
+    } else {
+      $product_data = Products::findOrFail($id);
 
-    $request->validate([
-      'productName' => 'required|string',
-      'productDescription' => 'required|string',
-      'productExcerpt' => 'required|string',
-    ]);
+      $request->validate([
+        'productName' => 'required|string',
+        'productDescription' => 'required|string',
+        'productExcerpt' => 'required|string',
+      ]);
 
-    $product_data->product_name = $request->productName;
-    $product_data->description = $request->productDescription;
-    $product_data->excerpt = $request->productExcerpt;
-    $product_data->img_filepath = $request->productImg_filepath;
-    $product_data->price = $request->productPrice;
-    $product_data->size = $request->productSize;
-    $product_data->variant = $request->productVariant;
-    $product_data->category = $request->productCategory;
+      $product_data->product_name = $request->productName;
+      $product_data->description = $request->productDescription;
+      $product_data->excerpt = $request->productExcerpt;
+      $product_data->img_filepath = $request->productImg_filepath;
+      $product_data->price = $request->productPrice;
+      $product_data->size = $request->productSize;
+      $product_data->variant = $request->productVariant;
+      $product_data->category = $request->productCategory;
 
-    $product_data->save();
+      $product_data->save();
 
-    return redirect()->route('products.show')->with('success', 'Product updated successfully.');
+      return redirect()->route('products.show')->with('success', 'Product updated successfully.');
+    }
   }
   public function delete($id)
   {
+    if (!$this->checkUserRole()) {
+      return redirect()->route('home');
+    }
     try {
       // Delete the promotion without foreign key constraint checks
       DB::statement('SET FOREIGN_KEY_CHECKS=0;');
@@ -152,7 +172,19 @@ class ProductController extends Controller
   }
   public function showCreate()
   {
+    // Check user role
+    if (!$this->checkUserRole()) {
+      return redirect()->route('home');
+    }
+
     $categories = $this->getCategories();
     return view('products.create', compact('categories'));
+  }
+
+  public function checkUserRole()
+  {
+    $user = auth()->user();
+    // Check if a user is logged in and has the role "admin"
+    return $user && $user->role == "admin";
   }
 }
