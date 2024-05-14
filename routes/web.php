@@ -47,14 +47,14 @@ Route::post('/dashboard/user_delete', [ProfileController::class, "singleUserDele
 Route::post('/dashboard/user_create', [ProfileController::class, "create"])->middleware(['auth', 'verified'])->name('user.create');
 
 Route::get('/check_promo_code', [PromotionController::class, "checkPromoCode"])->middleware(['auth', 'verified'])->name('check_promo_code');
+
+
+Route::post('/update-cart-item', [CartController::class, "updateCartItem"])->name('update.cart.item');
+
 Route::get('/promo/create', [PromotionController::class, "createForm"])->middleware(['auth', 'verified'])->name('promo.createForm');
 Route::post('/promo/create/code', [PromotionController::class, "create"])->middleware(['auth', 'verified'])->name('promo.create');
 Route::get('/promo', [PromotionController::class, "show"])->middleware(['auth', 'verified'])->name('promo.show');
 Route::delete('/promo/delete/{id}', [PromotionController::class, "delete"])->name('promo.delete');
-
-Route::post('/update-cart-item', [CartController::class, "updateCartItem"])->name('update.cart.item');
-
-
 Route::get('/promo/{id}/edit', [PromotionController::class, 'editForm'])->name('promo.edit');
 Route::put('/promo/{id}/update', [PromotionController::class, 'update'])->name('promo.update');
 
@@ -63,6 +63,13 @@ Route::get('/users/create', [ProfileController::class, 'showCreate'])->name('use
 Route::get('/users/{id}/edit', [ProfileController::class, 'editForm'])->name('users.edit');
 Route::put('/users/{id}/update', [ProfileController::class, 'updateUser'])->name('users.update');
 Route::delete('/users/{id}', [ProfileController::class, 'delete'])->name('users.delete');
+
+Route::get('/productManagement', [ProductController::class, "allProductsDashboard"])->middleware(['auth', 'verified'])->name('products.show');
+Route::get('/productManagement/create', [ProductController::class, 'showCreate'])->name('products.showCreate');
+Route::post('/productManagement/create/submit', [ProductController::class, 'create'])->name('products.create');
+Route::get('/productManagement/{id}/edit', [ProductController::class, 'editForm'])->name('products.edit');
+Route::put('/productManagement/{id}/update', [ProductController::class, 'updateProduct'])->name('products.update');
+Route::delete('/productManagement/{id}', [ProductController::class, 'delete'])->name('products.delete');
 
 
 Route::middleware('auth')->group(function () {

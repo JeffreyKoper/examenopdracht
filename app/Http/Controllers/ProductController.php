@@ -85,4 +85,74 @@ class ProductController extends Controller
     // Fetch unique genders from the database
     return DB::table('products')->distinct()->pluck('variant');
   }
+
+  public function create(Request $request)
+  {
+    $product = new Products();
+    $product->product_name = $request->productName;
+    $product->description = $request->productDescription;
+    $product->excerpt = $request->productExcerpt;
+    $product->img_filepath = $request->productImg_filepath;
+    $product->price = $request->productPrice;
+    $product->size = $request->productSize;
+    $product->variant = $request->productVariant;
+    $product->stock = $request->productStock;
+    $product->category = $request->productCategory;
+    $product->save();
+    return redirect()->route('products.show');
+  }
+  public function allProductsDashboard()
+  {
+    $products = Products::simplePaginate(30);
+    return view('products.show', ['product_data' => $products]);
+  }
+  public function editForm($id)
+  {
+    $product = Products::findOrFail($id);
+    $categories = $this->getCategories();
+    return view('products.edit', compact('product'), compact('categories'));
+  }
+  public function updateProduct(Request $request, $id)
+  {
+    $product_data = Products::findOrFail($id);
+
+    $request->validate([
+      'productName' => 'required|string',
+      'productDescription' => 'required|string',
+      'productExcerpt' => 'required|string',
+    ]);
+
+    $product_data->product_name = $request->productName;
+    $product_data->description = $request->productDescription;
+    $product_data->excerpt = $request->productExcerpt;
+    $product_data->img_filepath = $request->productImg_filepath;
+    $product_data->price = $request->productPrice;
+    $product_data->size = $request->productSize;
+    $product_data->variant = $request->productVariant;
+    $product_data->category = $request->productCategory;
+
+    $product_data->save();
+
+    return redirect()->route('products.show')->with('success', 'Product updated successfully.');
+  }
+  public function delete($id)
+  {
+    try {
+      // Delete the promotion without foreign key constraint checks
+      DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+      Products::where('id', $id)->delete();
+      DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
+      // Redirect the product back to the promotions page
+      return redirect()->route('products.show')->with('success', 'Product deleted successfully.');
+    } catch (\Exception $e) {
+      // Handle any exceptions or errors
+      return redirect()->route('products.show')->with('error', 'An error occurred while deleting the Product.');
+    }
+  }
+  public function showCreate()
+  {
+    $categories = $this->getCategories();
+    return view('products.create', compact('categories'));
+  }
 }
