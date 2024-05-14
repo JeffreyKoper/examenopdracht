@@ -1,4 +1,7 @@
+// Calculate total price
 calcTotalPrice();
+
+// Add event listener for delivery date change
 document.getElementById("deliveryDate").addEventListener("change", function () {
     var confirmOrderButton = document.getElementById("confirmOrderButton");
     if (this.value !== "") {
@@ -7,7 +10,8 @@ document.getElementById("deliveryDate").addEventListener("change", function () {
         confirmOrderButton.style.display = "none";
     }
 });
-// Get all elements with the class "increase" and add event listeners
+
+// Add event listeners for increase buttons
 var increaseButtons = document.getElementsByClassName("increase");
 for (var i = 0; i < increaseButtons.length; i++) {
     increaseButtons[i].addEventListener("click", function () {
@@ -15,7 +19,7 @@ for (var i = 0; i < increaseButtons.length; i++) {
     });
 }
 
-// Get all elements with the class "decrease" and add event listeners
+// Add event listeners for decrease buttons
 var decreaseButtons = document.getElementsByClassName("decrease");
 for (var i = 0; i < decreaseButtons.length; i++) {
     decreaseButtons[i].addEventListener("click", function () {
@@ -23,6 +27,7 @@ for (var i = 0; i < decreaseButtons.length; i++) {
     });
 }
 
+// Function to calculate total price
 function calcTotalPrice() {
     var totalPrice = 0;
     var infoPriceElements = document.getElementsByClassName("infoPrice");
@@ -41,6 +46,7 @@ function calcTotalPrice() {
         totalPrice += subtotal;
     }
 
+    // Update total price elements
     var totalPrice_element = document.getElementById("totalPrice");
     var shipping_element = document.getElementById("shippingPrice");
     var totalPriceMax_element = document.getElementById("total_price_tax");
@@ -48,6 +54,7 @@ function calcTotalPrice() {
     totalPrice_element.innerHTML =
         "Total price excl. tax: € " + totalPrice.toFixed(2);
 
+    // Calculate total price with tax and shipping
     var taxTotalPrice = totalPrice + 7.5;
     if (totalPrice >= 50) {
         taxTotalPrice = totalPrice;
@@ -61,31 +68,35 @@ function calcTotalPrice() {
             "Total price incl. tax: € " + taxTotalPrice.toFixed(2);
     }
 
-    // Check if discount is applied
+    // Apply discount if available
     var discountText = $("#codePrice").text();
     var discount = 0;
     if (discountText.includes("Discount")) {
         discount = parseFloat(discountText.split("=")[1].trim());
     }
 
-    // Apply discount if it exists
+    // Apply discount to total price
     var discountedTotalPrice = taxTotalPrice - taxTotalPrice * (discount / 100);
     totalPriceMax_element.innerHTML =
         "Total price incl. tax: € " + discountedTotalPrice.toFixed(2);
 
-    totalPrice_element.style.animation = "none"; // Reset animation
-    shipping_element.style.animation = "none"; // Reset animation
-    totalPriceMax_element.style.animation = "none"; // Reset animation
+    // Reset animations
+    totalPrice_element.style.animation = "none";
+    shipping_element.style.animation = "none";
+    totalPriceMax_element.style.animation = "none";
 
-    totalPrice_element.offsetHeight; /* trigger reflow */
-    shipping_element.offsetHeight; /* trigger reflow */
-    totalPriceMax_element.offsetHeight; /* trigger reflow */
+    // Trigger reflow
+    totalPrice_element.offsetHeight;
+    shipping_element.offsetHeight;
+    totalPriceMax_element.offsetHeight;
 
-    totalPrice_element.style.animation = null; // Remove inline style to trigger animation
-    shipping_element.style.animation = null; // Remove inline style to trigger animation
-    totalPriceMax_element.style.animation = null; // Remove inline style to trigger animation
+    // Start animations
+    totalPrice_element.style.animation = null;
+    shipping_element.style.animation = null;
+    totalPriceMax_element.style.animation = null;
 }
 
+// Increase item quantity
 function increase(itemId, itemPrice) {
     var count_element = document.getElementById("itemAmount_" + itemId);
     var inputEl = document.getElementById("itemAmountInput_" + itemId);
@@ -106,6 +117,7 @@ function increase(itemId, itemPrice) {
     calcTotalPrice();
 }
 
+// Decrease item quantity
 function decrease(itemId, itemPrice) {
     var count_element = document.getElementById("itemAmount_" + itemId);
     var inputEl = document.getElementById("itemAmountInput_" + itemId);
@@ -121,6 +133,8 @@ function decrease(itemId, itemPrice) {
 
     calcTotalPrice();
 }
+
+// Initialize flatpickr for delivery date selection
 var tomorrow = new Date();
 tomorrow.setDate(tomorrow.getDate() + 1);
 
