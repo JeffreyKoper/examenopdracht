@@ -259,6 +259,11 @@
             width: 100%;
             font-size: $font-size-sm;
         }
+        &_info {
+            width: 100%;
+            margin: 0;
+            margin-block-start: 1rem;
+        }
         &_items {
             input[type="text"],
             textarea {
@@ -267,6 +272,9 @@
                     height: 80px;
                 }
             }
+        }
+        &_admin {
+            display: block;
         }
     }
 }

@@ -1753,6 +1753,11 @@ footer-content h3 {
     width: 100%;
     font-size: clamp(0.94rem, 0.23vw + 0.88rem, 1.06rem);
   }
+  .contact_info {
+    width: 100%;
+    margin: 0;
+    margin-block-start: 1rem;
+  }
   .contact_items input[type=text],
   .contact_items textarea {
     font-size: clamp(0.94rem, 0.23vw + 0.88rem, 1.06rem);
@@ -1760,6 +1765,9 @@ footer-content h3 {
   .contact_items input[type=text]:nth-child(1),
   .contact_items textarea:nth-child(1) {
     height: 80px;
+  }
+  .contact_admin {
+    display: block;
   }
 }
 .promo table {
