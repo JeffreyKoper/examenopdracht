@@ -1443,6 +1443,41 @@ footer-content h3 {
   font-weight: 700;
 }
 
+.mobile_title {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .bottom_section {
+    display: block;
+  }
+  .bottom_section .order_list {
+    width: 100%;
+  }
+  .bottom_section .order_list .order_history {
+    margin: 0;
+    margin-block-end: 1rem;
+  }
+  .bottom_section .contact_messages {
+    max-width: 16.5rem;
+    margin: auto; /* Center horizontally */
+  }
+  .bottom_section .contact_messages .disclaimer {
+    max-width: 15rem;
+  }
+  .mobile_title {
+    display: block;
+  }
+  .desktop_title {
+    display: none;
+  }
+  .dashboard {
+    margin-inline: 0;
+  }
+  .dashboard_buttons {
+    padding: 0;
+  }
+}
 .message-container {
   width: 80%;
   max-width: 1000px;

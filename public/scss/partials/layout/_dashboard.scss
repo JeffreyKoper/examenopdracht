@@ -238,3 +238,37 @@
         }
     }
 }
+.mobile_title {
+    display: none;
+}
+@media (max-width: 991px) {
+    .bottom_section {
+        display: block;
+        .order_list {
+            width: 100%;
+            .order_history {
+                margin: 0;
+                margin-block-end: 1rem;
+            }
+        }
+        .contact_messages {
+            max-width: 16.5rem;
+            margin: auto; /* Center horizontally */
+            .disclaimer {
+                max-width: 15rem;
+            }
+        }
+    }
+    .mobile_title {
+        display: block;
+    }
+    .desktop_title {
+        display: none;
+    }
+    .dashboard {
+        margin-inline: 0;
+        &_buttons {
+            padding: 0;
+        }
+    }
+}

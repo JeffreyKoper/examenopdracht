@@ -62,7 +62,7 @@
     </div>
     <div class="titles">
         <h1>Previous Orders:</h1>
-        <h1>Your Inbox:</h1>
+        <h1 class="desktop_title">Your Inbox:</h1>
     </div>
     <div class="bottom_section">
         <div class="order_list">
@@ -71,7 +71,7 @@
                     <h2 class="orders"> You don't have any past purchases made on this account.</h2>
                 </div>
             @else
-                <div class="order_pagination">
+                <div class="product_pagination">
                     {{ $orderData->links() }}
                 </div>
                 @foreach ($orderData as $order)
@@ -105,11 +105,12 @@
                         </div>
                     </div>
                 @endforeach
-                <div class="order_pagination">
+                <div class="product_pagination">
                     {{ $orderData->links() }}
                 </div>
             @endif
         </div>
+        <div class="titles"><h1 class="mobile_title">Your Inbox:</h1></div>
         <div class="contact_messages">
             @if($contacts->isEmpty())
                 <div class="contact_messages_list">
